@@ -1,0 +1,87 @@
+一. 昨日内容回顾
+    1. 形参的第三种: 动态传参
+        1. 位置参数的动态传参 *args
+        2. 关键字参数的动态传参 **kwargs
+
+        def func(*args, **kwargs):
+            pass
+       *和** 在函数声明的位置. 表示聚合
+       *和** 在函数调用的时候. 表示打散(传参)
+    2. 命名空间
+        1. 内置名称空间
+        2. 全局名称空间
+        3. 局部名称空间
+    3. 作用域:
+        1. 全局作用域: 内置+ 全局, globals()
+        2. 局部作用域: 局部(函数内部) locals() 查看当前作用域
+    4. global和nonlocal
+        global 在函数内部(局部)调用全局中的内容
+        nonlocal: 在内层函数中访问外层函数中离他最近的那一层的那个变量
+
+二. 作业讲解
+三. 今日主要内容:
+    1. 函数名的应用(第一类对象)
+        函数名的命名规范和变量是一样的.
+        函数名其实就是变量名,
+
+        可以作为列表中的元素进行存储.
+        def func1():
+            pass
+        def func2():
+            pass
+        lst = [func1, func2]
+        for el in lst:
+            el()
+
+        可以作为参数传递给函数.
+        def func():
+            pass
+        def proxy(fn):
+            fn()
+        proxy(func)
+
+        可以作为函数的返回值
+        def func():
+            def inner():
+                pass
+            return inner
+        func()()
+    2. 闭包
+        闭包:在内层函数中访问外层函数的局部变量
+        好处:
+            1. 保护你的变量不受外界影响
+            2. 可以让变量常驻内存
+        写法:
+            def outer():
+                a = 10
+                def inner():
+                    print(a)
+                return inner
+    3. 迭代器
+        使用dir来查看该数据包含了那些方法
+        用来遍历列表,字符串,元祖....可迭代对象
+        可迭代对象: Iterable, 里面有__iter__()可以获取迭代器, 没有__next__()
+        迭代器:     Iterator, 里面有__iter__()可以获取迭代器, 还有__next__()
+
+        迭代器特点:
+            1. 只能向前.
+            2. 惰性机制.
+            3. 节省内存.(生成器)
+
+        for循环的内部机制.
+            1. 首先获取到迭代器.
+            2. 使用while循环获取数据
+            3. it.__next__()来获取数据
+            4. 处理异常 try:xxx   except StopIteration:
+
+            it = xx.__iter__()
+            while 1:
+                try:
+                    data = it.__next__()
+                    xxxxxx
+                except StopIteration:
+                    break
+    预习:
+        生成器函数
+        各种推导式
+        生成器表达式
