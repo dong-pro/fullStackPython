@@ -1,0 +1,2 @@
+name:apple price:10 amount:3 year:2012
+name:tesla price:100000 amount:1 year:2013
