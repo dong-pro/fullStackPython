@@ -1,0 +1,100 @@
+一, 上节课内容回顾
+    1. 反射：
+        getattr
+        hasattr
+        setattr
+        delattr
+    2. 内置函数：
+        issubclass/isinstance/type/callable
+    3. 函数和方法的区别？self到底是谁？
+
+二, 作业讲解
+
+三, 今日主要内容
+    1. 约束***  约束.py
+        BaseMessage类用于约束，约束其派生类：保证派生类中必须编写send方法，不然执行可能就会报错。
+
+        Python:
+            类
+                class Foo:
+                    pass
+                抽象类和抽象方法：
+
+        Java、C#:
+            类
+                class Foo:
+                    def f1(self):
+                        pass
+                    def f2(self):
+                        pass # 可人为抛出异常。
+
+                class Bar(Foo):
+                    def f1(self):
+                        pass
+
+            抽象类:约束继承它的派生类必须实现它其中的抽象方法
+                abstract class Foo:
+                    def f1(self):
+                        pass
+                    abstract def f2(self):pass
+                class Bar(Foo):
+                    def f2(self):
+                        print(123)
+
+            接口：接口中不允许在方法内部写代码,只能约束继承它的类必须实现接口中定义的所有方法
+                interface IFoo:
+                    def f1(self,x1):pass
+                    def f2(self,x2):pass
+                interface IBar:
+                    def f3(self,x3):pass
+                    def f4(self,x4):pass
+                class Foo(IFoo, IBar): # 实现了2个接口
+                    def f1(self,x1):pass
+                    def f2(self,x2):pass
+                    def f3(self,x3):pass
+                    def f4(self,x4):pass
+        总结：
+            1. 什么是接口以及作用？
+                接口是一种数据类型，主要用于约束派生类中必须实现指定的方法。
+                Python中不存在，Java和C#中是存在的。
+
+            2. Python中使用过什么来约束呢？
+                - 抽象类+抽象方法，编写上麻烦。
+                - 人为主动抛出异常。
+
+            3. 约束时，抛出的异常是否可以用其他的？
+                不专业：raise Exception(".send() 必须被重写.")
+                专业：raise NotImplementedError(".send() 必须被重写.")
+
+            4. 以后看代码，揣摩心思
+            5. 应用场景：
+                多个类，内部都必须有某些方法时，需要使用基类+异常进行约束。
+                学员管理程序：
+                    class IBase:
+                        def login():
+                            raise NotImplementedError(".send() 必须被重写.")
+
+                    class Student:
+                        def login(self):
+                            pass
+
+                    class Teacher:
+                        def login(self):
+                            pass
+
+                    class Manager():
+                        def login(self):
+                            pass
+
+    2. 自定义异常 ***   异常处理.py MyException
+        知识点：如何自定义异常类？
+               主动抛出异常
+               捕获异常
+
+    3. hashlib *****
+        关键词：撞库
+        加盐
+
+    4. logging ****
+        为什么要有日志？
+            给开发人员看，用于排查错误。

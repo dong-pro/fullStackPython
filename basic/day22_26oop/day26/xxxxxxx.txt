@@ -1,0 +1,5 @@
+2020-03-24 22:52:34 - root - ERROR -06 日志:  Traceback (most recent call last):
+  File "C:/py_train-master/py_old_boy_15/pytrain_04_oop/day26/06 日志.py", line 24, in func
+    a = a + 1
+UnboundLocalError: local variable 'a' referenced before assignment
+

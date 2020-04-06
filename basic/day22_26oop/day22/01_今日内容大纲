@@ -1,0 +1,123 @@
+一, 上节课内容回顾
+    1. 面向过程
+
+    2. 函数式编程
+    def func(args):
+        pass
+    func(1)
+    func(2)
+
+    3. 为什么要将某些函数写在指定文件中？
+        对函数进行归类
+
+二, 作业讲解无
+三, 今日主要内容
+    1. 函数式编程和面向对象的对比
+        a. 请开发一个消息提醒的功能（邮件/短信/微信）: s1.py  s2.py
+            对比
+                函数：定义简单/调用简单
+                面向对象：定义复杂/调用复杂   好处：归类，将某些类似的函数写在一起
+            总结
+                1. 函数式编程可能会比面向对象好
+                2. python中支持两种编程方式
+                3. 面向对象方式格式：
+                    定义
+                        class 类名：                       --定义了一个类
+                            def 函数名(self)：             --在类中编写了一个“方法”
+                                pass
+                    调用
+                        obj = 类名()                       --创建了一个对象/实例化一个对象
+                        obj.函数名()                       --通过对象调用其中一个方法
+                4.示例  s3.py
+
+        b. 打印
+            1. 构造方法: 目的进行数据初始化
+                示例一
+                    class Foo:
+                        def __init__(self, name):
+                            self.name = name
+                            self.age = 18
+                    obj = Foo('wyd')
+
+                通过构造方法，可以将数据进行打包，以后使用时，去其中获取即可
+                示例二
+                    class Bar:
+                        pass
+                    obj = Bar()
+
+            2. 应用
+                a. 将数据封装到对象中，以供自己在方法中调用
+                    class FileHandler:
+                b. 将数据封装到对象中，以供其他函数调用
+                    def new_func(arg):
+
+            练习：信息管理系统  练习题.py
+                1. 用户登录
+                2. 显示当前用户信息
+                3. 查看当前用户所有的账单
+                4. 购买姑娘形状的抱枕
+
+                总结：
+                    class Foo:
+                        def func2(self):
+                            print('func2')
+
+                        def func1(self):
+                            self.func2()
+                            print('func1')
+                    obj = Foo()
+                    obj.func1()
+
+    2. 面向对象代码如何编写
+        a. 规则
+            class Foo:
+				def __init__(self,name):
+					self.name = name
+				def detail(self,msg):
+					print(self.name,msg)
+			obj = Foo()
+			obj.detail()
+
+		b.什么时候写?如何写?
+		    方式一:归类+提取公共值（反向）
+
+		    方式二:在指定类中编写和当前类相关的所有代码 + 提取公共值（正向）
+
+    3. 面向对象三大特性：封装/继承/多态
+        封装:
+			将相关功能封装到一个类中:
+			将数据封装到一个对象中:
+
+		继承:  继承.py
+
+		    总结:
+				1. 继承编写(先在自己类中找,没有就去父类)
+					class Foo(父类):
+						pass
+				2. 支持多继承(先找左/再找右)
+				3. 为什么要有多继承? 提供代码重用性
+
+				练习: 找self到底是谁的对象?从谁开始找.
+
+		多态:
+			多种形态或多种状态
+			鸭子模型,只要可以嘎嘎叫就是鸭子.
+			Python  由于python原生支持多态,所以没有特殊性.
+				class Foo1:
+					def f1(self):
+						pass
+
+				class Foo2:
+					def f1(self):
+						pass
+
+				class Foo3:
+					def f1(self):
+						pass
+
+
+				def func(arg):
+					arg.f1()
+
+				obj = Foo1() # obj= Foo2()   obj = Foo3()
+				func(obj)
