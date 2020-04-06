@@ -1,0 +1,57 @@
+一, 上节课内容回顾
+
+    正则表达式
+        元字符 : \w \d \s \n \t \W \S \D \b  ^ $ . [] [^] () |
+            [0-9] \d    这种情况下 应该\d
+            [1-9]
+            [\da-zA-Z]
+        量词 : {n} {n,} {n,m} * ? +
+        转义符 :
+            python str : '\'
+            正则表达式中的'\'到了python中都会变成'\\'
+            r'\w' 在python当中\不转义了,在Python中就是一个普通的'\',但是在正则表达式中它还是表示一个转义符
+        贪婪匹配/惰性匹配 :
+            .*x 贪婪 匹配任意内容最多次,直到最后一个X停止 回溯算法
+            .*?X 惰性 匹配任意内容最少次,遇到第一个X就停止
+
+    re模块
+        findall 匹配所有 列表
+        search 匹配第一个 变量.group(),没匹配到返回None
+        match 从头开始匹配第一个
+        split sub subn
+        finditer compile
+            finditer 返回一个迭代器,所有匹配到的内容需要迭代取到,迭代取到的每一个结果都需要group取具体值
+                -- 节省内存空间
+            compile 编译,先把一个正则表达式编译,编译之后,在之后多次使用的过程不用重新编译
+                -- 节省时间 提高效率
+
+        分组:()
+            1.给不止一个字符的整体做量词约束的时候 www(\.[\w]+)+    www.baidu.com
+            2.优先显示,当要匹配的内容和不想匹配的内容混在一起的时候,
+                就匹配出所有内容,但是对实际需要的内容进行分组
+            3.分组和re模块中的方法 :
+                findall : 分组优先显示 取消(?:正则)
+                search :
+                    可以通过.group(index)来取分组中的内容
+                    可以通过.group(name)来取分组中的内容
+                        正则 (?P<name>正则)
+                        使用这个分组 ?P=name
+                split : 会保留分组内的内容到切割的结果中
+
+常用模块一 http://www.cnblogs.com/Eva-J/articles/7228075.html
+模块和包 http://www.cnblogs.com/Eva-J/articles/7292109.html
+异常处理 http://www.cnblogs.com/Eva-J/articles/7281240.html
+
+二, 作业讲解
+        计算器
+
+三, 今日主要内容
+
+        random模块
+        时间相关的 time模块
+        os
+        sys
+        序列化模块
+            json
+            pickle
+        collections模块  - 数据类型的扩展/面向对象进阶
