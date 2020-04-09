@@ -1,0 +1,54 @@
+一, 上节课内容回顾
+        - 特殊成员
+            __init__
+            __new__
+            __getitem__,obj['xx']
+            __setitem__,obj['xx'] = 1
+            __delitem__,del obj['xx']
+            __call__
+            __add__
+            __enter__
+            __exit__
+            __str__
+            __doc__
+
+                02 特殊方法补充.py
+
+        - 组合嵌套
+        - 主动调用其他类成员
+            - super
+二, 作业讲解
+
+三, 今日主要内容
+    1.isinstance/issubclass/type ***
+        isinstance_issubclass_type.py
+
+    2.方法和函数 *    用科学的方法判断函数还是方法.py
+        称谓：
+            类  方法
+            外  函数
+        到底方法函数？
+            对象.xxx  --> xxx就是方法
+            类.xxx    --> xxx就是函数
+            xxx       --> xxx就是函数
+        打印查看：
+            function
+            method
+
+    3.反射 *****
+        a.
+            v = getattr(obj,"func")  # 根据字符串为参数（第二个参数），去对象（第一个参数）中寻找与之同名的成员。
+        b.
+            getattr # 根据字符串的形式，去对象中找成员。
+            hasattr # 根据字符串的形式，去判断对象中是否有成员。
+            setattr # 根据字符串的形式，动态的设置一个成员（内存）
+            delattr # 根据字符串的形式，动态的删除一个成员（内存）
+        c.应用  05 run.py、06 练习题.py
+
+    4.其他
+        问题：你见过的什么后面可以加()?  07 是否可以被调用.py
+            - 类()
+            - 对象()
+            - 函数()
+            - 方法()
+            以上所有都可以被调用

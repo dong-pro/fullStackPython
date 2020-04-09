@@ -1,0 +1,4944 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<title>python之路——常用模块 - Eva_J - 博客园</title>
+<meta property="og:description" content="阅读目录 认识模块 什么是模块 模块的导入和使用 常用模块一 collections模块 时间模块 random模块 os模块 sys模块 序列化模块 re模块 常用模块二 hashlib模块 con" />
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=PX31qVjOE47mNaZI9JUSFK-ajuzMnpXA9PeteRNR1Qw1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/LoveIsIntheAir/bundle-LoveIsIntheAir.css?v=1a1njKMb9NXq0SiMQC1DxNR7neAOH_-_T7CqiC-KPw41"/>
+<link type="text/css" rel="stylesheet" href="/blog/customcss/250832.css?v=sgnWqV5WAgR4lMmYSWvpJe19YwI%3d"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/LoveIsIntheAir/bundle-LoveIsIntheAir-mobile.css?v=m7Ou9AHQ9hW4lekBxf1gaE6fCkmTqbjfF32KgHqkd6s1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/Eva-J/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/Eva-J/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/Eva-J/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'Eva-J', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=M03aVfZ8QFd-WbinG9a-QXWifrkNB2YI5lN9M8cSzzg1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<!--PageBeginHtml Block Begin-->
+<h2 style="line-height: 1.5em; float: left; text-align: right; color: #816d65; position: absolute; top: 110px; left: 110px; background: #d2eef4">程序媛</h2>
+<!--PageBeginHtml Block End-->
+
+<!--done-->
+<center>
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/Eva-J/"><img id="blogLogo" src="/Skins/LoveIsIntheAir/images/logo.gif" alt="" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/Eva-J/">Eva_J</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/Eva-J/">首页</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Eva_J">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/Eva-J/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/Eva-J/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔- 32&nbsp;
+文章- 79&nbsp;
+评论- 149&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div class="clear"></div>
+	<div id="topicList">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/Eva-J/articles/7228075.html">python之路——常用模块</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p style="background: #e9f7fa; padding: 5px"><span style="font-size: 16px"><span style="font-size: 18px"> <strong>阅读目录</strong></span></span></p>
+<div><a name="_labelTop"></a></div>
+<ul>
+<li><strong><a style="text-decoration: none" href="#_label1">认识模块</a></strong>
+<ul>
+<li><strong><a style="text-decoration: none" href="#_label2">什么是模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label3">模块的导入和使用</a></strong></li>
+</ul>
+</li>
+<li><strong><a style="text-decoration: none" href="#_label4">常用模块一</a></strong>
+<ul>
+<li><strong><a style="text-decoration: none" href="#_label15">collections模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label5">时间模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label6">random模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label7">os模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label8">sys模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label9">序列化模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label10">re模块</a></strong></li>
+</ul>
+</li>
+<li><strong><a style="text-decoration: none" href="#_label11">常用模块二</a></strong>
+<ul>
+<li><strong><a style="text-decoration: none" href="#_label12">hashlib模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label13">configparse模块</a></strong></li>
+<li><strong><a style="text-decoration: none" href="#_label14">logging模块</a></strong></li>
+</ul>
+</li>
+</ul>
+<div style="text-align: right"><a name="_label1"></a></div>
+<p style="background: #e9f7fa; padding: 5px"><span style="font-size: 18px"><strong>认识模块　</strong></span>　</p>
+<div style="text-align: right"><a name="_label2"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">什么是模块</span></p>
+<p><strong>什么是模块？</strong></p>
+<p>&nbsp; &nbsp;常见的场景：一个模块就是一个包含了python定义和声明的文件，文件名就是模块名字加上.py的后缀。</p>
+<p>&nbsp; &nbsp;但其实import加载的模块分为四个通用类别：　</p>
+<p>　　1 使用python编写的代码（.py文件）</p>
+<p>　　2 已被编译为共享库或DLL的C或C++扩展</p>
+<p>　　3 包好一组模块的包</p>
+<p>　　4 使用C编写并链接到python解释器的内置模块</p>
+<p><strong>为何要使用模块？</strong></p>
+<p>&nbsp; &nbsp;如果你退出python解释器然后重新进入，那么你之前定义的函数或者变量都将丢失，因此我们通常将程序写到文件中以便永久保存下来，需要时就通过python test.py方式去执行，此时test.py被称为脚本script。</p>
+<p>&nbsp; &nbsp; 随着程序的发展，功能越来越多，为了方便管理，我们通常将程序分成一个个的文件，这样做程序的结构更清晰，方便管理。这时我们不仅仅可以把这些文件当做脚本去执行，还可以把他们当做模块来导入到其他的模块中，实现了功能的重复利用，</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label3"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">模块的导入和使用</span></p>
+<p>模块的导入应该在程序开始的地方</p>
+<pre>更多相关内容 <a href="http://www.cnblogs.com/Eva-J/articles/7292109.html" target="_blank">http://www.cnblogs.com/Eva-J/articles/7292109.html</a></pre>
+<div style="text-align: right"><a name="_label4"></a></div>
+<p style="background: #e9f7fa; padding: 5px"><span style="font-size: 18px"><strong>常用模块　</strong></span>　</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label15"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">collections模块</span></p>
+<p>在内置数据类型（dict、list、set、tuple）的基础上，<span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyY29sbGVjdGlvbnMlRTYlQTglQTElRTUlOUQlOTclRTUlOUMlQTglRTUlODYlODUlRTclQkQlQUUlRTYlOTUlQjAlRTYlOEQlQUUlRTclQjElQkIlRTUlOUUlOEIlRUYlQkMlODhkaWN0JUUzJTgwJTgxbGlzdCVFMyU4MCU4MXNldCVFMyU4MCU4MXR1cGxlJUVGJUJDJTg5JUU3JTlBJTg0JUU1JTlGJUJBJUU3JUExJTgwJUU0JUI4JThBJUVGJUJDJThDJUU4JUJGJTk4JUU2JThGJTkwJUU0JUJFJTlCJUU0JUJBJTg2JUU1JTg3JUEwJUU0JUI4JUFBJUU5JUEyJTlEJUU1JUE0JTk2JUU3JTlBJTg0JUU2JTk1JUIwJUU2JThEJUFFJUU3JUIxJUJCJUU1JTlFJThCJUVGJUJDJTlBQ2hhaW5NYXAlRTMlODAlODFDb3VudGVyJUUzJTgwJTgxZGVxdWUlRTMlODAlODFkZWZhdWx0ZGljdCVFMyU4MCU4MW5hbWVkdHVwbGUlRTUlOTIlOENPcmRlcmVkRGljdCVFNyVBRCU4OSVFMyU4MCU4MiUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTJDJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyMS5uYW1lZHR1cGxlJTNBJTIwJUU3JTk0JTlGJUU2JTg4JTkwJUU1JThGJUFGJUU0JUJCJUE1JUU0JUJEJUJGJUU3JTk0JUE4JUU1JTkwJThEJUU1JUFEJTk3JUU2JTlEJUE1JUU4JUFFJUJGJUU5JTk3JUFFJUU1JTg1JTgzJUU3JUI0JUEwJUU1JTg2JTg1JUU1JUFFJUI5JUU3JTlBJTg0dHVwbGUlRTUlQUQlOTAlRTclQjElQkIlNUNuMi5kZXF1ZSUzQSUyMCVFNSU4RiU4QyVFNyVBQiVBRiVFOSU5OCU5RiVFNSU4OCU5NyVFRiVCQyU4QyVFNSU4RiVBRiVFNCVCQiVBNSVFNSVCRiVBQiVFOSU4MCU5RiVFNyU5QSU4NCVFNCVCQiU4RSVFNSU4RiVBNiVFNSVBNCU5NiVFNCVCOCU4MCVFNCVCRSVBNyVFOCVCRiVCRCVFNSU4QSVBMCVFNSU5MiU4QyVFNiU4RSVBOCVFNSU4NyVCQSVFNSVBRiVCOSVFOCVCMSVBMSU1Q24zLkNvdW50ZXIlM0ElMjAlRTglQUUlQTElRTYlOTUlQjAlRTUlOTklQTglRUYlQkMlOEMlRTQlQjglQkIlRTglQTYlODElRTclOTQlQTglRTYlOUQlQTUlRTglQUUlQTElRTYlOTUlQjAlNUNuNC5PcmRlcmVkRGljdCUzQSUyMCVFNiU5QyU4OSVFNSVCQSU4RiVFNSVBRCU5NyVFNSU4NSVCOCU1Q241LmRlZmF1bHRkaWN0JTNBJTIwJUU1JUI4JUE2JUU2JTlDJTg5JUU5JUJCJTk4JUU4JUFFJUE0JUU1JTgwJUJDJUU3JTlBJTg0JUU1JUFEJTk3JUU1JTg1JUI4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q="><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyY29sbGVjdGlvbnMlRTYlQTglQTElRTUlOUQlOTclRTUlOUMlQTglRTUlODYlODUlRTclQkQlQUUlRTYlOTUlQjAlRTYlOEQlQUUlRTclQjElQkIlRTUlOUUlOEIlRUYlQkMlODhkaWN0JUUzJTgwJTgxbGlzdCVFMyU4MCU4MXNldCVFMyU4MCU4MXR1cGxlJUVGJUJDJTg5JUU3JTlBJTg0JUU1JTlGJUJBJUU3JUExJTgwJUU0JUI4JThBJUVGJUJDJThDJUU4JUJGJTk4JUU2JThGJTkwJUU0JUJFJTlCJUU0JUJBJTg2JUU1JTg3JUEwJUU0JUI4JUFBJUU5JUEyJTlEJUU1JUE0JTk2JUU3JTlBJTg0JUU2JTk1JUIwJUU2JThEJUFFJUU3JUIxJUJCJUU1JTlFJThCJUVGJUJDJTlBQ2hhaW5NYXAlRTMlODAlODFDb3VudGVyJUUzJTgwJTgxZGVxdWUlRTMlODAlODFkZWZhdWx0ZGljdCVFMyU4MCU4MW5hbWVkdHVwbGUlRTUlOTIlOENPcmRlcmVkRGljdCVFNyVBRCU4OSVFMyU4MCU4MiUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTJDJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyMS5uYW1lZHR1cGxlJTNBJTIwJUU3JTk0JTlGJUU2JTg4JTkwJUU1JThGJUFGJUU0JUJCJUE1JUU0JUJEJUJGJUU3JTk0JUE4JUU1JTkwJThEJUU1JUFEJTk3JUU2JTlEJUE1JUU4JUFFJUJGJUU5JTk3JUFFJUU1JTg1JTgzJUU3JUI0JUEwJUU1JTg2JTg1JUU1JUFFJUI5JUU3JTlBJTg0dHVwbGUlRTUlQUQlOTAlRTclQjElQkIlNUNuMi5kZXF1ZSUzQSUyMCVFNSU4RiU4QyVFNyVBQiVBRiVFOSU5OCU5RiVFNSU4OCU5NyVFRiVCQyU4QyVFNSU4RiVBRiVFNCVCQiVBNSVFNSVCRiVBQiVFOSU4MCU5RiVFNyU5QSU4NCVFNCVCQiU4RSVFNSU4RiVBNiVFNSVBNCU5NiVFNCVCOCU4MCVFNCVCRSVBNyVFOCVCRiVCRCVFNSU4QSVBMCVFNSU5MiU4QyVFNiU4RSVBOCVFNSU4NyVCQSVFNSVBRiVCOSVFOCVCMSVBMSU1Q24zLkNvdW50ZXIlM0ElMjAlRTglQUUlQTElRTYlOTUlQjAlRTUlOTklQTglRUYlQkMlOEMlRTQlQjglQkIlRTglQTYlODElRTclOTQlQTglRTYlOUQlQTUlRTglQUUlQTElRTYlOTUlQjAlNUNuNC5PcmRlcmVkRGljdCUzQSUyMCVFNiU5QyU4OSVFNSVCQSU4RiVFNSVBRCU5NyVFNSU4NSVCOCU1Q241LmRlZmF1bHRkaWN0JTNBJTIwJUU1JUI4JUE2JUU2JTlDJTg5JUU5JUJCJTk4JUU4JUFFJUE0JUU1JTgwJUJDJUU3JTlBJTg0JUU1JUFEJTk3JUU1JTg1JUI4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q=">collections模块</span></span>还提供了几个额外的数据类型：Counter、deque、defaultdict、namedtuple和OrderedDict等。</p>
+<p data-key="294"><span data-key="285">1.namedtuple: 生成可以使用名字来访问元素内容的tuple</span></p>
+<p data-key="294"><span data-key="285"> 2.deque: 双端队列，可以快速的从另外一侧追加和推出对象</span></p>
+<p data-key="294"><span data-key="285"> 3.Counter: 计数器，主要用来计数 </span></p>
+<p data-key="294"><span data-key="285">4.OrderedDict: 有序字典 </span></p>
+<p data-key="294"><span data-key="285">5.defaultdict: 带有默认值的字典</span></p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span data-key="285">namedtuple</span></h3>
+<p data-key="294"><span data-key="285"><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JTg4JTkxJUU0JUJCJUFDJUU3JTlGJUE1JUU5JTgxJTkzJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIydHVwbGUlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFNSU4RiVBRiVFNCVCQiVBNSVFOCVBMSVBOCVFNyVBNCVCQSVFNCVCOCU4RCVFNSU4RiU5OCVFOSU5QiU4NiVFNSU5MCU4OCVFRiVCQyU4QyVFNCVCRSU4QiVFNSVBNiU4MiVFRiVCQyU4QyVFNCVCOCU4MCVFNCVCOCVBQSVFNyU4MiVCOSVFNyU5QSU4NCVFNCVCQSU4QyVFNyVCQiVCNCVFNSU5RCU5MCVFNiVBMCU4NyVFNSVCMCVCMSVFNSU4RiVBRiVFNCVCQiVBNSVFOCVBMSVBOCVFNyVBNCVCQSVFNiU4OCU5MCVFRiVCQyU5QSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTVEJTdE">我<span data-offset-key="297-0">们知道<span data-offset-key="297-1"><code>tuple</code><span data-offset-key="297-2">可以表示不变集合，例如，一个点的二维坐标就可以表示成：</span></span></span></span></span></p>
+<div class="cnblogs_code">
+<pre>&gt;&gt;&gt; p = (1, 2)</pre>
+</div>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJTg2JUU2JTk4JUFGJUVGJUJDJThDJUU3JTlDJThCJUU1JTg4JUIwJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyKDElMkMlMjAyKSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUVGJUJDJThDJUU1JUJFJTg4JUU5JTlBJUJFJUU3JTlDJThCJUU1JTg3JUJBJUU4JUJGJTk5JUU0JUI4JUFBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIydHVwbGUlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFNiU5OCVBRiVFNyU5NCVBOCVFNiU5RCVBNSVFOCVBMSVBOCVFNyVBNCVCQSVFNCVCOCU4MCVFNCVCOCVBQSVFNSU5RCU5MCVFNiVBMCU4NyVFNyU5QSU4NCVFMyU4MCU4MiUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTJDJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JUFFJTlBJUU0JUI5JTg5JUU0JUI4JTgwJUU0JUI4JUFBY2xhc3MlRTUlOEYlODglRTUlQjAlOEYlRTklQTIlOTglRTUlQTQlQTclRTUlODElOUElRTQlQkElODYlRUYlQkMlOEMlRTglQkYlOTklRTYlOTclQjYlRUYlQkMlOEMlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJuYW1lZHR1cGxlJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMm1hcmslMjIlMkMlMjJ0eXBlJTIyJTNBJTIyQ09ERSUyMiU3RCU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjIlRTUlQjAlQjElRTYlQjQlQkUlRTQlQjglOEElRTQlQkElODYlRTclOTQlQTglRTUlOUMlQkElRUYlQkMlOUElMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCU1RCU3RCU1RCU3RCU1RCU3RA=="><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJTg2JUU2JTk4JUFGJUVGJUJDJThDJUU3JTlDJThCJUU1JTg4JUIwJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyKDElMkMlMjAyKSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUVGJUJDJThDJUU1JUJFJTg4JUU5JTlBJUJFJUU3JTlDJThCJUU1JTg3JUJBJUU4JUJGJTk5JUU0JUI4JUFBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIydHVwbGUlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFNiU5OCVBRiVFNyU5NCVBOCVFNiU5RCVBNSVFOCVBMSVBOCVFNyVBNCVCQSVFNCVCOCU4MCVFNCVCOCVBQSVFNSU5RCU5MCVFNiVBMCU4NyVFNyU5QSU4NCVFMyU4MCU4MiUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTJDJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JUFFJTlBJUU0JUI5JTg5JUU0JUI4JTgwJUU0JUI4JUFBY2xhc3MlRTUlOEYlODglRTUlQjAlOEYlRTklQTIlOTglRTUlQTQlQTclRTUlODElOUElRTQlQkElODYlRUYlQkMlOEMlRTglQkYlOTklRTYlOTclQjYlRUYlQkMlOEMlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJuYW1lZHR1cGxlJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMm1hcmslMjIlMkMlMjJ0eXBlJTIyJTNBJTIyQ09ERSUyMiU3RCU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjIlRTUlQjAlQjElRTYlQjQlQkUlRTQlQjglOEElRTQlQkElODYlRTclOTQlQTglRTUlOUMlQkElRUYlQkMlOUElMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCU1RCU3RCU1RCU3RCU1RCU3RA==">但</span></span>是，看到(1, 2)，很难看出这个tuple是用来表示一个坐标的。</p>
+<p data-key="313"><span data-key="310"><span data-offset-key="310-0">这时，<span data-offset-key="310-1"><code>namedtuple</code><span data-offset-key="310-2">就派上了用场：</span></span></span></span></p>
+<div class="cnblogs_code">
+<pre>&gt;&gt;&gt; <span style="color: #0000ff">from</span> collections <span style="color: #0000ff">import</span><span style="color: #000000"> namedtuple
+</span>&gt;&gt;&gt; Point = namedtuple(<span style="color: #800000">'</span><span style="color: #800000">Point</span><span style="color: #800000">'</span>, [<span style="color: #800000">'</span><span style="color: #800000">x</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">y</span><span style="color: #800000">'</span><span style="color: #000000">])
+</span>&gt;&gt;&gt; p = Point(1, 2<span style="color: #000000">)
+</span>&gt;&gt;&gt;<span style="color: #000000"> p.x
+</span>1
+&gt;&gt;&gt;<span style="color: #000000"> p.y
+</span>2</pre>
+</div>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU3JUIxJUJCJUU0JUJDJUJDJUU3JTlBJTg0JUVGJUJDJThDJUU1JUE2JTgyJUU2JTlFJTlDJUU4JUE2JTgxJUU3JTk0JUE4JUU1JTlEJTkwJUU2JUEwJTg3JUU1JTkyJThDJUU1JThEJThBJUU1JUJFJTg0JUU4JUExJUE4JUU3JUE0JUJBJUU0JUI4JTgwJUU0JUI4JUFBJUU1JTlDJTg2JUVGJUJDJThDJUU0JUI5JTlGJUU1JThGJUFGJUU0JUJCJUE1JUU3JTk0JUE4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIybmFtZWR0dXBsZSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JUFFJTlBJUU0JUI5JTg5JUVGJUJDJTlBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q=">类<span data-offset-key="357-0">似的，如果要用坐标和半径表示一个圆，也可以用<span data-offset-key="357-1"><code>namedtuple</code><span data-offset-key="357-2">定义：</span></span></span></span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">#</span><span style="color: #008000">namedtuple('名称', [属性list]):</span>
+Circle = namedtuple(<span style="color: #800000">'</span><span style="color: #800000">Circle</span><span style="color: #800000">'</span>, [<span style="color: #800000">'</span><span style="color: #800000">x</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">y</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">r</span><span style="color: #800000">'</span>])</pre>
+</div>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span data-key="285"><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiUyMmlkJTIyJTNBJTIyZGVxdWUlMjIlN0QlMkMlMjJraW5kJTIyJTNBJTIyYmxvY2slMjIlMkMlMjJpc1ZvaWQlMjIlM0FmYWxzZSUyQyUyMnR5cGUlMjIlM0ElMjJoZWFkZXJfdGhyZWUlMjIlMkMlMjJub2RlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJ0ZXh0JTIyJTJDJTIycmFuZ2VzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMmRlcXVlJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q=">deque</span></span></h3>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJUJGJUU3JTk0JUE4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIybGlzdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JUFEJTk4JUU1JTgyJUE4JUU2JTk1JUIwJUU2JThEJUFFJUU2JTk3JUI2JUVGJUJDJThDJUU2JThDJTg5JUU3JUI0JUEyJUU1JUJDJTk1JUU4JUFFJUJGJUU5JTk3JUFFJUU1JTg1JTgzJUU3JUI0JUEwJUU1JUJFJTg4JUU1JUJGJUFCJUVGJUJDJThDJUU0JUJEJTg2JUU2JTk4JUFGJUU2JThGJTkyJUU1JTg1JUE1JUU1JTkyJThDJUU1JTg4JUEwJUU5JTk5JUE0JUU1JTg1JTgzJUU3JUI0JUEwJUU1JUIwJUIxJUU1JUJFJTg4JUU2JTg1JUEyJUU0JUJBJTg2JUVGJUJDJThDJUU1JTlCJUEwJUU0JUI4JUJBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIybGlzdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JTk4JUFGJUU3JUJBJUJGJUU2JTgwJUE3JUU1JUFEJTk4JUU1JTgyJUE4JUVGJUJDJThDJUU2JTk1JUIwJUU2JThEJUFFJUU5JTg3JThGJUU1JUE0JUE3JUU3JTlBJTg0JUU2JTk3JUI2JUU1JTgwJTk5JUVGJUJDJThDJUU2JThGJTkyJUU1JTg1JUE1JUU1JTkyJThDJUU1JTg4JUEwJUU5JTk5JUE0JUU2JTk1JTg4JUU3JThFJTg3JUU1JUJFJTg4JUU0JUJEJThFJUUzJTgwJTgyJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlMkMlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMmJsb2NrJTIyJTJDJTIyaXNWb2lkJTIyJTNBZmFsc2UlMkMlMjJ0eXBlJTIyJTNBJTIycGFyYWdyYXBoJTIyJTJDJTIybm9kZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIydGV4dCUyMiUyQyUyMnJhbmdlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJkZXF1ZSVFNiU5OCVBRiVFNCVCOCVCQSVFNCVCQSU4NiVFOSVBQiU5OCVFNiU5NSU4OCVFNSVBRSU5RSVFNyU4RSVCMCVFNiU4RiU5MiVFNSU4NSVBNSVFNSU5MiU4QyVFNSU4OCVBMCVFOSU5OSVBNCVFNiU5MyU4RCVFNCVCRCU5QyVFNyU5QSU4NCVFNSU4RiU4QyVFNSU5MCU5MSVFNSU4OCU5NyVFOCVBMSVBOCVFRiVCQyU4QyVFOSU4MCU4MiVFNSU5MCU4OCVFNyU5NCVBOCVFNCVCQSU4RSVFOSU5OCU5RiVFNSU4OCU5NyVFNSU5MiU4QyVFNiVBMCU4OCVFRiVCQyU5QSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTVEJTdE"><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJUJGJUU3JTk0JUE4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIybGlzdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JUFEJTk4JUU1JTgyJUE4JUU2JTk1JUIwJUU2JThEJUFFJUU2JTk3JUI2JUVGJUJDJThDJUU2JThDJTg5JUU3JUI0JUEyJUU1JUJDJTk1JUU4JUFFJUJGJUU5JTk3JUFFJUU1JTg1JTgzJUU3JUI0JUEwJUU1JUJFJTg4JUU1JUJGJUFCJUVGJUJDJThDJUU0JUJEJTg2JUU2JTk4JUFGJUU2JThGJTkyJUU1JTg1JUE1JUU1JTkyJThDJUU1JTg4JUEwJUU5JTk5JUE0JUU1JTg1JTgzJUU3JUI0JUEwJUU1JUIwJUIxJUU1JUJFJTg4JUU2JTg1JUEyJUU0JUJBJTg2JUVGJUJDJThDJUU1JTlCJUEwJUU0JUI4JUJBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIybGlzdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JTk4JUFGJUU3JUJBJUJGJUU2JTgwJUE3JUU1JUFEJTk4JUU1JTgyJUE4JUVGJUJDJThDJUU2JTk1JUIwJUU2JThEJUFFJUU5JTg3JThGJUU1JUE0JUE3JUU3JTlBJTg0JUU2JTk3JUI2JUU1JTgwJTk5JUVGJUJDJThDJUU2JThGJTkyJUU1JTg1JUE1JUU1JTkyJThDJUU1JTg4JUEwJUU5JTk5JUE0JUU2JTk1JTg4JUU3JThFJTg3JUU1JUJFJTg4JUU0JUJEJThFJUUzJTgwJTgyJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlMkMlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMmJsb2NrJTIyJTJDJTIyaXNWb2lkJTIyJTNBZmFsc2UlMkMlMjJ0eXBlJTIyJTNBJTIycGFyYWdyYXBoJTIyJTJDJTIybm9kZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIydGV4dCUyMiUyQyUyMnJhbmdlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJkZXF1ZSVFNiU5OCVBRiVFNCVCOCVCQSVFNCVCQSU4NiVFOSVBQiU5OCVFNiU5NSU4OCVFNSVBRSU5RSVFNyU4RSVCMCVFNiU4RiU5MiVFNSU4NSVBNSVFNSU5MiU4QyVFNSU4OCVBMCVFOSU5OSVBNCVFNiU5MyU4RCVFNCVCRCU5QyVFNyU5QSU4NCVFNSU4RiU4QyVFNSU5MCU5MSVFNSU4OCU5NyVFOCVBMSVBOCVFRiVCQyU4QyVFOSU4MCU4MiVFNSU5MCU4OCVFNyU5NCVBOCVFNCVCQSU4RSVFOSU5OCU5RiVFNSU4OCU5NyVFNSU5MiU4QyVFNiVBMCU4OCVFRiVCQyU5QSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTVEJTdE">使</span></span>用list存储数据时，按索引访问元素很快，但是插入和删除元素就很慢了，因为list是线性存储，数据量大的时候，插入和删除效率很低。</p>
+<p data-key="375"><span data-key="374">deque是为了高效实现插入和删除操作的双向列表，适合用于队列和栈：</span></p>
+<div class="cnblogs_code">
+<pre>&gt;&gt;&gt; <span style="color: #0000ff">from</span> collections <span style="color: #0000ff">import</span><span style="color: #000000"> deque
+</span>&gt;&gt;&gt; q = deque([<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span><span style="color: #000000">])
+</span>&gt;&gt;&gt; q.append(<span style="color: #800000">'</span><span style="color: #800000">x</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span>&gt;&gt;&gt; q.appendleft(<span style="color: #800000">'</span><span style="color: #800000">y</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span>&gt;&gt;&gt;<span style="color: #000000"> q
+deque([</span><span style="color: #800000">'</span><span style="color: #800000">y</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">x</span><span style="color: #800000">'</span>])</pre>
+</div>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyZGVxdWUlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFOSU5OSVBNCVFNCVCQSU4NiVFNSVBRSU5RSVFNyU4RSVCMGxpc3QlRTclOUElODQlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJhcHBlbmQoKSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JTkyJThDJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIycG9wKCklMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFNSVBNCU5NiVFRiVCQyU4QyVFOCVCRiU5OCVFNiU5NCVBRiVFNiU4QyU4MSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMmFwcGVuZGxlZnQoKSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JTkyJThDJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIycG9wbGVmdCgpJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMm1hcmslMjIlMkMlMjJ0eXBlJTIyJTNBJTIyQ09ERSUyMiU3RCU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjIlRUYlQkMlOEMlRTglQkYlOTklRTYlQTAlQjclRTUlQjAlQjElRTUlOEYlQUYlRTQlQkIlQTUlRTklOUQlOUUlRTUlQjglQjglRTklQUIlOTglRTYlOTUlODglRTUlOUMlQjAlRTUlQkUlODAlRTUlQTQlQjQlRTklODMlQTglRTYlQjclQkIlRTUlOEElQTAlRTYlODglOTYlRTUlODglQTAlRTklOTklQTQlRTUlODUlODMlRTclQjQlQTAlRTMlODAlODIlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCU1RCU3RCU1RCU3RCU1RCU3RA==">d<span data-offset-key="389-0">eque<span data-offset-key="389-1">除了实现list的<span data-offset-key="389-2"><code>append()</code><span data-offset-key="389-3">和<span data-offset-key="389-4"><code>pop()</code><span data-offset-key="389-5">外，还支持<span data-offset-key="389-6"><code>appendleft()</code><span data-offset-key="389-7">和<span data-offset-key="389-8"><code>popleft()</code><span data-offset-key="389-9">，这样就可以非常高效地往头部添加或删除元素。</span></span></span></span></span></span></span></span></span></span></span></p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiUyMmlkJTIyJTNBJTIyb3JkZXJlZGRpY3QlMjIlN0QlMkMlMjJraW5kJTIyJTNBJTIyYmxvY2slMjIlMkMlMjJpc1ZvaWQlMjIlM0FmYWxzZSUyQyUyMnR5cGUlMjIlM0ElMjJoZWFkZXJfdGhyZWUlMjIlMkMlMjJub2RlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJ0ZXh0JTIyJTJDJTIycmFuZ2VzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMk9yZGVyZWREaWN0JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q=">OrderedDict</span></h3>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJUJGJUU3JTk0JUE4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyZGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JTk3JUI2JUVGJUJDJThDS2V5JUU2JTk4JUFGJUU2JTk3JUEwJUU1JUJBJThGJUU3JTlBJTg0JUUzJTgwJTgyJUU1JTlDJUE4JUU1JUFGJUI5JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyZGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JTgxJTlBJUU4JUJGJUFEJUU0JUJCJUEzJUU2JTk3JUI2JUVGJUJDJThDJUU2JTg4JTkxJUU0JUJCJUFDJUU2JTk3JUEwJUU2JUIzJTk1JUU3JUExJUFFJUU1JUFFJTlBS2V5JUU3JTlBJTg0JUU5JUExJUJBJUU1JUJBJThGJUUzJTgwJTgyJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlMkMlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMmJsb2NrJTIyJTJDJTIyaXNWb2lkJTIyJTNBZmFsc2UlMkMlMjJ0eXBlJTIyJTNBJTIycGFyYWdyYXBoJTIyJTJDJTIybm9kZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIydGV4dCUyMiUyQyUyMnJhbmdlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjIlRTUlQTYlODIlRTYlOUUlOUMlRTglQTYlODElRTQlQkYlOUQlRTYlOEMlODFLZXklRTclOUElODQlRTklQTElQkElRTUlQkElOEYlRUYlQkMlOEMlRTUlOEYlQUYlRTQlQkIlQTUlRTclOTQlQTglMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJPcmRlcmVkRGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUVGJUJDJTlBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q="><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJUJGJUU3JTk0JUE4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyZGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JTk3JUI2JUVGJUJDJThDS2V5JUU2JTk4JUFGJUU2JTk3JUEwJUU1JUJBJThGJUU3JTlBJTg0JUUzJTgwJTgyJUU1JTlDJUE4JUU1JUFGJUI5JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyZGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU1JTgxJTlBJUU4JUJGJUFEJUU0JUJCJUEzJUU2JTk3JUI2JUVGJUJDJThDJUU2JTg4JTkxJUU0JUJCJUFDJUU2JTk3JUEwJUU2JUIzJTk1JUU3JUExJUFFJUU1JUFFJTlBS2V5JUU3JTlBJTg0JUU5JUExJUJBJUU1JUJBJThGJUUzJTgwJTgyJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlMkMlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMmJsb2NrJTIyJTJDJTIyaXNWb2lkJTIyJTNBZmFsc2UlMkMlMjJ0eXBlJTIyJTNBJTIycGFyYWdyYXBoJTIyJTJDJTIybm9kZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIydGV4dCUyMiUyQyUyMnJhbmdlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjIlRTUlQTYlODIlRTYlOUUlOUMlRTglQTYlODElRTQlQkYlOUQlRTYlOEMlODFLZXklRTclOUElODQlRTklQTElQkElRTUlQkElOEYlRUYlQkMlOEMlRTUlOEYlQUYlRTQlQkIlQTUlRTclOTQlQTglMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjJPcmRlcmVkRGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUVGJUJDJTlBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q=">使</span></span>用dict时，Key是无序的。在对dict做迭代时，我们无法确定Key的顺序。</p>
+<p data-key="446"><span data-key="443"><span data-offset-key="443-0">如果要保持Key的顺序，可以用<span data-offset-key="443-1"><code>OrderedDict</code><span data-offset-key="443-2">：</span></span></span></span></p>
+<div class="cnblogs_code">
+<pre>&gt;&gt;&gt; <span style="color: #0000ff">from</span> collections <span style="color: #0000ff">import</span><span style="color: #000000"> OrderedDict
+</span>&gt;&gt;&gt; d = dict([(<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, 1), (<span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>, 2), (<span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>, 3<span style="color: #000000">)])
+</span>&gt;&gt;&gt; d <span style="color: #008000">#</span><span style="color: #008000"> dict的Key是无序的</span>
+{<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>: 1, <span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>: 3, <span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>: 2<span style="color: #000000">}
+</span>&gt;&gt;&gt; od = OrderedDict([(<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, 1), (<span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>, 2), (<span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>, 3<span style="color: #000000">)])
+</span>&gt;&gt;&gt; od <span style="color: #008000">#</span><span style="color: #008000"> OrderedDict的Key是有序的</span>
+OrderedDict([(<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, 1), (<span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>, 2), (<span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>, 3)])</pre>
+</div>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JUIzJUE4JUU2JTg0JThGJUVGJUJDJThDJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyT3JkZXJlZERpY3QlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFNyU5QSU4NEtleSVFNCVCQyU5QSVFNiU4QyU4OSVFNyU4NSVBNyVFNiU4RiU5MiVFNSU4NSVBNSVFNyU5QSU4NCVFOSVBMSVCQSVFNSVCQSU4RiVFNiU4RSU5MiVFNSU4OCU5NyVFRiVCQyU4QyVFNCVCOCU4RCVFNiU5OCVBRktleSVFNiU5QyVBQyVFOCVCQSVBQiVFNiU4RSU5MiVFNSVCQSU4RiVFRiVCQyU5QSUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTVEJTdE">注<span data-offset-key="462-0">意，<span data-offset-key="462-1"><code>OrderedDict</code><span data-offset-key="462-2">的Key会按照插入的顺序排列，不是Key本身排序：</span></span></span></span></p>
+<div class="cnblogs_code">
+<pre>&gt;&gt;&gt; od =<span style="color: #000000"> OrderedDict()
+</span>&gt;&gt;&gt; od[<span style="color: #800000">'</span><span style="color: #800000">z</span><span style="color: #800000">'</span>] = 1
+&gt;&gt;&gt; od[<span style="color: #800000">'</span><span style="color: #800000">y</span><span style="color: #800000">'</span>] = 2
+&gt;&gt;&gt; od[<span style="color: #800000">'</span><span style="color: #800000">x</span><span style="color: #800000">'</span>] = 3
+&gt;&gt;&gt; od.keys() <span style="color: #008000">#</span><span style="color: #008000"> 按照插入的Key的顺序返回</span>
+[<span style="color: #800000">'</span><span style="color: #800000">z</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">y</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">x</span><span style="color: #800000">'</span>]</pre>
+</div>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiUyMmlkJTIyJTNBJTIyZGVmYXVsdGRpY3QlMjIlN0QlMkMlMjJraW5kJTIyJTNBJTIyYmxvY2slMjIlMkMlMjJpc1ZvaWQlMjIlM0FmYWxzZSUyQyUyMnR5cGUlMjIlM0ElMjJoZWFkZXJfdGhyZWUlMjIlMkMlMjJub2RlcyUyMiUzQSU1QiU3QiUyMmtpbmQlMjIlM0ElMjJ0ZXh0JTIyJTJDJTIycmFuZ2VzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMmRlZmF1bHRkaWN0JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlNUQlN0QlNUQlN0QlNUQlN0Q=">defaultdict</span>&nbsp;</h3>
+<p><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMnBhcmFncmFwaCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU0JUJEJUJGJUU3JTk0JUE4JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyZGljdCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJtYXJrJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNPREUlMjIlN0QlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyJUU2JTk3JUI2JUVGJUJDJThDJUU1JUE2JTgyJUU2JTlFJTlDJUU1JUJDJTk1JUU3JTk0JUE4JUU3JTlBJTg0S2V5JUU0JUI4JThEJUU1JUFEJTk4JUU1JTlDJUE4JUVGJUJDJThDJUU1JUIwJUIxJUU0JUJDJTlBJUU2JThBJTlCJUU1JTg3JUJBJTIyJTJDJTIybWFya3MlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyS2V5RXJyb3IlMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU3QiUyMmRhdGElMjIlM0ElN0IlN0QlMkMlMjJraW5kJTIyJTNBJTIybWFyayUyMiUyQyUyMnR5cGUlMjIlM0ElMjJDT0RFJTIyJTdEJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMiVFMyU4MCU4MiVFNSVBNiU4MiVFNiU5RSU5QyVFNSVCOCU4QyVFNiU5QyU5QmtleSVFNCVCOCU4RCVFNSVBRCU5OCVFNSU5QyVBOCVFNiU5NyVCNiVFRiVCQyU4QyVFOCVCRiU5NCVFNSU5QiU5RSVFNCVCOCU4MCVFNCVCOCVBQSVFOSVCQiU5OCVFOCVBRSVBNCVFNSU4MCVCQyVFRiVCQyU4QyVFNSVCMCVCMSVFNSU4RiVBRiVFNCVCQiVBNSVFNyU5NCVBOCUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTJDJTdCJTIya2luZCUyMiUzQSUyMnJhbmdlJTIyJTJDJTIydGV4dCUyMiUzQSUyMmRlZmF1bHRkaWN0JTIyJTJDJTIybWFya3MlMjIlM0ElNUIlN0IlMjJkYXRhJTIyJTNBJTdCJTdEJTJDJTIya2luZCUyMiUzQSUyMm1hcmslMjIlMkMlMjJ0eXBlJTIyJTNBJTIyQ09ERSUyMiU3RCU1RCU3RCUyQyU3QiUyMmtpbmQlMjIlM0ElMjJyYW5nZSUyMiUyQyUyMnRleHQlMjIlM0ElMjIlRUYlQkMlOUElMjIlMkMlMjJtYXJrcyUyMiUzQSU1QiU1RCU3RCU1RCU3RCU1RCU3RCU1RCU3RA=="><code class="python plain">有如下值集合 [</code><code class="python value">11</code><code class="python plain">,</code><code class="python value">22</code><code class="python plain">,</code><code class="python value">33</code><code class="python plain">,</code><code class="python value">44</code><code class="python plain">,</code><code class="python value">55</code><code class="python plain">,</code><code class="python value">66</code><code class="python plain">,</code><code class="python value">77</code><code class="python plain">,</code><code class="python value">88</code><code class="python plain">,</code><code class="python value">99</code><code class="python plain">,</code><code class="python value">90.</code><code class="python plain">..]，将所有大于&nbsp;</code><code class="python value">66</code>&nbsp;<code class="python plain">的值保存至字典的第一个key中，将小于&nbsp;</code><code class="python value">66</code>&nbsp;<code class="python plain">的值保存至第二个key的值中。</code></span></p>
+<div class="line number2 index1 alt1"><code class="python plain">即： {</code><code class="python string">'k1'</code><code class="python plain">: 大于</code><code class="python value">66</code>&nbsp;<code class="python plain">,&nbsp;</code><code class="python string">'k2'</code><code class="python plain">: 小于</code><code class="python value">66</code><code class="python plain">}</code></div>
+<div class="line number2 index1 alt1">
+<div class="cnblogs_code"><img id="code_img_closed_c0ec4981-cb22-44fc-abb2-131f23d6e2b4" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_c0ec4981-cb22-44fc-abb2-131f23d6e2b4" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_c0ec4981-cb22-44fc-abb2-131f23d6e2b4" class="cnblogs_code_hide">
+<pre>values = [11, 22, 33,44,55,66,77,88,99,90<span style="color: #000000">]
+
+my_dict </span>=<span style="color: #000000"> {}
+
+</span><span style="color: #0000ff">for</span> value <span style="color: #0000ff">in</span><span style="color: #000000">  values:
+    </span><span style="color: #0000ff">if</span> value&gt;66<span style="color: #000000">:
+        </span><span style="color: #0000ff">if</span> my_dict.has_key(<span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span><span style="color: #000000">):
+            my_dict[</span><span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span><span style="color: #000000">].append(value)
+        </span><span style="color: #0000ff">else</span><span style="color: #000000">:
+            my_dict[</span><span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span>] =<span style="color: #000000"> [value]
+    </span><span style="color: #0000ff">else</span><span style="color: #000000">:
+        </span><span style="color: #0000ff">if</span> my_dict.has_key(<span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span><span style="color: #000000">):
+            my_dict[</span><span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span><span style="color: #000000">].append(value)
+        </span><span style="color: #0000ff">else</span><span style="color: #000000">:
+            my_dict[</span><span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>] = [value]</pre>
+</div>
+<span class="cnblogs_code_collapse">原生字典解决方法</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_e63f6acf-df55-4728-83af-59fc5b5f6c46" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_e63f6acf-df55-4728-83af-59fc5b5f6c46" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_e63f6acf-df55-4728-83af-59fc5b5f6c46" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">from</span> collections <span style="color: #0000ff">import</span><span style="color: #000000"> defaultdict
+
+values </span>= [11, 22, 33,44,55,66,77,88,99,90<span style="color: #000000">]
+
+my_dict </span>=<span style="color: #000000"> defaultdict(list)
+
+</span><span style="color: #0000ff">for</span> value <span style="color: #0000ff">in</span><span style="color: #000000">  values:
+    </span><span style="color: #0000ff">if</span> value&gt;66<span style="color: #000000">:
+        my_dict[</span><span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span><span style="color: #000000">].append(value)
+    </span><span style="color: #0000ff">else</span><span style="color: #000000">:
+        my_dict[</span><span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>].append(value)</pre>
+</div>
+<span class="cnblogs_code_collapse">defaultdict字典解决方法</span></div>
+<p>使<span data-offset-key="402-0">用<span data-offset-key="402-1"><code>dict</code><span data-offset-key="402-2">时，如果引用的Key不存在，就会抛出<span data-offset-key="402-3"><code>KeyError</code><span data-offset-key="402-4">。如果希望key不存在时，返回一个默认值，就可以用<span data-offset-key="402-5"><code>defaultdict</code><span data-offset-key="402-6">：</span></span></span></span></span></span></span></p>
+</div>
+<div class="cnblogs_code"><img id="code_img_closed_b961e24b-7c11-4ac1-9305-e6880bd1aac8" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_b961e24b-7c11-4ac1-9305-e6880bd1aac8" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_b961e24b-7c11-4ac1-9305-e6880bd1aac8" class="cnblogs_code_hide">
+<pre>&gt;&gt;&gt; <span style="color: #0000ff">from</span> collections <span style="color: #0000ff">import</span><span style="color: #000000"> defaultdict
+</span>&gt;&gt;&gt; dd = defaultdict(<span style="color: #0000ff">lambda</span>: <span style="color: #800000">'</span><span style="color: #800000">N/A</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span>&gt;&gt;&gt; dd[<span style="color: #800000">'</span><span style="color: #800000">key1</span><span style="color: #800000">'</span>] = <span style="color: #800000">'</span><span style="color: #800000">abc</span><span style="color: #800000">'</span>
+&gt;&gt;&gt; dd[<span style="color: #800000">'</span><span style="color: #800000">key1</span><span style="color: #800000">'</span>] <span style="color: #008000">#</span><span style="color: #008000"> key1存在</span>
+<span style="color: #800000">'</span><span style="color: #800000">abc</span><span style="color: #800000">'</span>
+&gt;&gt;&gt; dd[<span style="color: #800000">'</span><span style="color: #800000">key2</span><span style="color: #800000">'</span>] <span style="color: #008000">#</span><span style="color: #008000"> key2不存在，返回默认值</span>
+<span style="color: #800000">'</span><span style="color: #800000">N/A</span><span style="color: #800000">'</span></pre>
+</div>
+<span class="cnblogs_code_collapse">例2</span></div>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span data-slate-fragment="JTdCJTIyZGF0YSUyMiUzQSU3QiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJkb2N1bWVudCUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIyZGF0YSUyMiUzQSU3QiUyMmlkJTIyJTNBJTIyY291bnRlciUyMiU3RCUyQyUyMmtpbmQlMjIlM0ElMjJibG9jayUyMiUyQyUyMmlzVm9pZCUyMiUzQWZhbHNlJTJDJTIydHlwZSUyMiUzQSUyMmhlYWRlcl90aHJlZSUyMiUyQyUyMm5vZGVzJTIyJTNBJTVCJTdCJTIya2luZCUyMiUzQSUyMnRleHQlMjIlMkMlMjJyYW5nZXMlMjIlM0ElNUIlN0IlMjJraW5kJTIyJTNBJTIycmFuZ2UlMjIlMkMlMjJ0ZXh0JTIyJTNBJTIyQ291bnRlciUyMiUyQyUyMm1hcmtzJTIyJTNBJTVCJTVEJTdEJTVEJTdEJTVEJTdEJTVEJTdE">Counter</span></h3>
+<p>Counter类的目的是用来跟踪值出现的次数。它是一个无序的容器类型，以字典的键值对形式存储，其中元素作为key，其计数作为value。计数值可以是任意的Interger（包括0和负数）。Counter类和其他语言的bags或multisets很相似。</p>
+<div class="cnblogs_code">
+<pre>c = Counter(<span style="color: #800000">'</span><span style="color: #800000">abcdeabcdabcaba</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span><span style="color: #000000"> c
+输出：Counter({</span><span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>: 5, <span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>: 4, <span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>: 3, <span style="color: #800000">'</span><span style="color: #800000">d</span><span style="color: #800000">'</span>: 2, <span style="color: #800000">'</span><span style="color: #800000">e</span><span style="color: #800000">'</span>: 1})</pre>
+</div>
+<pre>其他详细内容 <a href="http://www.cnblogs.com/Eva-J/articles/7291842.html" target="_blank">http://www.cnblogs.com/Eva-J/articles/7291842.html</a></pre>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label5"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">时间模块</span></p>
+<p>和时间有关系的我们就要用到时间模块。在使用模块之前，应该首先导入这个模块。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">#</span><span style="color: #008000">常用方法</span>
+1<span style="color: #000000">.time.sleep(secs)
+(线程)推迟指定的时间运行。单位为秒。
+</span>2<span style="color: #000000">.time.time()
+获取当前时间戳</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong style="font-size: 15px">表示时间的三种方式</strong></p>
+<p>在Python中，通常有这三种方式来表示时间：时间戳、元组(struct_time)、格式化的时间字符串：</p>
+<p>(1)时间戳(timestamp) ：通常来说，时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。</p>
+<p>(2)格式化的时间字符串(Format String)： ‘1999-12-06’</p>
+<div class="cnblogs_code"><img id="code_img_closed_14b49d54-c528-445c-9c7e-a643ffea8ff8" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_14b49d54-c528-445c-9c7e-a643ffea8ff8" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_14b49d54-c528-445c-9c7e-a643ffea8ff8" class="cnblogs_code_hide">
+<pre>%y 两位数的年份表示（00-99<span style="color: #000000">）
+</span>%Y 四位数的年份表示（000-9999<span style="color: #000000">）
+</span>%m 月份（01-12<span style="color: #000000">）
+</span>%d 月内中的一天（0-31<span style="color: #000000">）
+</span>%H 24小时制小时数（0-23<span style="color: #000000">）
+</span>%I 12小时制小时数（01-12<span style="color: #000000">）
+</span>%M 分钟数（00=59<span style="color: #000000">）
+</span>%S 秒（00-59<span style="color: #000000">）
+</span>%<span style="color: #000000">a 本地简化星期名称
+</span>%<span style="color: #000000">A 本地完整星期名称
+</span>%<span style="color: #000000">b 本地简化的月份名称
+</span>%<span style="color: #000000">B 本地完整的月份名称
+</span>%<span style="color: #000000">c 本地相应的日期表示和时间表示
+</span>%j 年内的一天（001-366<span style="color: #000000">）
+</span>%<span style="color: #000000">p 本地A.M.或P.M.的等价符
+</span>%U 一年中的星期数（00-53<span style="color: #000000">）星期天为星期的开始
+</span>%w 星期（0-6<span style="color: #000000">），星期天为星期的开始
+</span>%W 一年中的星期数（00-53<span style="color: #000000">）星期一为星期的开始
+</span>%<span style="color: #000000">x 本地相应的日期表示
+</span>%<span style="color: #000000">X 本地相应的时间表示
+</span>%<span style="color: #000000">Z 当前时区的名称
+</span>%% %号本身</pre>
+</div>
+<span class="cnblogs_code_collapse">python中时间日期格式化符号：</span></div>
+<p>(3)元组(struct_time) ：struct_time元组共有9个元素共九个元素:(年，月，日，时，分，秒，一年中第几周，一年中第几天等）</p>
+<table border="1">
+<tbody>
+<tr><th>索引（Index）</th><th>属性（Attribute）</th><th>值（Values）</th></tr>
+<tr>
+<td>0</td>
+<td>tm_year（年）</td>
+<td>比如2011</td>
+</tr>
+<tr>
+<td>1</td>
+<td>tm_mon（月）</td>
+<td>1 - 12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>tm_mday（日）</td>
+<td>1 - 31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>tm_hour（时）</td>
+<td>0 - 23</td>
+</tr>
+<tr>
+<td>4</td>
+<td>tm_min（分）</td>
+<td>0 - 59</td>
+</tr>
+<tr>
+<td>5</td>
+<td>tm_sec（秒）</td>
+<td>0 - 60</td>
+</tr>
+<tr>
+<td>6</td>
+<td>tm_wday（weekday）</td>
+<td>0 - 6（0表示周一）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>tm_yday（一年中的第几天）</td>
+<td>1 - 366</td>
+</tr>
+<tr>
+<td>8</td>
+<td>tm_isdst（是否是夏令时）</td>
+<td>默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;首先，我们先导入time模块，来认识一下python中表示时间的几种格式：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">#</span><span style="color: #008000">导入时间模块</span>
+&gt;&gt;&gt;<span style="color: #0000ff">import</span><span style="color: #000000"> time
+
+</span><span style="color: #008000">#</span><span style="color: #008000">时间戳</span>
+&gt;&gt;&gt;<span style="color: #000000">time.time()
+</span>1500875844.800804
+
+<span style="color: #008000">#</span><span style="color: #008000">时间字符串</span>
+&gt;&gt;&gt;time.strftime(<span style="color: #800000">"</span><span style="color: #800000">%Y-%m-%d %X</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #800000">'</span><span style="color: #800000">2017-07-24 13:54:37</span><span style="color: #800000">'</span>
+&gt;&gt;&gt;time.strftime(<span style="color: #800000">"</span><span style="color: #800000">%Y-%m-%d %H-%M-%S</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #800000">'</span><span style="color: #800000">2017-07-24 13-55-04</span><span style="color: #800000">'</span>
+
+<span style="color: #008000">#</span><span style="color: #008000">时间元组:localtime将一个时间戳转换为当前时区的struct_time</span>
+<span style="color: #000000">time.localtime()
+time.struct_time(tm_year</span>=2017, tm_mon=7, tm_mday=24<span style="color: #000000">,
+　　　　　　　　　　tm_hour</span>=13, tm_min=59, tm_sec=37<span style="color: #000000">, 
+                 tm_wday</span>=0, tm_yday=205, tm_isdst=0)</pre>
+</div>
+<p>小结：时间戳是计算机能够识别的时间；时间字符串是人能够看懂的时间；元组则是用来操作时间的</p>
+<p><span style="font-size: 15px"><strong>几种格式之间的转换</strong></span></p>
+<p><img src="https://images2015.cnblogs.com/blog/827651/201707/827651-20170724144151992-1508626640.png" alt="" width="393" height="205"></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">#</span><span style="color: #008000">时间戳--&gt;结构化时间</span><span style="color: #008000">
+#</span><span style="color: #008000">time.gmtime(时间戳)    #UTC时间，与英国伦敦当地时间一致</span><span style="color: #008000">
+#</span><span style="color: #008000">time.localtime(时间戳) #当地时间。例如我们现在在北京执行这个方法：与UTC时间相差8小时，UTC时间+8小时 = 北京时间 </span>
+&gt;&gt;&gt;time.gmtime(1500000000<span style="color: #000000">)
+time.struct_time(tm_year</span>=2017, tm_mon=7, tm_mday=14, tm_hour=2, tm_min=40, tm_sec=0, tm_wday=4, tm_yday=195, tm_isdst=<span style="color: #000000">0)
+</span>&gt;&gt;&gt;time.localtime(1500000000<span style="color: #000000">)
+time.struct_time(tm_year</span>=2017, tm_mon=7, tm_mday=14, tm_hour=10, tm_min=40, tm_sec=0, tm_wday=4, tm_yday=195, tm_isdst=<span style="color: #000000">0)
+
+</span><span style="color: #008000">#</span><span style="color: #008000">结构化时间--&gt;时间戳　</span><span style="color: #008000">
+#</span><span style="color: #008000">time.mktime(结构化时间)</span>
+&gt;&gt;&gt;time_tuple = time.localtime(1500000000<span style="color: #000000">)
+</span>&gt;&gt;&gt;<span style="color: #000000">time.mktime(time_tuple)
+</span>1500000000.0</pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">#</span><span style="color: #008000">结构化时间--&gt;字符串时间</span><span style="color: #008000">
+#</span><span style="color: #008000">time.strftime("格式定义","结构化时间")  结构化时间参数若不传，则显示当前时间</span>
+&gt;&gt;&gt;time.strftime(<span style="color: #800000">"</span><span style="color: #800000">%Y-%m-%d %X</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #800000">'</span><span style="color: #800000">2017-07-24 14:55:36</span><span style="color: #800000">'</span>
+&gt;&gt;&gt;time.strftime(<span style="color: #800000">"</span><span style="color: #800000">%Y-%m-%d</span><span style="color: #800000">"</span>,time.localtime(1500000000<span style="color: #000000">))
+</span><span style="color: #800000">'</span><span style="color: #800000">2017-07-14</span><span style="color: #800000">'</span>
+
+<span style="color: #008000">#</span><span style="color: #008000">字符串时间--&gt;结构化时间</span><span style="color: #008000">
+#</span><span style="color: #008000">time.strptime(时间字符串,字符串对应格式)</span>
+&gt;&gt;&gt;time.strptime(<span style="color: #800000">"</span><span style="color: #800000">2017-03-16</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">%Y-%m-%d</span><span style="color: #800000">"</span><span style="color: #000000">)
+time.struct_time(tm_year</span>=2017, tm_mon=3, tm_mday=16, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=75, tm_isdst=-1<span style="color: #000000">)
+</span>&gt;&gt;&gt;time.strptime(<span style="color: #800000">"</span><span style="color: #800000">07/24/2017</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">%m/%d/%Y</span><span style="color: #800000">"</span><span style="color: #000000">)
+time.struct_time(tm_year</span>=2017, tm_mon=7, tm_mday=24, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=205, tm_isdst=-1)</pre>
+</div>
+<p>&nbsp;</p>
+<p><img src="https://images2015.cnblogs.com/blog/827651/201707/827651-20170724144235883-1963884021.png" alt="" width="421" height="225"></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">#</span><span style="color: #008000">结构化时间 --&gt; %a %b %d %H:%M:%S %Y串</span><span style="color: #008000">
+#</span><span style="color: #008000">time.asctime(结构化时间) 如果不传参数，直接返回当前时间的格式化串</span>
+&gt;&gt;&gt;time.asctime(time.localtime(1500000000<span style="color: #000000">))
+</span><span style="color: #800000">'</span><span style="color: #800000">Fri Jul 14 10:40:00 2017</span><span style="color: #800000">'</span>
+&gt;&gt;&gt;<span style="color: #000000">time.asctime()
+</span><span style="color: #800000">'</span><span style="color: #800000">Mon Jul 24 15:18:33 2017</span><span style="color: #800000">'</span>
+
+<span style="color: #008000">#</span><span style="color: #008000">时间戳 --&gt; %a %b %d %H:%M:%S %Y串</span><span style="color: #008000">
+#</span><span style="color: #008000">time.ctime(时间戳)  如果不传参数，直接返回当前时间的格式化串</span>
+&gt;&gt;&gt;<span style="color: #000000">time.ctime()
+</span><span style="color: #800000">'</span><span style="color: #800000">Mon Jul 24 15:19:07 2017</span><span style="color: #800000">'</span>
+&gt;&gt;&gt;time.ctime(1500000000<span style="color: #000000">)
+</span><span style="color: #800000">'</span><span style="color: #800000">Fri Jul 14 10:40:00 2017</span><span style="color: #800000">'</span>&nbsp;</pre>
+</div>
+<div class="cnblogs_code"><img id="code_img_closed_d18b3979-31db-4a0c-9919-819525ab5c2d" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_d18b3979-31db-4a0c-9919-819525ab5c2d" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_d18b3979-31db-4a0c-9919-819525ab5c2d" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> time
+true_time</span>=time.mktime(time.strptime(<span style="color: #800000">'</span><span style="color: #800000">2017-09-11 08:30:00</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">%Y-%m-%d %H:%M:%S</span><span style="color: #800000">'</span><span style="color: #000000">))
+time_now</span>=time.mktime(time.strptime(<span style="color: #800000">'</span><span style="color: #800000">2017-09-12 11:00:00</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">%Y-%m-%d %H:%M:%S</span><span style="color: #800000">'</span><span style="color: #000000">))
+dif_time</span>=time_now-<span style="color: #000000">true_time
+struct_time</span>=<span style="color: #000000">time.gmtime(dif_time)
+</span><span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">过去了%d年%d月%d天%d小时%d分钟%d秒</span><span style="color: #800000">'</span>%(struct_time.tm_year-1970,struct_time.tm_mon-1<span style="color: #000000">,
+                                       struct_time.tm_mday</span>-1,struct_time.tm_hour<span style="color: #000000">,
+                                       struct_time.tm_min,struct_time.tm_sec))</span></pre>
+</div>
+<span class="cnblogs_code_collapse">计算时间差</span></div>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label6"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">random模块</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>&gt;&gt;&gt; <span style="color: #0000ff">import</span><span style="color: #000000"> random
+</span><span style="color: #008000">#</span><span style="color: #008000">随机小数</span>
+&gt;&gt;&gt; random.random()      <span style="color: #008000">#</span><span style="color: #008000"> 大于0且小于1之间的小数</span>
+0.7664338663654585
+&gt;&gt;&gt; random.uniform(1,3) <span style="color: #008000">#</span><span style="color: #008000">大于1小于3的小数</span>
+1.6270147180533838<br>#恒富：发红包
+
+<span style="color: #008000">#</span><span style="color: #008000">随机整数</span>
+&gt;&gt;&gt; random.randint(1,5)  <span style="color: #008000">#</span><span style="color: #008000"> 大于等于1且小于等于5之间的整数</span>
+&gt;&gt;&gt; random.randrange(1,10,2) <span style="color: #008000">#</span><span style="color: #008000"> 大于等于1且小于10之间的奇数</span>
+
+
+<span style="color: #008000">#</span><span style="color: #008000">随机选择一个返回</span>
+&gt;&gt;&gt; random.choice([1,<span style="color: #800000">'</span><span style="color: #800000">23</span><span style="color: #800000">'</span>,[4,5]])  <span style="color: #008000">#</span><span style="color: #008000"> #1或者23或者[4,5]</span><span style="color: #008000">
+#</span><span style="color: #008000">随机选择多个返回，返回的个数为函数的第二个参数</span>
+&gt;&gt;&gt; random.sample([1,<span style="color: #800000">'</span><span style="color: #800000">23</span><span style="color: #800000">'</span>,[4,5]],2) <span style="color: #008000">#</span><span style="color: #008000"> #列表元素任意2个组合</span>
+[[4, 5], <span style="color: #800000">'</span><span style="color: #800000">23</span><span style="color: #800000">'</span><span style="color: #000000">]
+
+
+</span><span style="color: #008000">#</span><span style="color: #008000">打乱列表顺序</span>
+&gt;&gt;&gt; item=[1,3,5,7,9<span style="color: #000000">]
+</span>&gt;&gt;&gt; random.shuffle(item) <span style="color: #008000">#</span><span style="color: #008000"> 打乱次序</span>
+&gt;&gt;&gt;<span style="color: #000000"> item
+[</span>5, 1, 3, 7, 9<span style="color: #000000">]
+</span>&gt;&gt;&gt;<span style="color: #000000"> random.shuffle(item)
+</span>&gt;&gt;&gt;<span style="color: #000000"> item
+[</span>5, 9, 7, 1, 3]</pre>
+</div>
+<p>练习：生成随机验证码</p>
+<div class="cnblogs_code"><img id="code_img_closed_13385c04-31ef-4bf0-8f66-04b0fbc916ea" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_13385c04-31ef-4bf0-8f66-04b0fbc916ea" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_13385c04-31ef-4bf0-8f66-04b0fbc916ea" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> random
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> v_code():
+
+    code </span>= <span style="color: #800000">''</span>
+    <span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(5<span style="color: #000000">):
+
+        num</span>=random.randint(0,9<span style="color: #000000">)
+        alf</span>=chr(random.randint(65,90<span style="color: #000000">))
+        add</span>=<span style="color: #000000">random.choice([num,alf])
+        code</span>=<span style="color: #800000">""</span><span style="color: #000000">.join([code,str(add)])
+
+    </span><span style="color: #0000ff">return</span><span style="color: #000000"> code
+
+</span><span style="color: #0000ff">print</span>(v_code())</pre>
+</div>
+<span class="cnblogs_code_collapse">生成验证码</span></div>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label7"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">os模块</span></p>
+<p>&nbsp;os模块是与操作系统交互<span style="font-size: 14px">的一个接口</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000">'''</span><span style="color: #800000">
+os.getcwd() 获取当前工作目录，即当前python脚本工作的目录路径
+os.chdir("dirname")  改变当前脚本工作目录；相当于shell下cd
+os.curdir  返回当前目录: ('.')
+os.pardir  获取当前目录的父目录字符串名：('..')
+os.makedirs('dirname1/dirname2')    可生成多层递归目录
+os.removedirs('dirname1')    若目录为空，则删除，并递归到上一级目录，如若也为空，则删除，依此类推
+os.mkdir('dirname')    生成单级目录；相当于shell中mkdir dirname
+os.rmdir('dirname')    删除单级空目录，若目录不为空则无法删除，报错；相当于shell中rmdir dirname
+os.listdir('dirname')    列出指定目录下的所有文件和子目录，包括隐藏文件，并以列表方式打印
+os.remove()  删除一个文件
+os.rename("oldname","newname")  重命名文件/目录
+os.stat('path/filename')  获取文件/目录信息
+os.sep    输出操作系统特定的路径分隔符，win下为"\\",Linux下为"/"
+os.linesep    输出当前平台使用的行终止符，win下为"\t\n",Linux下为"\n"
+os.pathsep    输出用于分割文件路径的字符串 win下为;,Linux下为:
+os.name    输出字符串指示当前使用平台。win-&gt;'nt'; Linux-&gt;'posix'
+os.system("bash command")  运行shell命令，直接显示
+os.popen("bash command).read()  运行shell命令，获取执行结果
+os.environ  获取系统环境变量
+<br></span></pre>
+<pre>os.path</pre>
+<pre><span style="color: #800000">os.path.abspath(path) 返回path规范化的绝对路径 os.path.split(path) 将path分割成目录和文件名二元组返回 os.path.dirname(path) 返回path的目录。其实就是os.path.split(path)的第一个元素 os.path.basename(path) 返回path最后的文件名。如何path以／或\结尾，那么就会返回空值。
+                        即os.path.split(path)的第二个元素
+os.path.exists(path)  如果path存在，返回True；如果path不存在，返回False
+os.path.isabs(path)  如果path是绝对路径，返回True
+os.path.isfile(path)  如果path是一个存在的文件，返回True。否则返回False
+os.path.isdir(path)  如果path是一个存在的目录，则返回True。否则返回False
+os.path.join(path1[, path2[, ...]])  将多个路径组合后返回，第一个绝对路径之前的参数将被忽略
+os.path.getatime(path)  返回path所指向的文件或者目录的最后访问时间
+os.path.getmtime(path)  返回path所指向的文件或者目录的最后修改时间
+os.path.getsize(path) 返回path的大小
+</span><span style="color: #800000">'''</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<style>p.p1 { margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px "Helvetica Neue"; color: #454545 }
+span.s1 { font: 12.0px ".PingFang SC" }</style>
+<p class="p1"><span class="s1">注意：os.stat<span class="s1">('path/filename'<span class="s1">)<span class="Apple-converted-space">&nbsp; <span class="s1">获取文件/<span class="s1">目录信息 <span class="s1">的结构说明</span></span></span></span></span></span></span></p>
+<div class="cnblogs_code"><img id="code_img_closed_8fbf8602-1e33-4ece-9f17-a052cc8b0fbe" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_8fbf8602-1e33-4ece-9f17-a052cc8b0fbe" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_8fbf8602-1e33-4ece-9f17-a052cc8b0fbe" class="cnblogs_code_hide">
+<pre><span style="color: #000000">stat 结构:
+
+st_mode: inode 保护模式
+st_ino: inode 节点号。
+st_dev: inode 驻留的设备。
+st_nlink: inode 的链接数。
+st_uid: 所有者的用户ID。
+st_gid: 所有者的组ID。
+st_size: 普通文件以字节为单位的大小；包含等待某些特殊文件的数据。
+st_atime: 上次访问的时间。
+st_mtime: 最后一次修改的时间。
+st_ctime: 由操作系统报告的</span><span style="color: #800000">"</span><span style="color: #800000">ctime</span><span style="color: #800000">"</span>。在某些系统上（如Unix）是最新的元数据更改的时间，在其它系统上（如Windows）是创建时间（详细信息参见平台的文档）。</pre>
+</div>
+<span class="cnblogs_code_collapse">stat 结构</span></div>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label8"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">sys模块</span></p>
+<p><span style="font-size: 14px"><span style="font-family: &quot;Helvetica Neue&quot;; color: #454545">sys模块是与</span><span class="s1" style="color: #454545">python解释器交互的一个接口</span></span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">sys.argv           命令行参数List，第一个元素是程序本身路径
+sys.exit(n)        退出程序，正常退出时exit(0),错误退出sys.exit(1)
+sys.version        获取Python解释程序的版本信息
+sys.path           返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值
+sys.platform       返回操作系统平台名称</span></pre>
+</div>
+<div class="cnblogs_code"><img id="code_img_closed_ac1c3ae8-fd62-4ba1-9a01-aed025fca225" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_ac1c3ae8-fd62-4ba1-9a01-aed025fca225" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_ac1c3ae8-fd62-4ba1-9a01-aed025fca225" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> sys
+</span><span style="color: #0000ff">try</span><span style="color: #000000">:
+    sys.exit(</span>1<span style="color: #000000">)
+</span><span style="color: #0000ff">except</span><span style="color: #000000"> SystemExit as e:
+    </span><span style="color: #0000ff">print</span>(e)</pre>
+</div>
+<span class="cnblogs_code_collapse">异常处理和status</span></div>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label9"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">序列化模块</span></p>
+<p>&nbsp;</p>
+<p>什么叫序列化——将原本的字典、列表等内容转换成一个字符串的过程就叫做<span style="font-size: 16px"><strong>序列化</strong></span>。</p>
+<div class="cnblogs_code"><img id="code_img_closed_5ad935de-7312-41d1-9acc-3eae6d29719a" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_5ad935de-7312-41d1-9acc-3eae6d29719a" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_5ad935de-7312-41d1-9acc-3eae6d29719a" class="cnblogs_code_hide">
+<pre><span style="color: #000000">比如，我们在python代码中计算的一个数据需要给另外一段程序使用，那我们怎么给？
+现在我们能想到的方法就是存在文件里，然后另一个python程序再从文件里读出来。
+但是我们都知道，对于文件来说是没有字典这个概念的，所以我们只能将数据转换成字典放到文件中。
+你一定会问，将字典转换成一个字符串很简单，就是str(dic)就可以办到了，为什么我们还要学习序列化模块呢？
+没错序列化的过程就是从dic 变成str(dic)的过程。现在你可以通过str(dic)，将一个名为dic的字典转换成一个字符串，
+但是你要怎么把一个字符串转换成字典呢？
+聪明的你肯定想到了eval()，如果我们将一个字符串类型的字典str_dic传给eval，就会得到一个返回的字典类型了。
+eval()函数十分强大，但是eval是做什么的？e官方demo解释为：将字符串str当成有效的表达式来求值并返回计算结果。
+ＢＵＴ！强大的函数有代价。安全性是其最大的缺点。
+想象一下，如果我们从文件中读出的不是一个数据结构，而是一句</span><span style="color: #800000">"</span><span style="color: #800000">删除文件</span><span style="color: #800000">"</span><span style="color: #000000">类似的破坏性语句，那么后果实在不堪设设想。
+而使用eval就要担这个风险。
+所以，我们并不推荐用eval方法来进行反序列化操作(将str转换成python中的数据结构)</span></pre>
+</div>
+<span class="cnblogs_code_collapse">为什么要有序列化模块</span></div>
+<p><strong style="color: #454545; font-family: &quot;.PingFang SC&quot;; font-size: 12px"><span style="font-size: 15px">序列化的目的</span></strong></p>
+<div class="para">1、以某种存储形式使自定义<a href="https://baike.baidu.com/item/%E5%AF%B9%E8%B1%A1%E6%8C%81%E4%B9%85%E5%8C%96" target="_blank">对象持久化</a>；</div>
+<div class="para">2、将对象从一个地方传递到另一个地方。</div>
+<div class="para">3、使程序更具维护性。</div>
+<div class="para"><img src="https://images2017.cnblogs.com/blog/827651/201708/827651-20170805234418803-1378181341.png" alt="" width="490" height="128">
+<p>&nbsp;</p>
+</div>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span style="font-size: 15px"><strong>json</strong></span></h3>
+<style>p.p1 { margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px "Helvetica Neue"; color: #454545 }</style>
+<p class="p1"><span style="font-size: 14px">Json模块提供了四个功能：dumps、dump、loads、load</span></p>
+<div class="cnblogs_code"><img id="code_img_closed_535e2578-2af5-43b4-9173-dcdbd13a435f" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_535e2578-2af5-43b4-9173-dcdbd13a435f" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_535e2578-2af5-43b4-9173-dcdbd13a435f" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> json
+dic </span>= {<span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v1</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v2</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k3</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v3</span><span style="color: #800000">'</span><span style="color: #000000">}
+str_dic </span>= json.dumps(dic)  <span style="color: #008000">#</span><span style="color: #008000">序列化：将一个字典转换成一个字符串</span>
+<span style="color: #0000ff">print</span>(type(str_dic),str_dic)  <span style="color: #008000">#</span><span style="color: #008000">&lt;class 'str'&gt; {"k3": "v3", "k1": "v1", "k2": "v2"}</span><span style="color: #008000">
+#</span><span style="color: #008000">注意，json转换完的字符串类型的字典中的字符串是由""表示的</span>
+<span style="color: #000000">
+dic2 </span>= json.loads(str_dic)  <span style="color: #008000">#</span><span style="color: #008000">反序列化：将一个字符串格式的字典转换成一个字典</span><span style="color: #008000">
+#</span><span style="color: #008000">注意，要用json的loads功能处理的字符串类型的字典中的字符串必须由""表示</span>
+<span style="color: #0000ff">print</span>(type(dic2),dic2)  <span style="color: #008000">#</span><span style="color: #008000">&lt;class 'dict'&gt; {'k1': 'v1', 'k2': 'v2', 'k3': 'v3'}</span>
+<span style="color: #000000">
+
+list_dic </span>= [1,[<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">b</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">c</span><span style="color: #800000">'</span>],3,{<span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v1</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v2</span><span style="color: #800000">'</span><span style="color: #000000">}]
+str_dic </span>= json.dumps(list_dic) <span style="color: #008000">#</span><span style="color: #008000">也可以处理嵌套的数据类型 </span>
+<span style="color: #0000ff">print</span>(type(str_dic),str_dic) <span style="color: #008000">#</span><span style="color: #008000">&lt;class 'str'&gt; [1, ["a", "b", "c"], 3, {"k1": "v1", "k2": "v2"}]</span>
+list_dic2 =<span style="color: #000000"> json.loads(str_dic)
+</span><span style="color: #0000ff">print</span>(type(list_dic2),list_dic2) <span style="color: #008000">#</span><span style="color: #008000">&lt;class 'list'&gt; [1, ['a', 'b', 'c'], 3, {'k1': 'v1', 'k2': 'v2'}]</span></pre>
+</div>
+<span class="cnblogs_code_collapse">loads和dumps</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_332430de-37bc-4cf4-87be-9357e26b7fe5" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_332430de-37bc-4cf4-87be-9357e26b7fe5" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_332430de-37bc-4cf4-87be-9357e26b7fe5" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> json
+f </span>= open(<span style="color: #800000">'</span><span style="color: #800000">json_file</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">w</span><span style="color: #800000">'</span><span style="color: #000000">)
+dic </span>= {<span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v1</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v2</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k3</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v3</span><span style="color: #800000">'</span><span style="color: #000000">}
+json.dump(dic,f)  </span><span style="color: #008000">#</span><span style="color: #008000">dump方法接收一个文件句柄，直接将字典转换成json字符串写入文件</span>
+<span style="color: #000000">f.close()
+
+f </span>= open(<span style="color: #800000">'</span><span style="color: #800000">json_file</span><span style="color: #800000">'</span><span style="color: #000000">)
+dic2 </span>= json.load(f)  <span style="color: #008000">#</span><span style="color: #008000">load方法接收一个文件句柄，直接将文件中的json字符串转换成数据结构返回</span>
+<span style="color: #000000">f.close()
+</span><span style="color: #0000ff">print</span>(type(dic2),dic2)</pre>
+</div>
+<span class="cnblogs_code_collapse">load和dump</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_333c3d21-dd0d-4bd5-8611-0785cb187090" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_333c3d21-dd0d-4bd5-8611-0785cb187090" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_333c3d21-dd0d-4bd5-8611-0785cb187090" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> json
+f </span>= open(<span style="color: #800000">'</span><span style="color: #800000">file</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">w</span><span style="color: #800000">'</span><span style="color: #000000">)
+json.dump({</span><span style="color: #800000">'</span><span style="color: #800000">国籍</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">中国</span><span style="color: #800000">'</span><span style="color: #000000">},f)
+ret </span>= json.dumps({<span style="color: #800000">'</span><span style="color: #800000">国籍</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">中国</span><span style="color: #800000">'</span><span style="color: #000000">})
+f.write(ret</span>+<span style="color: #800000">'</span><span style="color: #800000">\n</span><span style="color: #800000">'</span><span style="color: #000000">)
+json.dump({</span><span style="color: #800000">'</span><span style="color: #800000">国籍</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">美国</span><span style="color: #800000">'</span>},f,ensure_ascii=<span style="color: #000000">False)
+ret </span>= json.dumps({<span style="color: #800000">'</span><span style="color: #800000">国籍</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">美国</span><span style="color: #800000">'</span>},ensure_ascii=<span style="color: #000000">False)
+f.write(ret</span>+<span style="color: #800000">'</span><span style="color: #800000">\n</span><span style="color: #800000">'</span><span style="color: #000000">)
+f.close()</span></pre>
+</div>
+<span class="cnblogs_code_collapse">ensure_ascii关键字参数</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_ac4025b3-a53a-4929-ae75-e0f3d6977685" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_ac4025b3-a53a-4929-ae75-e0f3d6977685" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_ac4025b3-a53a-4929-ae75-e0f3d6977685" class="cnblogs_code_hide">
+<pre><span style="color: #000000">Serialize obj to a JSON formatted str.(字符串表示的json对象) 
+<span style="color: #800000"><strong>Skipkeys</strong></span>：默认值是False，如果dict的keys内的数据不是python的基本类型(str,unicode,int,long,float,bool,None)，设置为False时，就会报TypeError的错误。此时设置成True，则会跳过这类key 
+<span style="color: #800000"><strong>ensure_ascii</strong></span>:，当它为True的时候，所有非ASCII码字符显示为\uXXXX序列，只需在dump时将ensure_ascii设置为False即可，此时存入json的中文即可正常显示。) 
+If check_circular </span><span style="color: #0000ff">is</span> false, then the circular reference check <span style="color: #0000ff">for</span> container types will be skipped <span style="color: #0000ff">and</span> a circular reference will result <span style="color: #0000ff">in</span> an OverflowError (<span style="color: #0000ff">or</span><span style="color: #000000"> worse). 
+If allow_nan </span><span style="color: #0000ff">is</span> false, then it will be a ValueError to serialize out of range float values (nan, inf, -inf) <span style="color: #0000ff">in</span> strict compliance of the JSON specification, instead of using the JavaScript equivalents (NaN, Infinity, -<span style="color: #000000">Infinity). 
+<span style="color: #800000"><strong>indent</strong></span>：应该是一个非负的整型，如果是0就是顶格分行显示，如果为空就是一行最紧凑显示，否则会换行且按照indent的数值显示前面的空白分行显示，这样打印出来的json数据也叫pretty</span>-<span style="color: #000000">printed json 
+<span style="color: #800000"><strong>separators</strong></span>：分隔符，实际上是(item_separator, dict_separator)的一个元组，默认的就是(‘,’,’:’)；这表示dictionary内keys之间用“,”隔开，而KEY和value之间用“：”隔开。 
+default(obj) </span><span style="color: #0000ff">is</span> a function that should <span style="color: #0000ff">return</span> a serializable version of obj <span style="color: #0000ff">or</span> <span style="color: #0000ff">raise</span><span style="color: #000000"> TypeError. The default simply raises TypeError. 
+<span style="color: #800000"><strong>sort_keys</strong></span>：将数据根据keys的值进行排序。 
+To use a custom JSONEncoder subclass (e.g. one that overrides the .default() method to serialize additional types), specify it with the cls kwarg; otherwise JSONEncoder </span><span style="color: #0000ff">is</span> used.</pre>
+</div>
+<span class="cnblogs_code_collapse">其他参数说明</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_33312f3f-5d83-4097-bc43-b3bd55ca78fc" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_33312f3f-5d83-4097-bc43-b3bd55ca78fc" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_33312f3f-5d83-4097-bc43-b3bd55ca78fc" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> json
+data </span>= {<span style="color: #800000">'</span><span style="color: #800000">username</span><span style="color: #800000">'</span>:[<span style="color: #800000">'</span><span style="color: #800000">李华</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">二愣子</span><span style="color: #800000">'</span>],<span style="color: #800000">'</span><span style="color: #800000">sex</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">male</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">age</span><span style="color: #800000">'</span>:16<span style="color: #000000">}
+json_dic2 </span>= json.dumps(data,sort_keys=True,indent=2,separators=(<span style="color: #800000">'</span><span style="color: #800000">,</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">:</span><span style="color: #800000">'</span>),ensure_ascii=<span style="color: #000000">False)
+</span><span style="color: #0000ff">print</span>(json_dic2)</pre>
+</div>
+<span class="cnblogs_code_collapse">json的格式化输出</span></div>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span style="font-size: 15px"><strong>pickle</strong></span></h3>
+<p class="p1">&nbsp;</p>
+<h3>json &amp; pickle 模块</h3>
+<p class="p1">&nbsp;</p>
+<p>用于序列化的两个模块</p>
+<p class="p1">&nbsp;</p>
+<ul>
+<li>json，用于字符串 和 python数据类型间进行转换</li>
+<li>pickle，用于python特有的类型 和 python的数据类型间进行转换</li>
+</ul>
+<p class="p1">&nbsp;</p>
+<p>pickle模块提供了四个功能：dumps、dump(序列化，存）、loads（反序列化，读）、load &nbsp;（不仅可以序列化字典，列表...<span style="font-size: 15px"><strong>可以把python中任意的数据类型序列化</strong></span>）</p>
+<p class="p1">&nbsp;</p>
+<div class="cnblogs_code"><img id="code_img_closed_b2e75f56-62c0-4bec-a7e5-0fb456313e39" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_b2e75f56-62c0-4bec-a7e5-0fb456313e39" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_b2e75f56-62c0-4bec-a7e5-0fb456313e39" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> pickle
+dic </span>= {<span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v1</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v2</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k3</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">v3</span><span style="color: #800000">'</span><span style="color: #000000">}
+str_dic </span>=<span style="color: #000000"> pickle.dumps(dic)
+</span><span style="color: #0000ff">print</span>(str_dic)  <span style="color: #008000">#</span><span style="color: #008000">一串二进制内容</span>
+<span style="color: #000000">
+dic2 </span>=<span style="color: #000000"> pickle.loads(str_dic)
+</span><span style="color: #0000ff">print</span>(dic2)    <span style="color: #008000">#</span><span style="color: #008000">字典</span>
+
+<span style="color: #0000ff">import</span><span style="color: #000000"> time
+struct_time  </span>= time.localtime(1000000000<span style="color: #000000">)
+</span><span style="color: #0000ff">print</span><span style="color: #000000">(struct_time)
+f </span>= open(<span style="color: #800000">'</span><span style="color: #800000">pickle_file</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">wb</span><span style="color: #800000">'</span><span style="color: #000000">)
+pickle.dump(struct_time,f)
+f.close()
+
+f </span>= open(<span style="color: #800000">'</span><span style="color: #800000">pickle_file</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">rb</span><span style="color: #800000">'</span><span style="color: #000000">)
+struct_time2 </span>=<span style="color: #000000"> pickle.load(f)
+</span><span style="color: #0000ff">print</span>(struct_time2.tm_year)</pre>
+</div>
+<span class="cnblogs_code_collapse">pickle</span></div>
+<p>&nbsp;</p>
+<p>这时候机智的你又要说了，既然pickle如此强大，为什么还要学json呢？<br>这里我们要说明一下，json是一种所有的语言都可以识别的数据结构。<br>如果我们将一个字典或者序列化成了一个json存在文件里，那么java代码或者js代码也可以拿来用。<br>但是如果我们用pickle进行序列化，其他语言就不能读懂这是什么了～<br>所以，如果你序列化的内容是列表或者字典，我们非常推荐你使用json模块<br>但如果出于某种原因你不得不序列化其他的数据类型，而未来你还会用python对这个数据进行反序列化的话，那么就可以使用pickle</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px"><span style="font-size: 15px"><strong>shelve</strong></span></h3>
+<p>shelve也是python提供给我们的序列化工具，比pickle用起来更简单一些。<br>shelve只提供给我们一个open方法，是用key来访问的，使用起来和字典类似。</p>
+<div class="cnblogs_code"><img id="code_img_closed_e113d5b5-1dae-4b1b-8ce0-ca8bf0c610bb" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_e113d5b5-1dae-4b1b-8ce0-ca8bf0c610bb" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_e113d5b5-1dae-4b1b-8ce0-ca8bf0c610bb" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> shelve
+f </span>= shelve.open(<span style="color: #800000">'</span><span style="color: #800000">shelve_file</span><span style="color: #800000">'</span><span style="color: #000000">)
+f[</span><span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span>] = {<span style="color: #800000">'</span><span style="color: #800000">int</span><span style="color: #800000">'</span>:10, <span style="color: #800000">'</span><span style="color: #800000">float</span><span style="color: #800000">'</span>:9.5, <span style="color: #800000">'</span><span style="color: #800000">string</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">Sample data</span><span style="color: #800000">'</span>}  <span style="color: #008000">#</span><span style="color: #008000">直接对文件句柄操作，就可以存入数据</span>
+<span style="color: #000000">f.close()
+
+</span><span style="color: #0000ff">import</span><span style="color: #000000"> shelve
+f1 </span>= shelve.open(<span style="color: #800000">'</span><span style="color: #800000">shelve_file</span><span style="color: #800000">'</span><span style="color: #000000">)
+existing </span>= f1[<span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span>]  <span style="color: #008000">#</span><span style="color: #008000">取出数据的时候也只需要直接用key获取即可，但是如果key不存在会报错</span>
+<span style="color: #000000">f1.close()
+</span><span style="color: #0000ff">print</span>(existing)</pre>
+</div>
+<span class="cnblogs_code_collapse">shelve</span></div>
+<p>这个模块有个限制，它不支持多个应用同一时间往同一个DB进行写操作。所以当我们知道我们的应用如果只进行读操作，我们可以让shelve通过只读方式打开DB</p>
+<div class="cnblogs_code"><img id="code_img_closed_eb307a78-c03c-4554-9e18-f53f065d1d11" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_eb307a78-c03c-4554-9e18-f53f065d1d11" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_eb307a78-c03c-4554-9e18-f53f065d1d11" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> shelve
+f </span>= shelve.open(<span style="color: #800000">'</span><span style="color: #800000">shelve_file</span><span style="color: #800000">'</span>, flag=<span style="color: #800000">'</span><span style="color: #800000">r</span><span style="color: #800000">'</span><span style="color: #000000">)
+existing </span>= f[<span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span><span style="color: #000000">]
+f.close()
+</span><span style="color: #0000ff">print</span>(existing)</pre>
+</div>
+<span class="cnblogs_code_collapse">shelve只读</span></div>
+<p>由于shelve在默认情况下是不会记录待持久化对象的任何修改的，所以我们在shelve.open()时候需要修改默认参数，否则对象的修改不会保存。</p>
+<div class="cnblogs_code"><img id="code_img_closed_bb28e1f2-ba94-4d49-9577-18a8ed10ea00" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_bb28e1f2-ba94-4d49-9577-18a8ed10ea00" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_bb28e1f2-ba94-4d49-9577-18a8ed10ea00" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> shelve
+f1 </span>= shelve.open(<span style="color: #800000">'</span><span style="color: #800000">shelve_file</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(f1[<span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span><span style="color: #000000">])
+f1[</span><span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span>][<span style="color: #800000">'</span><span style="color: #800000">new_value</span><span style="color: #800000">'</span>] = <span style="color: #800000">'</span><span style="color: #800000">this was not here before</span><span style="color: #800000">'</span><span style="color: #000000">
+f1.close()
+
+f2 </span>= shelve.open(<span style="color: #800000">'</span><span style="color: #800000">shelve_file</span><span style="color: #800000">'</span>, writeback=<span style="color: #000000">True)
+</span><span style="color: #0000ff">print</span>(f2[<span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span><span style="color: #000000">])
+f2[</span><span style="color: #800000">'</span><span style="color: #800000">key</span><span style="color: #800000">'</span>][<span style="color: #800000">'</span><span style="color: #800000">new_value</span><span style="color: #800000">'</span>] = <span style="color: #800000">'</span><span style="color: #800000">this was not here before</span><span style="color: #800000">'</span><span style="color: #000000">
+f2.close()</span></pre>
+</div>
+<span class="cnblogs_code_collapse">设置writeback</span></div>
+<p>writeback方式有优点也有缺点。优点是减少了我们出错的概率，并且让对象的持久化对用户更加的透明了；但这种方式并不是所有的情况下都需要，首先，使用writeback以后，shelf在open()的时候会增加额外的内存消耗，并且当DB在close()的时候会将缓存中的每一个对象都写入到DB，这也会带来额外的等待时间。因为shelve没有办法知道缓存中哪些对象修改了，哪些对象没有修改，因此所有的对象都会被写入。</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label10"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">re模块</span></p>
+<p>讲正题之前我们先来看一个例子：<a href="https://reg.jd.com/reg/person?ReturnUrl=https%3A//www.jd.com/" target="_blank">https://reg.jd.com/reg/person?ReturnUrl=https%3A//www.jd.com/</a></p>
+<p>这是京东的注册页面，打开页面我们就看到这些要求输入个人信息的提示。<br>假如我们随意的在手机号码这一栏输入一个11111111111，它会提示我们格式有误。<br>这个功能是怎么实现的呢？<br>假如现在你用python写一段代码，类似：</p>
+<div class="cnblogs_code">
+<pre>phone_number = input(<span style="color: #800000">'</span><span style="color: #800000">please input your phone number ： </span><span style="color: #800000">'</span>)</pre>
+</div>
+<p>你怎么判断这个phone_number是合法的呢？</p>
+<pre>根据手机号码一共11位并且是只以13、14、15、18开头的数字这些特点，我们用python写了如下代码：</pre>
+<div class="cnblogs_code"><img id="code_img_closed_d3b4fc06-c268-4cb0-beec-ede6535a025c" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_d3b4fc06-c268-4cb0-beec-ede6535a025c" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_d3b4fc06-c268-4cb0-beec-ede6535a025c" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">while</span><span style="color: #000000"> True:
+    phone_number </span>= input(<span style="color: #800000">'</span><span style="color: #800000">please input your phone number ： </span><span style="color: #800000">'</span><span style="color: #000000">)
+    </span><span style="color: #0000ff">if</span> len(phone_number) == 11<span style="color: #000000"> \
+            </span><span style="color: #0000ff">and</span><span style="color: #000000"> phone_number.isdigit()\
+            </span><span style="color: #0000ff">and</span> (phone_number.startswith(<span style="color: #800000">'</span><span style="color: #800000">13</span><span style="color: #800000">'</span><span style="color: #000000">) \
+            </span><span style="color: #0000ff">or</span> phone_number.startswith(<span style="color: #800000">'</span><span style="color: #800000">14</span><span style="color: #800000">'</span><span style="color: #000000">) \
+            </span><span style="color: #0000ff">or</span> phone_number.startswith(<span style="color: #800000">'</span><span style="color: #800000">15</span><span style="color: #800000">'</span><span style="color: #000000">) \
+            </span><span style="color: #0000ff">or</span> phone_number.startswith(<span style="color: #800000">'</span><span style="color: #800000">18</span><span style="color: #800000">'</span><span style="color: #000000">)):
+        </span><span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">是合法的手机号码</span><span style="color: #800000">'</span><span style="color: #000000">)
+    </span><span style="color: #0000ff">else</span><span style="color: #000000">:
+        </span><span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">不是合法的手机号码</span><span style="color: #800000">'</span>)</pre>
+</div>
+<span class="cnblogs_code_collapse">判断手机号码是否合法1</span></div>
+<pre>这是你的写法，现在我要展示一下我的写法：</pre>
+<div class="cnblogs_code"><img id="code_img_closed_e43e94e3-6a55-480b-8be4-cac12519aeed" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_e43e94e3-6a55-480b-8be4-cac12519aeed" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_e43e94e3-6a55-480b-8be4-cac12519aeed" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> re
+phone_number </span>= input(<span style="color: #800000">'</span><span style="color: #800000">please input your phone number ： </span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">if</span> re.match(<span style="color: #800000">'</span><span style="color: #800000">^(13|14|15|18)[0-9]{9}$</span><span style="color: #800000">'</span><span style="color: #000000">,phone_number):
+        </span><span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">是合法的手机号码</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">else</span><span style="color: #000000">:
+        </span><span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">不是合法的手机号码</span><span style="color: #800000">'</span>)</pre>
+</div>
+<span class="cnblogs_code_collapse">判断手机号码是否合法2</span></div>
+<p>对比上面的两种写法，此时此刻，我要问你你喜欢哪种方法呀？你肯定还是会说第一种，为什么呢？因为第一种不用学呀！<br>但是如果现在有一个文件，我让你从整个文件里匹配出所有的手机号码。你用python给我写个试试？<br>但是学了今天的技能之后，分分钟帮你搞定！</p>
+<p>今天我们要学习python里的<strong>re模块和正则表达式</strong>，学会了这个就可以帮我们解决刚刚的疑问。正则表达式不仅在python领域，在整个编程届都占有举足轻重的地位。</p>
+<div class="cnblogs_code"><img id="code_img_closed_598085f6-cf46-4a9b-8392-575268cc8fd8" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_598085f6-cf46-4a9b-8392-575268cc8fd8" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_598085f6-cf46-4a9b-8392-575268cc8fd8" class="cnblogs_code_hide">
+<pre><span style="color: #000000">不管以后你是不是去做python开发，只要你是一个程序员就应该了解正则表达式的基本使用。如果未来你要在爬虫领域发展，你就更应该好好学习这方面的知识。
+但是你要知道，re模块本质上和正则表达式没有一毛钱的关系。re模块和正则表达式的关系 类似于 time模块和时间的关系
+你没有学习python之前，也不知道有一个time模块，但是你已经认识时间了 </span>12<span style="color: #000000">:30就表示中午十二点半（这个时间可好，一般这会儿就该下课了）。
+时间有自己的格式，年月日时分秒，12个月，365天......已经成为了一种规则。你也早就牢记于心了。time模块只不过是python提供给我们的可以方便我们操作时间的一个工具而已</span></pre>
+</div>
+<span class="cnblogs_code_collapse">正则表达式和re模块</span></div>
+<p><span style="font-size: 15px"><strong>正则表达式</strong></span>本身也和python没有什么关系，就是<span style="font-size: 15px"><strong>匹配字符串内容的一种规则</strong></span>。</p>
+<pre>官方定义：正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</pre>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">正则表达式</span></h3>
+<p>一说规则我已经知道你很晕了，现在就让我们先来看一些实际的应用。<em>在线测试工具&nbsp;<a href="http://tool.chinaz.com/regex/" target="_blank">http://tool.chinaz.com/regex/</a></em></p>
+<pre>首先你要知道的是，谈到正则，就只和字符串相关了。在我给你提供的工具中，你输入的每一个字都是一个字符串。<br>其次，如果在一个位置的一个值，不会出现什么变化，那么是不需要规则的。<br>　　比如你要用"1"去匹配"1"，或者用"2"去匹配"2"，直接就可以匹配上。这连python的字符串操作都可以轻松做到。<br>那么在之后我们更多要考虑的是在<span style="font-size: 15px"><span style="background-color: #ccffcc; padding: 5px">同一个位置上</span>可以出现的字符的范围</span>。</pre>
+<div class="cnblogs_code"><img id="code_img_closed_da202a41-1881-45a8-90d1-57385a0b7add" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_da202a41-1881-45a8-90d1-57385a0b7add" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_da202a41-1881-45a8-90d1-57385a0b7add" class="cnblogs_code_hide">
+<pre><span style="color: #000000">字符组 ： [字符组]
+在同一个位置可能出现的各种字符组成了一个字符组，在正则表达式中用[]表示
+字符分为很多类，比如数字、字母、标点等等。
+假如你现在要求一个位置</span><span style="color: #800000">"</span><span style="color: #800000">只能出现一个数字</span><span style="color: #800000">"</span>,那么这个位置上的字符只能是0、1、2...9这10个数之一。</pre>
+</div>
+<span class="cnblogs_code_collapse">字符组</span></div>
+<table style="height: 400px; width: 720px" border="0">
+<tbody>
+<tr>
+<td width="105px">
+<pre>正则</pre>
+</td>
+<td width="15px">
+<pre>待匹配字符</pre>
+</td>
+<td width="45px">
+<pre>匹配<br>结果</pre>
+</td>
+<td width="250px">
+<pre>说明</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre>[0123456789]</pre>
+</td>
+<td>
+<pre>8</pre>
+</td>
+<td>
+<pre>True</pre>
+</td>
+<td>
+<pre>在一个字符组里枚举合法的所有字符，字符组里的任意一个字符<br>和"待匹配字符"相同都视为可以匹配</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre>[0123456789]</pre>
+</td>
+<td>
+<pre>a</pre>
+</td>
+<td>
+<pre>False</pre>
+</td>
+<td>
+<pre>由于字符组中没有"a"字符，所以不能匹配</pre>
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+<pre>[0-9]</pre>
+</td>
+<td>&nbsp;
+<pre>7</pre>
+</td>
+<td>
+<pre>True</pre>
+</td>
+<td>
+<pre>也可以用-表示范围,[0-9]就和[0123456789]是一个意思</pre>
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+<pre>[a-z]</pre>
+</td>
+<td>&nbsp;
+<pre>s</pre>
+</td>
+<td>&nbsp;
+<pre>True</pre>
+</td>
+<td>&nbsp;
+<pre>同样的如果要匹配所有的小写字母，直接用[a-z]就可以表示</pre>
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+<pre>[A-Z]</pre>
+</td>
+<td>&nbsp;
+<pre>B</pre>
+</td>
+<td>&nbsp;
+<pre>True</pre>
+</td>
+<td>&nbsp;
+<pre>[A-Z]就表示所有的大写字母</pre>
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+<pre>[0-9a-fA-F]</pre>
+</td>
+<td>&nbsp;
+<pre>e</pre>
+</td>
+<td>&nbsp;
+<pre>True</pre>
+</td>
+<td>&nbsp;
+<pre>可以匹配数字，大小写形式的a～f，用来验证十六进制字符</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p>字符：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>&nbsp;
+<pre>元字符</pre>
+</td>
+<td>&nbsp;
+<pre>匹配内容</pre>
+</td>
+</tr>
+<tr>
+<td>.&nbsp;</td>
+<td>匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母或数字或下划线</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意的空白符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词的结尾</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开始</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的结尾</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>
+<pre>匹配非字母或数字或下划线</pre>
+</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>
+<pre>匹配<span style="line-height: 1.5">非数字</span></pre>
+</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>
+<pre>匹配<span style="line-height: 1.5">非空白符</span></pre>
+</td>
+</tr>
+<tr>
+<td>a|b</td>
+<td>
+<pre>匹配字符a或字符b</pre>
+</td>
+</tr>
+<tr>
+<td>()</td>
+<td>
+<pre>匹配括号内的表达式，也表示一个组</pre>
+</td>
+</tr>
+<tr>
+<td>[...]</td>
+<td>
+<pre>匹配字符组中的字符</pre>
+</td>
+</tr>
+<tr>
+<td>[^...]</td>
+<td>
+<pre>匹配除了字符组中字符的所有字符</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>量词：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>
+<pre>量词</pre>
+</td>
+<td>
+<pre>用法说明</pre>
+</td>
+</tr>
+<tr>
+<td>*</td>
+<td>重复零次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复一次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复零次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">. ^ $</h3>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td> 匹配<br>结果
+</td>
+<td>
+说明
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>
+海.
+</td>
+<td>
+海燕海娇海东
+</td>
+<td>
+海燕海娇海东
+</td>
+<td>&nbsp;
+匹配所有"海."的字符
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>
+^海.
+</td>
+<td>
+海燕海娇海东
+</td>
+<td>
+海燕
+</td>
+<td>
+只从开头匹配"海."
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>&nbsp;
+海.$
+</td>
+<td>&nbsp;
+海燕海娇海东
+</td>
+<td>
+海东
+</td>
+<td>
+只匹配结尾的"海.$"
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">* + ? { }</h3>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td> 匹配<br>结果
+</td>
+<td>
+说明
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>李.?</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>
+<p>李杰<br>李莲<br>李二</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>&nbsp;
+<pre>?表示重复零次或一次，即只匹配"李"后面一个任意字符</pre>
+&nbsp;</td>
+</tr>
+<tr>
+<td>李.*</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>
+<pre>*表示重复零次或多次，即匹配"李"后面0或多个任意字符</pre>
+</td>
+</tr>
+<tr>
+<td>李.+</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>
+<pre>+表示重复一次或多次，即只匹配"李"后面1个或多个任意字符</pre>
+</td>
+</tr>
+<tr>
+<td>李.{1,2}</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>
+<p>李杰和<br>李莲英<br>李二棍</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>
+<pre>{1,2}匹配1到2次任意字符</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;注意：前面的*,+,?等都是贪婪匹配，也就是尽可能匹配，后面加?号使其变成惰性匹配</p>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td>匹配<br>结果</td>
+<td>说明</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>李.*?</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>李<br>李<br>李</td>
+<td>惰性匹配</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">字符集［］［^］</h3>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td> 匹配<br>结果
+</td>
+<td>
+说明
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>李[杰莲英二棍子]*</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>
+<p>李杰<br>李莲英<br>李二棍子</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>&nbsp;
+<pre>表示匹配"李"字后面[杰莲英二棍子]的字符任意次</pre>
+&nbsp;</td>
+</tr>
+<tr>
+<td>李[^和]*</td>
+<td>李杰和李莲英和李二棍子</td>
+<td>
+<p>李杰<br>李莲英<br>李二棍子</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>
+<pre>表示匹配一个不是"和"的字符任意次</pre>
+</td>
+</tr>
+<tr>
+<td>[\d]</td>
+<td>456bdha3</td>
+<td>
+<p>4<br>5<br>6<br>3</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>
+<pre>表示匹配任意一个数字，匹配到4个结果</pre>
+</td>
+</tr>
+<tr>
+<td>[\d]+</td>
+<td>456bdha3</td>
+<td>
+<p>456<br>3</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>
+<pre>表示匹配任意个数字，匹配到2个结果</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<style>p.p1 { margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px ".PingFang SC"; color: #454545 }</style>
+<p class="p1">&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">分组 ()与 或 ｜［^］</h3>
+<p class="p1">&nbsp;<span style="color: #000000; font-family: &quot;PingFang SC&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px">身份证号码是一个长度为15或18个字符的字符串，如果是15位则全部🈶️数字组成，首位不能为0；如果是18位，则前17位全部是数字，末位可能是数字或x，下面我们尝试用正则来表示：</span></p>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td> 匹配<br>结果
+</td>
+<td>
+说明
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>^[1-9]\d{13,16}[0-9x]$</td>
+<td>110101198001017032</td>
+<td>
+<p>110101198001017032</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>&nbsp; &nbsp;表示可以匹配一个正确的身份证号
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>^[1-9]\d{13,16}[0-9x]$</td>
+<td>1101011980010170</td>
+<td>
+<p>1101011980010170</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>
+<pre>表示也可以匹配这串数字，但这并不是一个正确的身份证号码，它是一个16位的数字</pre>
+</td>
+</tr>
+<tr>
+<td>^[1-9]\d{14}(\d{2}[0-9x])?$</td>
+<td>1101011980010170</td>
+<td>
+<p>False</p>
+</td>
+<td>
+<pre>现在不会匹配错误的身份证号了<br>()表示分组，将\d{2}[0-9x]分成一组，就可以整体约束他们出现的次数为0-1次</pre>
+</td>
+</tr>
+<tr>
+<td>^([1-9]\d{16}[0-9x]|[1-9]\d{14})$</td>
+<td>110105199812067023</td>
+<td>
+<p>110105199812067023</p>
+</td>
+<td>
+<pre>表示先匹配[1-9]\d{16}[0-9x]如果没有匹配上就匹配[1-9]\d{14}</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="p1">&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">转义符 \</h3>
+<p>在正则表达式中，有很多有特殊意义的是元字符，比如\d和\s等，如果要在正则中匹配正常的"\d"而不是"数字"就需要对"\"进行转义，变成'\\'。</p>
+<p>在python中，无论是正则表达式，还是待匹配的内容，都是以字符串的形式出现的，在字符串中\也有特殊的含义，本身还需要转义。所以如果匹配一次"\d",字符串中要写成'\\d'，那么正则里就要写成"\\\\d",这样就太麻烦了。这个时候我们就用到了r'\d'这个概念，此时的正则是r'\\d'就可以了。</p>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td>匹配<br>结果</td>
+<td>说明</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>\d</td>
+<td>\d</td>
+<td>&nbsp;False</td>
+<td>
+<pre>因为在正则表达式中\是有特殊意义的字符，所以要匹配\d本身，用表达式\d无法匹配</pre>
+</td>
+</tr>
+<tr>
+<td>\\d</td>
+<td>\d</td>
+<td>&nbsp;True</td>
+<td>
+<pre>转义\之后变成\\，即可匹配</pre>
+</td>
+</tr>
+<tr>
+<td>"\\\\d"</td>
+<td>'\\d'</td>
+<td>&nbsp;True</td>
+<td>
+<pre>如果在python中，字符串中的'\'也需要转义，所以每一个字符串'\'又需要转义一次</pre>
+</td>
+</tr>
+<tr>
+<td>r'\\d'</td>
+<td>r'\d'</td>
+<td>&nbsp;True</td>
+<td>
+<pre>在字符串之前加r，让整个字符串不转义</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">贪婪匹配</h3>
+<p>贪婪匹配：在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配</p>
+<table border="0">
+<tbody>
+<tr>
+<td>正则</td>
+<td>待匹配字符</td>
+<td>匹配<br>结果</td>
+<td>说明</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>&lt;.*&gt;</td>
+<td>
+<p>&lt;script&gt;...&lt;script&gt;</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>&lt;script&gt;...&lt;script&gt;</td>
+<td>
+<pre>默认为贪婪匹配模式，会匹配尽量长的字符串</pre>
+</td>
+</tr>
+<tr>
+<td>&lt;.*?&gt;</td>
+<td>r'\d'</td>
+<td>&nbsp;
+<p>&lt;script&gt;<br>&lt;script&gt;</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+<td>
+<pre>加上？为将贪婪匹配模式转为非贪婪匹配模式，会匹配尽量短的字符串</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<pre>几个常用的非贪婪匹配Pattern</pre>
+<div class="cnblogs_code">
+<pre>*<span style="color: #000000">? 重复任意次，但尽可能少重复
+</span>+<span style="color: #000000">? 重复1次或更多次，但尽可能少重复
+?? 重复0次或1次，但尽可能少重复
+{n,m}? 重复n到m次，但尽可能少重复
+{n,}? 重复n次以上，但尽可能少重复</span></pre>
+</div>
+<pre>.*?的用法</pre>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">. 是任意字符
+</span>*<span style="color: #000000"> 是取 0 至 无限长度
+? 是非贪婪模式。
+何在一起就是 取尽量少的任意字符，一般不会这么单独写，他大多用在：
+.</span>*<span style="color: #000000">?x
+
+就是取前面任意长度的字符，直到一个x出现</span></pre>
+</div>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">re模块下的常用方法</span></h3>
+<p class="p1">&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> re
+
+ret </span>= re.findall(<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">eva egon yuan</span><span style="color: #800000">'</span>)  <span style="color: #008000">#</span><span style="color: #008000"> 返回所有满足匹配条件的结果,放在列表里</span>
+<span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">结果 : ['a', 'a']</span>
+<span style="color: #000000">
+ret </span>= re.search(<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">eva egon yuan</span><span style="color: #800000">'</span><span style="color: #000000">).group()
+</span><span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">结果 : 'a'</span><span style="color: #008000">
+#</span><span style="color: #008000"> 函数会在字符串内查找模式匹配,只到找到第一个匹配然后返回一个包含匹配信息的对象,该对象可以</span><span style="color: #008000">
+#</span><span style="color: #008000"> 通过调用group()方法得到匹配的字符串,如果字符串没有匹配，则返回None。</span>
+<span style="color: #000000">
+ret </span>= re.match(<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">abc</span><span style="color: #800000">'</span>).group()  <span style="color: #008000">#</span><span style="color: #008000"> 同search,不过尽在字符串开始处进行匹配</span>
+<span style="color: #0000ff">print</span><span style="color: #000000">(ret)
+</span><span style="color: #008000">#</span><span style="color: #008000">结果 : 'a'</span>
+<span style="color: #000000">
+ret </span>= re.split(<span style="color: #800000">'</span><span style="color: #800000">[ab]</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">abcd</span><span style="color: #800000">'</span>)  <span style="color: #008000">#</span><span style="color: #008000"> 先按'a'分割得到''和'bcd',在对''和'bcd'分别按'b'分割</span>
+<span style="color: #0000ff">print</span>(ret)  <span style="color: #008000">#</span><span style="color: #008000"> ['', '', 'cd']</span>
+<span style="color: #000000">
+ret </span>= re.sub(<span style="color: #800000">'</span><span style="color: #800000">\d</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">H</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">eva3egon4yuan4</span><span style="color: #800000">'</span>, 1)<span style="color: #008000">#</span><span style="color: #008000">将数字替换成'H'，参数1表示只替换1个</span>
+<span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">evaHegon4yuan4</span>
+<span style="color: #000000">
+ret </span>= re.subn(<span style="color: #800000">'</span><span style="color: #800000">\d</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">H</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">eva3egon4yuan4</span><span style="color: #800000">'</span>)<span style="color: #008000">#</span><span style="color: #008000">将数字替换成'H'，返回元组(替换的结果,替换了多少次)</span>
+<span style="color: #0000ff">print</span><span style="color: #000000">(ret)
+
+obj </span>= re.compile(<span style="color: #800000">'</span><span style="color: #800000">\d{3}</span><span style="color: #800000">'</span>)  <span style="color: #008000">#</span><span style="color: #008000">将正则表达式编译成为一个 正则表达式对象，规则要匹配的是3个数字</span>
+ret = obj.search(<span style="color: #800000">'</span><span style="color: #800000">abc123eeee</span><span style="color: #800000">'</span>) <span style="color: #008000">#</span><span style="color: #008000">正则表达式对象调用search，参数为待匹配的字符串</span>
+<span style="color: #0000ff">print</span>(ret.group())  <span style="color: #008000">#</span><span style="color: #008000">结果 ： 123</span>
+
+<span style="color: #0000ff">import</span><span style="color: #000000"> re
+ret </span>= re.finditer(<span style="color: #800000">'</span><span style="color: #800000">\d</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">ds3sy4784a</span><span style="color: #800000">'</span>)   <span style="color: #008000">#</span><span style="color: #008000">finditer返回一个存放匹配结果的迭代器</span>
+<span style="color: #0000ff">print</span>(ret)  <span style="color: #008000">#</span><span style="color: #008000"> &lt;callable_iterator object at 0x10195f940&gt;</span>
+<span style="color: #0000ff">print</span>(next(ret).group())  <span style="color: #008000">#</span><span style="color: #008000">查看第一个结果</span>
+<span style="color: #0000ff">print</span>(next(ret).group())  <span style="color: #008000">#</span><span style="color: #008000">查看第二个结果</span>
+<span style="color: #0000ff">print</span>([i.group() <span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> ret])  <span style="color: #008000">#</span><span style="color: #008000">查看剩余的左右结果</span></pre>
+</div>
+<p>注意：</p>
+<p>1 findall的优先级查询：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> re
+
+ret </span>= re.findall(<span style="color: #800000">'</span><span style="color: #800000">www.(baidu|oldboy).com</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">www.oldboy.com</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret)  <span style="color: #008000">#</span><span style="color: #008000"> ['oldboy']     这是因为findall会优先把匹配结果组里内容返回,如果想要匹配结果,取消权限即可</span>
+<span style="color: #000000">
+ret </span>= re.findall(<span style="color: #800000">'</span><span style="color: #800000">www.(?:baidu|oldboy).com</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">www.oldboy.com</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret)  <span style="color: #008000">#</span><span style="color: #008000"> ['www.oldboy.com']</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>2 split的优先级查询</p>
+<div class="cnblogs_code">
+<pre>ret=re.split(<span style="color: #800000">"</span><span style="color: #800000">\d+</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">eva3egon4yuan</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">结果 ： ['eva', 'egon', 'yuan']</span>
+<span style="color: #000000">
+ret</span>=re.split(<span style="color: #800000">"</span><span style="color: #800000">(\d+)</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">eva3egon4yuan</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">结果 ： ['eva', '3', 'egon', '4', 'yuan']</span>
+
+<span style="color: #008000">#</span><span style="color: #008000">在匹配部分加上（）之后所切出的结果是不同的，</span><span style="color: #008000">
+#</span><span style="color: #008000">没有（）的没有保留所匹配的项，但是有（）的却能够保留了匹配的项，</span><span style="color: #008000">
+#</span><span style="color: #008000">这个在某些需要保留匹配部分的使用过程是非常重要的。</span></pre>
+</div>
+<p>&nbsp;</p>
+<p class="p1">&nbsp;</p>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%">综合练习与扩展</h3>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">1、匹配标签</h3>
+<div class="cnblogs_code"><img id="code_img_closed_4a5a5d0f-28b6-40f9-9e1e-1bec5acc9e37" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_4a5a5d0f-28b6-40f9-9e1e-1bec5acc9e37" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_4a5a5d0f-28b6-40f9-9e1e-1bec5acc9e37" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> re
+
+
+ret </span>= re.search(<span style="color: #800000">"</span><span style="color: #800000">&lt;(?P&lt;tag_name&gt;\w+)&gt;\w+&lt;/(?P=tag_name)&gt;</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">&lt;h1&gt;hello&lt;/h1&gt;</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #008000">#</span><span style="color: #008000">还可以在分组中利用?&lt;name&gt;的形式给分组起名字</span><span style="color: #008000">
+#</span><span style="color: #008000">获取的匹配结果可以直接用group('名字')拿到对应的值</span>
+<span style="color: #0000ff">print</span>(ret.group(<span style="color: #800000">'</span><span style="color: #800000">tag_name</span><span style="color: #800000">'</span>))  <span style="color: #008000">#</span><span style="color: #008000">结果 ：h1</span>
+<span style="color: #0000ff">print</span>(ret.group())  <span style="color: #008000">#</span><span style="color: #008000">结果 ：&lt;h1&gt;hello&lt;/h1&gt;</span>
+<span style="color: #000000">
+ret </span>= re.search(r<span style="color: #800000">"</span><span style="color: #800000">&lt;(\w+)&gt;\w+&lt;/\1&gt;</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">&lt;h1&gt;hello&lt;/h1&gt;</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #008000">#</span><span style="color: #008000">如果不给组起名字，也可以用\序号来找到对应的组，表示要找的内容和前面的组内容一致</span><span style="color: #008000">
+#</span><span style="color: #008000">获取的匹配结果可以直接用group(序号)拿到对应的值</span>
+<span style="color: #0000ff">print</span>(ret.group(1<span style="color: #000000">))
+</span><span style="color: #0000ff">print</span>(ret.group())  <span style="color: #008000">#</span><span style="color: #008000">结果 ：&lt;h1&gt;hello&lt;/h1&gt;</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">2、匹配整数</h3>
+<div class="cnblogs_code"><img id="code_img_closed_47353577-3407-4647-b14d-8d43d1594ee8" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_47353577-3407-4647-b14d-8d43d1594ee8" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_47353577-3407-4647-b14d-8d43d1594ee8" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> re
+
+ret</span>=re.findall(r<span style="color: #800000">"</span><span style="color: #800000">\d+</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">1-2*(60+(-40.35/5)-(-4*3))</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">['1', '2', '60', '40', '35', '5', '4', '3']</span>
+ret=re.findall(r<span style="color: #800000">"</span><span style="color: #800000">-?\d+\.\d*|(-?\d+)</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">1-2*(60+(-40.35/5)-(-4*3))</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">['1', '-2', '60', '', '5', '-4', '3']</span>
+ret.remove(<span style="color: #800000">""</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span>(ret) <span style="color: #008000">#</span><span style="color: #008000">['1', '-2', '60', '5', '-4', '3']</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">3、数字匹配</h3>
+<div class="cnblogs_code"><img id="code_img_closed_34d4024b-dfdd-4e4e-8fa9-b34a13b27207" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_34d4024b-dfdd-4e4e-8fa9-b34a13b27207" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_34d4024b-dfdd-4e4e-8fa9-b34a13b27207" class="cnblogs_code_hide">
+<pre>1<span style="color: #000000">、 匹配一段文本中的每行的邮箱
+      http:</span>//blog.csdn.net/make164492212/article/details/51656638
+
+2、 匹配一段文本中的每行的时间字符串，比如：‘1990-07-12<span style="color: #000000">’；
+
+   分别取出1年的12个月（</span>^(0?[1-9]|1[0-2<span style="color: #000000">])$）、
+   一个月的31天：</span>^((0?[1-9])|((1|2)[0-9])|30|31<span style="color: #000000">)$
+
+</span>3、 匹配qq号。(腾讯QQ号从10000开始)  ［1,9］[0,9]{4<span style="color: #000000">,}
+
+</span>4、 匹配一个浮点数。       ^(-?\d+)(\.\d+)?$   或者  -?\d+\.?\d*
+
+5、 匹配汉字。             ^[\u4e00-<span style="color: #000000">\u9fa5]{0,}$ 
+
+</span>6、 匹配出所有整数</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<h3 style="background: #009ACD; width: 50%; padding: 5px">4、爬虫练习</h3>
+<div class="cnblogs_code"><img id="code_img_closed_33daffac-688f-4094-bfc0-80c3000991f5" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_33daffac-688f-4094-bfc0-80c3000991f5" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_33daffac-688f-4094-bfc0-80c3000991f5" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> requests
+
+</span><span style="color: #0000ff">import</span><span style="color: #000000"> re
+</span><span style="color: #0000ff">import</span><span style="color: #000000"> json
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> getPage(url):
+
+    response</span>=<span style="color: #000000">requests.get(url)
+    </span><span style="color: #0000ff">return</span><span style="color: #000000"> response.text
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> parsePage(s):
+    
+    com</span>=re.compile(<span style="color: #800000">'</span><span style="color: #800000">&lt;div class="item"&gt;.*?&lt;div class="pic"&gt;.*?&lt;em .*?&gt;(?P&lt;id&gt;\d+).*?&lt;span class="title"&gt;(?P&lt;title&gt;.*?)&lt;/span&gt;</span><span style="color: #800000">'</span>
+                   <span style="color: #800000">'</span><span style="color: #800000">.*?&lt;span class="rating_num" .*?&gt;(?P&lt;rating_num&gt;.*?)&lt;/span&gt;.*?&lt;span&gt;(?P&lt;comment_num&gt;.*?)评价&lt;/span&gt;</span><span style="color: #800000">'</span><span style="color: #000000">,re.S)
+
+    ret</span>=<span style="color: #000000">com.finditer(s)
+    </span><span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span><span style="color: #000000"> ret:
+        </span><span style="color: #0000ff">yield</span><span style="color: #000000"> {
+            </span><span style="color: #800000">"</span><span style="color: #800000">id</span><span style="color: #800000">"</span>:i.group(<span style="color: #800000">"</span><span style="color: #800000">id</span><span style="color: #800000">"</span><span style="color: #000000">),
+            </span><span style="color: #800000">"</span><span style="color: #800000">title</span><span style="color: #800000">"</span>:i.group(<span style="color: #800000">"</span><span style="color: #800000">title</span><span style="color: #800000">"</span><span style="color: #000000">),
+            </span><span style="color: #800000">"</span><span style="color: #800000">rating_num</span><span style="color: #800000">"</span>:i.group(<span style="color: #800000">"</span><span style="color: #800000">rating_num</span><span style="color: #800000">"</span><span style="color: #000000">),
+            </span><span style="color: #800000">"</span><span style="color: #800000">comment_num</span><span style="color: #800000">"</span>:i.group(<span style="color: #800000">"</span><span style="color: #800000">comment_num</span><span style="color: #800000">"</span><span style="color: #000000">),
+        }
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> main(num):
+
+    url</span>=<span style="color: #800000">'</span><span style="color: #800000">https://movie.douban.com/top250?start=%s&amp;filter=</span><span style="color: #800000">'</span>%<span style="color: #000000">num
+    response_html</span>=<span style="color: #000000">getPage(url)
+    ret</span>=<span style="color: #000000">parsePage(response_html)
+    </span><span style="color: #0000ff">print</span><span style="color: #000000">(ret)
+    f</span>=open(<span style="color: #800000">"</span><span style="color: #800000">move_info7</span><span style="color: #800000">"</span>,<span style="color: #800000">"</span><span style="color: #800000">a</span><span style="color: #800000">"</span>,encoding=<span style="color: #800000">"</span><span style="color: #800000">utf8</span><span style="color: #800000">"</span><span style="color: #000000">)
+
+    </span><span style="color: #0000ff">for</span> obj <span style="color: #0000ff">in</span><span style="color: #000000"> ret:
+        </span><span style="color: #0000ff">print</span><span style="color: #000000">(obj)
+        data</span>=json.dumps(obj,ensure_ascii=<span style="color: #000000">False)
+        f.write(data</span>+<span style="color: #800000">"</span><span style="color: #800000">\n</span><span style="color: #800000">"</span><span style="color: #000000">)
+
+</span><span style="color: #0000ff">if</span> <span style="color: #800080">__name__</span> == <span style="color: #800000">'</span><span style="color: #800000">__main__</span><span style="color: #800000">'</span><span style="color: #000000">:
+    count</span>=<span style="color: #000000">0
+    </span><span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(10<span style="color: #000000">):
+        main(count)
+        count</span>+=25</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_1db08b55-f9d1-41cc-bfb9-163aa00c0f11" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_1db08b55-f9d1-41cc-bfb9-163aa00c0f11" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_1db08b55-f9d1-41cc-bfb9-163aa00c0f11" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> re
+</span><span style="color: #0000ff">import</span><span style="color: #000000"> json
+</span><span style="color: #0000ff">from</span> urllib.request <span style="color: #0000ff">import</span><span style="color: #000000"> urlopen
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> getPage(url):
+    response </span>=<span style="color: #000000"> urlopen(url)
+    </span><span style="color: #0000ff">return</span> response.read().decode(<span style="color: #800000">'</span><span style="color: #800000">utf-8</span><span style="color: #800000">'</span><span style="color: #000000">)
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> parsePage(s):
+    com </span>=<span style="color: #000000"> re.compile(
+        </span><span style="color: #800000">'</span><span style="color: #800000">&lt;div class="item"&gt;.*?&lt;div class="pic"&gt;.*?&lt;em .*?&gt;(?P&lt;id&gt;\d+).*?&lt;span class="title"&gt;(?P&lt;title&gt;.*?)&lt;/span&gt;</span><span style="color: #800000">'</span>
+        <span style="color: #800000">'</span><span style="color: #800000">.*?&lt;span class="rating_num" .*?&gt;(?P&lt;rating_num&gt;.*?)&lt;/span&gt;.*?&lt;span&gt;(?P&lt;comment_num&gt;.*?)评价&lt;/span&gt;</span><span style="color: #800000">'</span><span style="color: #000000">, re.S)
+
+    ret </span>=<span style="color: #000000"> com.finditer(s)
+    </span><span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span><span style="color: #000000"> ret:
+        </span><span style="color: #0000ff">yield</span><span style="color: #000000"> {
+            </span><span style="color: #800000">"</span><span style="color: #800000">id</span><span style="color: #800000">"</span>: i.group(<span style="color: #800000">"</span><span style="color: #800000">id</span><span style="color: #800000">"</span><span style="color: #000000">),
+            </span><span style="color: #800000">"</span><span style="color: #800000">title</span><span style="color: #800000">"</span>: i.group(<span style="color: #800000">"</span><span style="color: #800000">title</span><span style="color: #800000">"</span><span style="color: #000000">),
+            </span><span style="color: #800000">"</span><span style="color: #800000">rating_num</span><span style="color: #800000">"</span>: i.group(<span style="color: #800000">"</span><span style="color: #800000">rating_num</span><span style="color: #800000">"</span><span style="color: #000000">),
+            </span><span style="color: #800000">"</span><span style="color: #800000">comment_num</span><span style="color: #800000">"</span>: i.group(<span style="color: #800000">"</span><span style="color: #800000">comment_num</span><span style="color: #800000">"</span><span style="color: #000000">),
+        }
+
+
+</span><span style="color: #0000ff">def</span><span style="color: #000000"> main(num):
+    url </span>= <span style="color: #800000">'</span><span style="color: #800000">https://movie.douban.com/top250?start=%s&amp;filter=</span><span style="color: #800000">'</span> %<span style="color: #000000"> num
+    response_html </span>=<span style="color: #000000"> getPage(url)
+    ret </span>=<span style="color: #000000"> parsePage(response_html)
+    </span><span style="color: #0000ff">print</span><span style="color: #000000">(ret)
+    f </span>= open(<span style="color: #800000">"</span><span style="color: #800000">move_info7</span><span style="color: #800000">"</span>, <span style="color: #800000">"</span><span style="color: #800000">a</span><span style="color: #800000">"</span>, encoding=<span style="color: #800000">"</span><span style="color: #800000">utf8</span><span style="color: #800000">"</span><span style="color: #000000">)
+
+    </span><span style="color: #0000ff">for</span> obj <span style="color: #0000ff">in</span><span style="color: #000000"> ret:
+        </span><span style="color: #0000ff">print</span><span style="color: #000000">(obj)
+        data </span>=<span style="color: #000000"> str(obj)
+        f.write(data </span>+ <span style="color: #800000">"</span><span style="color: #800000">\n</span><span style="color: #800000">"</span><span style="color: #000000">)
+
+count </span>=<span style="color: #000000"> 0
+</span><span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(10<span style="color: #000000">):
+    main(count)
+    count </span>+= 25</pre>
+</div>
+<span class="cnblogs_code_collapse">简化版</span></div>
+<div class="cnblogs_code"><img id="code_img_closed_f4f7ce24-e72d-4b50-8139-14872c6f27bf" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_f4f7ce24-e72d-4b50-8139-14872c6f27bf" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_f4f7ce24-e72d-4b50-8139-14872c6f27bf" class="cnblogs_code_hide">
+<pre><span style="color: #000000">flags有很多可选值：
+
+re.I(IGNORECASE)忽略大小写，括号内是完整的写法
+re.M(MULTILINE)多行模式，改变</span>^<span style="color: #000000">和$的行为
+re.S(DOTALL)点可以匹配任意字符，包括换行符
+re.L(LOCALE)做本地化识别的匹配，表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境，不推荐使用
+re.U(UNICODE) 使用\w \W \s \S \d \D使用取决于unicode定义的字符属性。在python3中默认使用该flag
+re.X(VERBOSE)冗长模式，该模式下pattern字符串可以是多行的，忽略空白字符，并可以添加注释</span></pre>
+</div>
+<span class="cnblogs_code_collapse">flags</span></div>
+<p>&nbsp;</p>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%">作业</h3>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">实现能计算类似 
+</span>1 - 2 * ( (60-30 +(-40/5) * (9-2*5/3 + 7 /3*99/4*2998 +10 * 568/14 )) - (-4*3)/ (16-3*2) )等类似公式的计算器程序</pre>
+</div>
+<p>&nbsp;</p>
+<p class="p1"><em><span style="font-size: 14px">在线测试工具&nbsp;<a href="http://tool.chinaz.com/regex/" target="_blank"><span style="color: #000000; font-family: &quot;PingFang SC&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif">http://tool.chinaz.com/regex/</span></a></span></em></p>
+<div style="text-align: right"><a name="_label11"></a></div>
+<p style="background: #e9f7fa; padding: 5px"><span style="font-size: 18px"><strong>常用模块二</strong></span>　</p>
+<div style="text-align: right"><a name="_label12"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">hashlib模块</span></p>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">算法介绍</span></h3>
+<p>Python的hashlib提供了常见的摘要算法，如MD5，SHA1等等。</p>
+<p>什么是摘要算法呢？摘要算法又称哈希算法、散列算法。它通过一个函数，把任意长度的数据转换为一个长度固定的数据串（通常用16进制的字符串表示）。</p>
+<p>摘要算法就是通过摘要函数f()对任意长度的数据data计算出固定长度的摘要digest，目的是为了发现原始数据是否被人篡改过。</p>
+<p>摘要算法之所以能指出数据是否被篡改过，就是因为摘要函数是一个单向函数，计算f(data)很容易，但通过digest反推data却非常困难。而且，对原始数据做一个bit的修改，都会导致计算出的摘要完全不同。</p>
+<p>我们以常见的摘要算法MD5为例，计算出一个字符串的MD5值：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> hashlib
+ 
+md5 </span>=<span style="color: #000000"> hashlib.md5()
+md5.update(</span><span style="color: #800000">'</span><span style="color: #800000">how to use md5 in python hashlib?</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span><span style="color: #000000"> md5.hexdigest()
+
+计算结果如下：
+d26a53750bc40b38b65a520292f69306</span></pre>
+</div>
+<p>如果数据量很大，可以分块多次调用update()，最后计算的结果是一样的：</p>
+<div class="cnblogs_code">
+<pre>md5 =<span style="color: #000000"> hashlib.md5()
+md5.update(</span><span style="color: #800000">'</span><span style="color: #800000">how to use md5 in </span><span style="color: #800000">'</span><span style="color: #000000">)
+md5.update(</span><span style="color: #800000">'</span><span style="color: #800000">python hashlib?</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span> md5.hexdigest()</pre>
+</div>
+<p>MD5是最常见的摘要算法，速度很快，生成结果是固定的128 bit字节，通常用一个32位的16进制字符串表示。另一种常见的摘要算法是SHA1，调用SHA1和调用MD5完全类似：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> hashlib
+ 
+sha1 </span>=<span style="color: #000000"> hashlib.sha1()
+sha1.update(</span><span style="color: #800000">'</span><span style="color: #800000">how to use sha1 in </span><span style="color: #800000">'</span><span style="color: #000000">)
+sha1.update(</span><span style="color: #800000">'</span><span style="color: #800000">python hashlib?</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #0000ff">print</span> sha1.hexdigest()</pre>
+</div>
+<p>SHA1的结果是160 bit字节，通常用一个40位的16进制字符串表示。比SHA1更安全的算法是SHA256和SHA512，不过越安全的算法越慢，而且摘要长度更长。</p>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">摘要算法应用</span></h3>
+<p>任何允许用户登录的网站都会存储用户登录的用户名和口令。如何存储用户名和口令呢？方法是存到数据库表中：</p>
+<div class="cnblogs_code">
+<pre>name    |<span style="color: #000000"> password
+</span>--------+----------<span style="color: #000000">
+michael </span>| 123456<span style="color: #000000">
+bob     </span>|<span style="color: #000000"> abc999
+alice   </span>| alice2008</pre>
+</div>
+<p>如果以明文保存用户口令，如果数据库泄露，所有用户的口令就落入黑客的手里。此外，网站运维人员是可以访问数据库的，也就是能获取到所有用户的口令。正确的保存口令的方式是不存储用户的明文口令，而是存储用户口令的摘要，比如MD5：</p>
+<div class="cnblogs_code">
+<pre>username |<span style="color: #000000"> password
+</span>---------+---------------------------------<span style="color: #000000">
+michael  </span>|<span style="color: #000000"> e10adc3949ba59abbe56e057f20f883e
+bob      </span>|<span style="color: #000000"> 878ef96e86145580c38c87f0410ad153
+alice    </span>| 99b1c2188db85afee403b1536010c2c9</pre>
+</div>
+<p>考虑这么个情况，很多用户喜欢用123456，888888，password这些简单的口令，于是，黑客可以事先计算出这些常用口令的MD5值，得到一个反推表：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000">'</span><span style="color: #800000">e10adc3949ba59abbe56e057f20f883e</span><span style="color: #800000">'</span>: <span style="color: #800000">'</span><span style="color: #800000">123456</span><span style="color: #800000">'</span>
+<span style="color: #800000">'</span><span style="color: #800000">21218cca77804d2ba1922c33e0151105</span><span style="color: #800000">'</span>: <span style="color: #800000">'</span><span style="color: #800000">888888</span><span style="color: #800000">'</span>
+<span style="color: #800000">'</span><span style="color: #800000">5f4dcc3b5aa765d61d8327deb882cf99</span><span style="color: #800000">'</span>: <span style="color: #800000">'</span><span style="color: #800000">password</span><span style="color: #800000">'</span></pre>
+</div>
+<p>这样，无需破解，只需要对比数据库的MD5，黑客就获得了使用常用口令的用户账号。</p>
+<p>对于用户来讲，当然不要使用过于简单的口令。但是，我们能否在程序设计上对简单口令加强保护呢？</p>
+<p>由于常用口令的MD5值很容易被计算出来，所以，要确保存储的用户口令不是那些已经被计算出来的常用口令的MD5，这一方法通过对原始口令加一个复杂字符串来实现，俗称“加盐”：</p>
+<div class="cnblogs_code">
+<pre>hashlib.md5(<span style="color: #800000">"</span><span style="color: #800000">salt</span><span style="color: #800000">"</span>.encode(<span style="color: #800000">"</span><span style="color: #800000">utf8</span><span style="color: #800000">"</span>))</pre>
+</div>
+<p>经过Salt处理的MD5口令，只要Salt不被黑客知道，即使用户输入简单口令，也很难通过MD5反推明文口令。</p>
+<p>但是如果有两个用户都使用了相同的简单口令比如123456，在数据库中，将存储两条相同的MD5值，这说明这两个用户的口令是一样的。有没有办法让使用相同口令的用户存储不同的MD5呢？</p>
+<p>如果假定用户无法修改登录名，就可以通过把登录名作为Salt的一部分来计算MD5，从而实现相同口令的用户也存储不同的MD5。</p>
+<p>摘要算法在很多地方都有广泛的应用。要注意摘要算法不是加密算法，不能用于加密（因为无法通过摘要反推明文），只能用于防篡改，但是它的单向计算特性决定了可以在不存储明文口令的情况下验证用户口令。</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label13"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">configparser模块</span></p>
+<p>该模块适用于配置文件的格式与windows ini文件类似，可以包含一个或多个节（section），每个节可以有多个参数（键=值）。</p>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">创建文件</span></h3>
+<p><strong>来看一个好多软件的常见文档格式如下：</strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">[DEFAULT]
+ServerAliveInterval </span>= 45<span style="color: #000000">
+Compression </span>=<span style="color: #000000"> yes
+CompressionLevel </span>= 9<span style="color: #000000">
+ForwardX11 </span>=<span style="color: #000000"> yes
+  
+[bitbucket.org]
+User </span>=<span style="color: #000000"> hg
+  
+[topsecret.server.com]
+Port </span>= 50022<span style="color: #000000">
+ForwardX11 </span>= no</pre>
+</div>
+<p>如果想用python生成一个这样的文档怎么做呢？</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> configparser
+
+config </span>=<span style="color: #000000"> configparser.ConfigParser()
+
+config[</span><span style="color: #800000">"</span><span style="color: #800000">DEFAULT</span><span style="color: #800000">"</span>] = {<span style="color: #800000">'</span><span style="color: #800000">ServerAliveInterval</span><span style="color: #800000">'</span>: <span style="color: #800000">'</span><span style="color: #800000">45</span><span style="color: #800000">'</span><span style="color: #000000">,
+                      </span><span style="color: #800000">'</span><span style="color: #800000">Compression</span><span style="color: #800000">'</span>: <span style="color: #800000">'</span><span style="color: #800000">yes</span><span style="color: #800000">'</span><span style="color: #000000">,
+                     </span><span style="color: #800000">'</span><span style="color: #800000">CompressionLevel</span><span style="color: #800000">'</span>: <span style="color: #800000">'</span><span style="color: #800000">9</span><span style="color: #800000">'</span><span style="color: #000000">,
+                     </span><span style="color: #800000">'</span><span style="color: #800000">ForwardX11</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">yes</span><span style="color: #800000">'</span><span style="color: #000000">
+                     }
+
+config[</span><span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>] = {<span style="color: #800000">'</span><span style="color: #800000">User</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">hg</span><span style="color: #800000">'</span><span style="color: #000000">}
+
+config[</span><span style="color: #800000">'</span><span style="color: #800000">topsecret.server.com</span><span style="color: #800000">'</span>] = {<span style="color: #800000">'</span><span style="color: #800000">Host Port</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">50022</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">ForwardX11</span><span style="color: #800000">'</span>:<span style="color: #800000">'</span><span style="color: #800000">no</span><span style="color: #800000">'</span><span style="color: #000000">}
+
+with open(</span><span style="color: #800000">'</span><span style="color: #800000">example.ini</span><span style="color: #800000">'</span>, <span style="color: #800000">'</span><span style="color: #800000">w</span><span style="color: #800000">'</span><span style="color: #000000">) as configfile:
+
+   config.write(configfile)</span></pre>
+</div>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">查找文件</span></h3>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> configparser
+
+config </span>=<span style="color: #000000"> configparser.ConfigParser()
+
+</span><span style="color: #008000">#</span><span style="color: #008000">---------------------------查找文件内容,基于字典的形式</span>
+
+<span style="color: #0000ff">print</span>(config.sections())        <span style="color: #008000">#</span><span style="color: #008000">  []</span>
+<span style="color: #000000">
+config.read(</span><span style="color: #800000">'</span><span style="color: #800000">example.ini</span><span style="color: #800000">'</span><span style="color: #000000">)
+
+</span><span style="color: #0000ff">print</span>(config.sections())        <span style="color: #008000">#</span><span style="color: #008000">   ['bitbucket.org', 'topsecret.server.com']</span>
+
+<span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">bytebong.com</span><span style="color: #800000">'</span> <span style="color: #0000ff">in</span> config) <span style="color: #008000">#</span><span style="color: #008000"> False</span>
+<span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span> <span style="color: #0000ff">in</span> config) <span style="color: #008000">#</span><span style="color: #008000"> True</span>
+
+
+<span style="color: #0000ff">print</span>(config[<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>][<span style="color: #800000">"</span><span style="color: #800000">user</span><span style="color: #800000">"</span>])  <span style="color: #008000">#</span><span style="color: #008000"> hg</span>
+
+<span style="color: #0000ff">print</span>(config[<span style="color: #800000">'</span><span style="color: #800000">DEFAULT</span><span style="color: #800000">'</span>][<span style="color: #800000">'</span><span style="color: #800000">Compression</span><span style="color: #800000">'</span>]) <span style="color: #008000">#</span><span style="color: #008000">yes</span>
+
+<span style="color: #0000ff">print</span>(config[<span style="color: #800000">'</span><span style="color: #800000">topsecret.server.com</span><span style="color: #800000">'</span>][<span style="color: #800000">'</span><span style="color: #800000">ForwardX11</span><span style="color: #800000">'</span>])  <span style="color: #008000">#</span><span style="color: #008000">no</span>
+
+
+<span style="color: #0000ff">print</span>(config[<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>])          <span style="color: #008000">#</span><span style="color: #008000">&lt;Section: bitbucket.org&gt;</span>
+
+<span style="color: #0000ff">for</span> key <span style="color: #0000ff">in</span> config[<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>]:     <span style="color: #008000">#</span><span style="color: #008000"> 注意,有default会默认default的键</span>
+    <span style="color: #0000ff">print</span><span style="color: #000000">(key)
+
+</span><span style="color: #0000ff">print</span>(config.options(<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>))  <span style="color: #008000">#</span><span style="color: #008000"> 同for循环,找到'bitbucket.org'下所有键</span>
+
+<span style="color: #0000ff">print</span>(config.items(<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>))    <span style="color: #008000">#</span><span style="color: #008000">找到'bitbucket.org'下所有键值对</span>
+
+<span style="color: #0000ff">print</span>(config.get(<span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">compression</span><span style="color: #800000">'</span>)) <span style="color: #008000">#</span><span style="color: #008000"> yes       get方法Section下的key对应的value</span></pre>
+</div>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">增删改操作</span></h3>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> configparser
+
+config </span>=<span style="color: #000000"> configparser.ConfigParser()
+
+config.read(</span><span style="color: #800000">'</span><span style="color: #800000">example.ini</span><span style="color: #800000">'</span><span style="color: #000000">)
+
+config.add_section(</span><span style="color: #800000">'</span><span style="color: #800000">yuan</span><span style="color: #800000">'</span><span style="color: #000000">)
+
+
+
+config.remove_section(</span><span style="color: #800000">'</span><span style="color: #800000">bitbucket.org</span><span style="color: #800000">'</span><span style="color: #000000">)
+config.remove_option(</span><span style="color: #800000">'</span><span style="color: #800000">topsecret.server.com</span><span style="color: #800000">'</span>,<span style="color: #800000">"</span><span style="color: #800000">forwardx11</span><span style="color: #800000">"</span><span style="color: #000000">)
+
+
+config.set(</span><span style="color: #800000">'</span><span style="color: #800000">topsecret.server.com</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k1</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">11111</span><span style="color: #800000">'</span><span style="color: #000000">)
+config.set(</span><span style="color: #800000">'</span><span style="color: #800000">yuan</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">k2</span><span style="color: #800000">'</span>,<span style="color: #800000">'</span><span style="color: #800000">22222</span><span style="color: #800000">'</span><span style="color: #000000">)
+
+config.write(open(</span><span style="color: #800000">'</span><span style="color: #800000">new2.ini</span><span style="color: #800000">'</span>, <span style="color: #800000">"</span><span style="color: #800000">w</span><span style="color: #800000">"</span>))</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a name="_label14"></a> <a href="#_labelTop">返回顶部</a></div>
+<p style="text-align: center; background: #ddddff; padding: 5px"><span style="font-size: 16px">logging模块</span></p>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">函数式简单配置</span></h3>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> logging  
+logging.debug(</span><span style="color: #800000">'</span><span style="color: #800000">debug message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.info(</span><span style="color: #800000">'</span><span style="color: #800000">info message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.warning(</span><span style="color: #800000">'</span><span style="color: #800000">warning message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.error(</span><span style="color: #800000">'</span><span style="color: #800000">error message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.critical(</span><span style="color: #800000">'</span><span style="color: #800000">critical message</span><span style="color: #800000">'</span>) </pre>
+</div>
+<p>默认情况下Python的logging模块将日志打印到了标准输出中，且只显示了大于等于WARNING级别的日志，这说明默认的日志级别设置为WARNING（日志级别等级CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG），默认的日志格式为日志级别：Logger名称：用户输出消息。</p>
+<p><strong>灵活配置日志级别，日志格式，输出位置:</strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> logging  
+logging.basicConfig(level</span>=<span style="color: #000000">logging.DEBUG,  
+                    format</span>=<span style="color: #800000">'</span><span style="color: #800000">%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s</span><span style="color: #800000">'</span><span style="color: #000000">,  
+                    datefmt</span>=<span style="color: #800000">'</span><span style="color: #800000">%a, %d %b %Y %H:%M:%S</span><span style="color: #800000">'</span><span style="color: #000000">,  
+                    filename</span>=<span style="color: #800000">'</span><span style="color: #800000">/tmp/test.log</span><span style="color: #800000">'</span><span style="color: #000000">,  
+                    filemode</span>=<span style="color: #800000">'</span><span style="color: #800000">w</span><span style="color: #800000">'</span><span style="color: #000000">)  
+  
+logging.debug(</span><span style="color: #800000">'</span><span style="color: #800000">debug message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.info(</span><span style="color: #800000">'</span><span style="color: #800000">info message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.warning(</span><span style="color: #800000">'</span><span style="color: #800000">warning message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.error(</span><span style="color: #800000">'</span><span style="color: #800000">error message</span><span style="color: #800000">'</span><span style="color: #000000">)  
+logging.critical(</span><span style="color: #800000">'</span><span style="color: #800000">critical message</span><span style="color: #800000">'</span>)</pre>
+</div>
+<p>配置参数：</p>
+<div class="cnblogs_code"><img id="code_img_closed_27978dee-666a-4674-a420-c97bbb55f402" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_27978dee-666a-4674-a420-c97bbb55f402" class="code_img_opened" style="display: none" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_27978dee-666a-4674-a420-c97bbb55f402" class="cnblogs_code_hide">
+<pre><span style="color: #000000">logging.basicConfig()函数中可通过具体参数来更改logging模块默认行为，可用参数有：
+
+filename：用指定的文件名创建FiledHandler，这样日志会被存储在指定的文件中。
+filemode：文件打开方式，在指定了filename时使用这个参数，默认值为“a”还可指定为“w”。
+format：指定handler使用的日志显示格式。
+datefmt：指定日期时间格式。
+level：设置rootlogger（后边会讲解具体概念）的日志级别
+stream：用指定的stream创建StreamHandler。可以指定输出到sys.stderr,sys.stdout或者文件(f</span>=<span style="color: #000000">open(‘test.log’,’w’))，默认为sys.stderr。若同时列出了filename和stream两个参数，则stream参数会被忽略。
+
+format参数中可能用到的格式化串：
+</span>%<span style="color: #000000">(name)s Logger的名字
+</span>%<span style="color: #000000">(levelno)s 数字形式的日志级别
+</span>%<span style="color: #000000">(levelname)s 文本形式的日志级别
+</span>%<span style="color: #000000">(pathname)s 调用日志输出函数的模块的完整路径名，可能没有
+</span>%<span style="color: #000000">(filename)s 调用日志输出函数的模块的文件名
+</span>%<span style="color: #000000">(module)s 调用日志输出函数的模块名
+</span>%<span style="color: #000000">(funcName)s 调用日志输出函数的函数名
+</span>%<span style="color: #000000">(lineno)d 调用日志输出函数的语句所在的代码行
+</span>%<span style="color: #000000">(created)f 当前时间，用UNIX标准的表示时间的浮 点数表示
+</span>%<span style="color: #000000">(relativeCreated)d 输出日志信息时的，自Logger创建以 来的毫秒数
+</span>%(asctime)s 字符串形式的当前时间。默认格式是 “2003-07-08 16:49:45,896<span style="color: #000000">”。逗号后面的是毫秒
+</span>%<span style="color: #000000">(thread)d 线程ID。可能没有
+</span>%<span style="color: #000000">(threadName)s 线程名。可能没有
+</span>%<span style="color: #000000">(process)d 进程ID。可能没有
+</span>%(message)s用户输出的消息</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<h3 style="background: #4efbe3; padding: 5px; width: 70%"><span style="font-size: 14pt">logger对象配置</span></h3>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">import</span><span style="color: #000000"> logging
+
+logger </span>=<span style="color: #000000"> logging.getLogger()
+</span><span style="color: #008000">#</span><span style="color: #008000"> 创建一个handler，用于写入日志文件</span>
+fh = logging.FileHandler(<span style="color: #800000">'</span><span style="color: #800000">test.log</span><span style="color: #800000">',</span>encoding='utf-8') <br><br><span style="color: #008000">#</span><span style="color: #008000"> 再创建一个handler，用于输出到控制台</span> <br>ch =<span> logging.StreamHandler() <br>formatter </span>= logging.Formatter(<span style="color: #800000">'</span><span style="color: #800000">%(asctime)s - %(name)s - %(levelname)s - %(message)s</span><span style="color: #800000">'</span><span>)<br></span></pre>
+<pre>fh.setLevel(logging.DEBUG)<br><br>fh.setFormatter(formatter) <br>ch.setFormatter(formatter) </pre>
+<pre><span>logger.addHandler(fh) </span><span style="color: #008000">#</span><span style="color: #008000">logger对象可以添加多个fh和ch对象</span> <br><span>logger.addHandler(ch) <br><br>logger.debug(</span><span style="color: #800000">'</span><span style="color: #800000">logger debug message</span><span style="color: #800000">'</span><span>) <br>logger.info(</span><span style="color: #800000">'</span><span style="color: #800000">logger info message</span><span style="color: #800000">'</span><span>) <br>logger.warning(</span><span style="color: #800000">'</span><span style="color: #800000">logger warning message</span><span style="color: #800000">'</span><span>) <br>logger.error(</span><span style="color: #800000">'</span><span style="color: #800000">logger error message</span><span style="color: #800000">'</span><span>) <br>logger.critical(</span><span style="color: #800000">'</span><span style="color: #800000">logger critical message</span><span style="color: #800000">'</span>)</pre>
+</div>
+<p>logging库提供了多个组件：Logger、Handler、Filter、Formatter。Logger对象提供应用程序可直接使用的接口，Handler发送日志到适当的目的地，Filter提供了过滤日志信息的方法，Formatter指定日志显示格式。另外，可以通过：logger.setLevel(logging.Debug)设置级别,当然，也可以通过</p>
+<p>fh.setLevel(logging.Debug)单对文件流设置某个级别。</p>
+<p>&nbsp;</p>
+<style>p.p1 { margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px ".PingFang SC"; color: #454545 }
+span.s1 { font: 12.0px "Helvetica Neue" }</style>
+<style>p.p1 { margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px ".PingFang SC"; color: #454545 }</style></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2017-08-04 08:57</span> <a href='https://www.cnblogs.com/Eva-J/'>Eva_J</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>) &nbsp;<a href="https://i.cnblogs.com/EditArticles.aspx?postid=7228075" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(7228075);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=250832,cb_entryId=7228075,cb_blogApp=currentBlogApp,cb_blogUserGuid='4997edaa-857b-e511-9fc1-ac853d9f53cc',cb_entryCreatedDate='2017/8/4 8:57:00';loadViewCount(cb_entryId);var cb_postType=2;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: topicList 文章列表容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+		<div class="clear"></div>
+		<div id="footer">
+			
+<!--done-->
+Copyright &copy;2018 Eva_J
+		</div><!--end: footer -->
+	</div><!--end: sideBar 侧边栏容器 -->
+</div><!--end: home 自定义的最大容器 -->
+</center>
+</body>
+</html>
+

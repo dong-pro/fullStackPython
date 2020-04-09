@@ -1,0 +1,19 @@
+一, 上节课内容回顾
+
+    1.day27的 05、06注释
+    2. ssh：
+        需求：02 ssh_client.py  02 ssh_client.py
+            客户端给服务端发送一个命令，然后服务端利用subprocess模块，
+            把终端命令在python脚本里面执行，将执行后的数据打包发送给客户端
+
+二, 作业讲解
+三, 今日主要内容
+
+    1.文件上传
+    2.socketserver（并发）
+        1.socketserver的使用
+        2.解析socketserver的源码
+
+作业：
+    1 基于socketserver  实现一个多用户上传下载功能
+    2 整理socketserver的流程图。

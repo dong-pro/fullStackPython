@@ -1,0 +1,87 @@
+一, 上节课内容回顾
+
+    1. GIL锁
+    2. 进程和线程的区别？
+        第一：
+            进程是cpu资源分配的最小单元。
+            线程是cpu计算的最小单元。
+        第二：
+            一个进程中可以有多个线程。
+        第三：
+            对于Python来说他的进程和线程和其他语言有差异，是有GIL锁。
+            GIL锁保证一个进程中同一时刻只有一个线程被cpu调度。
+
+        注意：IO密集型操作可以使用多线程；
+             计算密集型可以使用多进程；
+
+    3. Lock和RLock
+
+    4. 线程池
+
+    5. threading.local
+
+    6. 常用方法
+
+    7. 面向对象补充：  02 面向对象补充.py
+
+二, 作业讲解
+
+三, 今日主要内容
+
+    1. 进程
+        - 进程间数据不共享
+        - 常用功能:
+            - join
+            - deamon
+            - name
+            - multiprocessing.current_process()
+            - multiprocessing.current_process().ident/pid
+    5. 模块(爬虫)
+            - requests
+            - bs4(beautifulsoup)
+    6. 协程
+
+    2. 进程间数据共享
+        Queue:
+            linux:
+            windows:
+        Manager:（*）
+
+    3. 进程锁
+        为什么要加锁？因为数据共享了
+
+    4. 进程池
+
+    5. 初识爬虫：
+        安装：
+            pip3 install requests
+            pip3 install bs4
+
+        问题：
+            找不到内部指令？添加pip3路径到环境变量
+
+        示例：
+
+        相关：
+            a. 以上示例进程和线程那个好？
+                - 线程好
+            b. requests模块模拟浏览器发送请求
+                - 本质 requests.get(...)：
+                    - 创建socket客户端
+                    - 连接 【阻塞】
+                    - 发送请求
+                    - 接收请求【阻塞】
+                    - 断开连接
+
+            c. 线程和进程池
+
+重点总结：
+        1. 进程    *****
+            - windows
+            - linux
+        2. 进程数据共享 *****
+            - Queue
+            - Manager
+        3. 进程锁   ***
+        4. 进程池   *****
+        5. 爬虫(进程池/线程池的应用)
