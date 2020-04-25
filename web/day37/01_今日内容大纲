@@ -1,0 +1,93 @@
+一, 上节课内容回顾：
+
+    0.浏览器
+    1.标签
+      - 行内标签: a span u strong em i b label
+        (1)在一行内显示
+        (2)不能设置宽高，默认的宽和高是内容的宽高
+        行内块标签： input img
+        (1) 在一行内显示
+        (2)可以设置宽高
+      - 块级标签 h1（页面中只有一个h1,为了这个搜索引擎）~h6 div p ul li ol dl dt dd form table
+         （1）独占一行
+         （2）可以设置宽高，如果不设置宽，默认是父盒子的100%宽
+    2.一些网页布局结构
+    3.div模型
+       division:分割
+       div+span 网页布局
+    p标签只能放文本、图片、表单元素，不能放其他的元素
+    
+二, 今日主要内容：
+  (1)标签的使用
+    a：
+    （1）超链接
+     href 超链接的地址，还可以链接文件目录
+     target:
+         _self 默认 在当前中打开链接地址
+         _blank  在空白的页面打开连接地址
+    （2）标签内部跳转
+     锚点 默认有点击行为。我们可以javascript:void(0);阻止a标签的默认点击行为。
+         
+    img
+      src:连接的图片资源
+      alt:图片资源加载失败。显示的文本
+      
+    ul: unordered list 无序列表 ul下的子元素只能是li
+      li
+      type='circle' 圆心
+      type='square' 方块
+    ol:
+      ordered list
+      只能是li
+    dl：定义列表
+      dt:定义标题
+      dd:定义描述
+
+    sublime的简单使用
+    ctrl+shift+p  搜package control
+    
+    table  border='1' style="border-collapse:collapse;"  设置边框
+      tr  表格行
+      td  表格描述
+    form
+      HTTP协议约定
+      action:提交的服务器网址
+      method:get(默认)| post(应用：登录注册、上传文件)
+      页面中的a img link 默认是get请求
+      
+      input
+        type:
+          text: 文本输入框
+          password:密码输入框
+          file:文件按钮 提交文件的时候一定要用post 一定要给form标签添加 Enctype='multipart/form-data'
+          submit:提交按钮
+          button:普通按钮
+        name:提交到服务器端的key
+        value: 显示的文本内容，与服务器端的value挂钩
+        placeholder：文本代替
+            
+      label
+        for:是与下面的某个表单控件的id属性进行关联
+          
+    BS交互
+    
+      1.form表单默认与服务器进行交互
+      2.ajax技术
+  （2）CSS 层叠样式表  
+      作用：修饰网页结构
+
+  （3）css的三种引入方式
+      - 行内样式
+        注意：行内样式的优先级是最高的
+      - 内接样式
+      - 外接样式
+        
+  （4）基本选择器
+     id选择器
+        选中的是特性 唯一的，不能重复
+     标签选择器
+        选中的是页面中共性的标签
+     类选择器
+        选中的也是页面中共性的标签，类名可以有多个
+     通配符选择器
+        通常是对页面进行重置样式表
