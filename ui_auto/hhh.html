@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+
+    <script>
+        window.onload=function () {
+            alert('test selenium alert!')
+        }
+    </script>
+</head>
+<body>
+<p>
+    <label for="user">用户名：</label>
+    <input type="text" id="user">
+</p>
+<p>
+    <label for="pwd">密码:</label>
+    <input type="password" id="pwd">
+</p>
+<label for="">性别：</label>
+<input type="radio" name="sex">男
+<input type="radio" name="sex">女
+<br>
+头像：<input type="file">
+<p>
+    住址：
+    <select >
+        <option >省1</option>
+        <option >省2</option>
+        <option >省3</option>
+        <option selected>省4</option>
+    </select>kk
+    <select >
+        <option >市1</option>
+        <option >市2</option>
+        <option selected>市3</option>
+        <option >市4</option>
+    </select>vv
+</p>
+<p>
+    爱好：
+    <input type="checkbox" class="love">篮球
+    <input type="checkbox" class="love">足球
+    <input type="checkbox" class="love">羽毛球
+</p>
+备注信息：
+<textarea name="" id="" cols="50" rows="5">这是我的第一个网页</textarea>
+<br>
+<input type="reset">重置按钮
+<input type="submit" id="submit">
+<script>
+    a = document.getElementById('submit')
+    a.alert()
+</script>
+</body>
+</html>
