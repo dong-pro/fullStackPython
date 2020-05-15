@@ -12,6 +12,7 @@ import datetime
 import os
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from ui_auto.Common import dir_config
 
 
 class BasePage(object):
@@ -36,12 +37,12 @@ class BasePage(object):
             # 结束等待的时间
             end = datetime.datetime.now()
             # 求一个差值，写在日志当中，等待了多久
-            timespan = end - start
-            logging.info('等待结束，等待时长为{}秒'.format(timespan))
+            wait_time = (end - start).seconds
+            logging.info('等待结束，等待时长为{}秒'.format(wait_time))
         except:
             logging.exception('等待元素可见失败！！！')
             # 截图
-            self.driver.save_screenshot(doc)
+            self.save_screenshot(doc)
             raise
 
     # 等待元素存在
@@ -62,7 +63,7 @@ class BasePage(object):
         except:
             logging.exception('查找元素失败！！！')
             # 截图
-            self.driver.save_screenshot(doc)
+            self.save_screenshot(doc)
             raise
 
     # 点击操作
@@ -76,7 +77,7 @@ class BasePage(object):
         except:
             logging.exception('元素点击操作失败！！！')
             # 截图
-            self.driver.save_screenshot(doc)
+            self.save_screenshot(doc)
             raise
 
     # 输入操作
@@ -90,7 +91,7 @@ class BasePage(object):
         except:
             logging.exception('元素输入操作失败！！！')
             # 截图
-            self.driver.save_screenshot(doc)
+            self.save_screenshot(doc)
             raise
 
     # 获取元素的文本内容
@@ -104,7 +105,7 @@ class BasePage(object):
         except:
             logging.exception('获取元素文本内容失败！！！')
             # 截图
-            self.driver.save_screenshot(doc)
+            self.save_screenshot(doc)
             raise
 
     # 获取元素的属性
@@ -118,7 +119,7 @@ class BasePage(object):
         except:
             logging.exception('获取元素属性失败！！！')
             # 截图
-            self.driver.save_screenshot(doc)
+            self.save_screenshot(doc)
             raise
 
     # alert处理
@@ -136,15 +137,13 @@ class BasePage(object):
     # 滚动条处理
     # 窗口切换
 
-    def save_screenshot(self, name):
+    def save_screenshot(self, doc):
         # 图片名称：模块名_页面名称_操作名称_年-月-日_时分秒.png
-        cur_path = os.path.dirname(os.path.dirname(__file__))
-        src_path = os.path.join(cur_path, 'Outputs/screenshots')
-        src_name = '{0}_{1}.png'.format(name, datetime.datetime.now().strftime('%Y-%m-%d_%H%S%M'))
-        file_name = os.path.join(src_path, src_name)
-        self.driver.save_screenshot(file_name)
-        logging.info('截取网页成功，文件路径是：{}'.format(file_name))
+        src_name = '{0}_{1}.png'.format(doc, datetime.datetime.now().strftime('%Y-%m-%d_%H%S%M'))
+        file_path = os.path.join(dir_config.screenshot_dir, src_name)
+        try:
+            self.driver.save_screenshot(file_path)
+            logging.info('截取网页成功，文件路径是：{}'.format(file_path))
+        except:
+            logging.exception('截图失败')
 
-from selenium import webdriver
-driver = webdriver.Chrome()
-BasePage(driver).save_screenshot('kkkk')
