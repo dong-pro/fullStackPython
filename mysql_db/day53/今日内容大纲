@@ -1,0 +1,244 @@
+内容回顾：
+    MySQL服务器
+    Mysql是一基于C/S架构的软件
+
+    1.如何安装Mysql
+    2.安装window服务
+        mysqld --install
+        mysqld --remove
+
+        net start mysql
+        net stop mysql
+    3.破解密码
+        跳过授权表来开启服务器
+        mysqld --skip-grant-tables
+    4.统一字符编码
+        my.ini 配置文件
+        [mysqld]
+        # 设置mysql的安装目录 **后面的路径一定是安装sql的目录（自己电脑的）**
+        basedir=C:\mysql-5.7.22-winx64\mysql-5.7.22-winx64
+        # 设置mysql数据库的数据的存放目录，必须是data
+        datadir=C:\mysql-5.7.22-winx64\mysql-5.7.22-winx64\data
+        sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+        # mysql端口
+        port=3306
+        # 字符集
+        [mysqld]
+        character-set-server=utf8
+        collation-server=utf8_general_ci
+        [client]
+        default-character-set=utf8
+        [mysql]
+        default-character-set=utf8
+
+        \s;
+    5.创建用户
+        create user 'xxxx'@'%' indentified by '123'
+        授权
+        grant 这个权限 只有root有
+        grant all privileges  on *.*  to "xxxx"@'%';
+
+        revoke all privileges on *.* from 'xxx'@'%';
+    6.sql命令
+        select user();
+
+        查看所有的数据库
+        show databases;
+
+        创建数据库
+        create database db1;
+
+        create table t1(id int,name char(10));
+        engine=innodb
+
+        sql语言 是强类型
+
+        insert into t1(id,name) values(1,'alex'),(2,'wusir');
+
+今日内容：
+    1.sql的基本语法
+        对数据库
+            create database db1;
+        对表
+            create table t1(id int,name char(10));
+
+            show create table t1;
+            show tables; 查看所有的表
+            desc t1; 查看表的详细结构
+        对数据
+            insert into t1(id,name) values(1,'alex'),(2,'武sir'); 插入
+            insert into t1 value(3,'日天');
+
+            select id from t1;
+            select id,name from t1;
+            select * from t1;
+            select * from db1.t1 where id = 2;
+
+        关系型数据库：mysql db2 oracle sqlite  表中存储
+
+        非关系型数据库：mongodb redis
+            key : value  基于model模型  obj.insert
+    2.存储引擎
+        mysql 5.5版本之后默认为innodb存储引擎
+        另外还有myisam、memory、blackhone
+        #memory，在重启mysql或者重启机器后，表内数据清空
+        #blackhole，往表内插入任何数据，都相当于丢入黑洞，表内永远不存记录
+
+        复制表结构和表数据
+            create table a1 select * from db2.t1;
+        只复制表结构
+            create table a2 select * from db2.t1 where 1>2;
+            create table a3 like db2.t1;
+    3.数据类型
+        #1. 数字：
+            整型：tinyint  int  bigint
+            小数：
+                float ：在位数比较短的情况下不精准
+                double ：在位数比较长的情况下不精准
+                    0.000001230123123123
+                    存成：0.000001230000
+                decimal：（如果用小数，则用推荐使用decimal）
+                    精准
+                    内部原理是以字符串形式去存
+
+        #2. 字符串：
+            char（10）：简单粗暴，浪费空间，存取速度快
+                       root存成root000000
+            varchar：精准，节省空间，存取速度慢
+
+            sql优化：创建表时，定长的类型往前放，变长的往后放
+                            比如性别           比如地址或描述信息
+
+            >255个字符，超了就把文件路径存放到数据库中。
+                    比如图片，视频等找一个文件服务器，数据库中只存路径或url。
+
+        #3. 时间类型：
+            最常用：datetime
+
+        #4. 枚举类型与集合类型 enum 和set
+
+        --  整型 默认是signed 有符号的 范围 -128~127
+
+            sql中没有boolean类型 使用tinyint(1)来表示boolean值 1 表示true 0 表示false
+
+        -- int 类型后面的存储是显示宽度而不是存储宽度，其它的数据类型都是存储宽度
+            所以我们在设计表的时候 int类型的字段不用加显示宽度，默认是总长度的位数+1
+            总结一句话，定义int类型不需要加宽度，使用默认就可以
+
+        -- datetime
+            now() sql的内置函数，根据数据类型生成对应的时间格式
+
+        -- char 定长  存储速度快 浪费空间
+           varchar 变长  存储速度慢 节省空间
+
+        -- enum 枚举 表示多选一
+        -- set  集合 表示多选一或者多选多
+
+            create table consumer(
+                id int unsigned,
+                name varchar(20),
+                sex enum('male','female','other'),
+                level enum('vip','svip','vvip'),
+                fav set('smoke','drink','tangtou')
+
+            );
+
+            insert into consumer values(1,'一宁','other','vvip','smoke,drink,tangtou');
+
+        小结：
+            数据类型：
+                整型：tinyint int bigint
+                浮点型： float double decimal
+                时间：year date time datetime
+                字符：char 定长 > varchar 变长 > text 文本
+                枚举：enum
+                集合：set
+                布尔：boolean  tinyint(1) 存1 表示true,存0 表示false
+
+                函数： now() 根据字段的数据类型获取当前的时间格式
+                      char_length: 获取字符长度
+                      length():获取字节数
+
+                sql中默认是有符号的
+                如果设置无符号unsigned
+                用0填充 zefofill
+
+            对字段进行  约束
+
+    4.约束  重点
+        作用：保证数据的完整性和一致性
+
+        表的设计
+        1.not null 与 default
+            create table tb1(id int not null default 2,name char(20) not null);
+
+            insert into tb1  values(1,'alex');
+            insert into tb1(name) values('武sir');
+            insert into tb1(id) values(3);
+        2.unique
+            单列唯一
+
+                create table dep(id int not null,name varchar(20) unique);
+                insert into dep(id,name) values(1,'alex');
+                insert into dep(id,name) values(2,'alex');
+
+            多列唯一 表示每一列都唯一
+                create table dep2(id int unique,name varchar(20) unique);
+
+                insert into dep2(id,name) values(1,'alex');
+
+            # 不能插入值
+                insert into dep2(id,name) values(1,'alex2');
+                insert into dep2(id,name) values(2,'alex');
+
+            组合唯一 （联合唯一） 只要有一列不同，就可以插入数据
+                create table dep3(
+                    id int,
+                    name varchar(20),
+                    unique(id,name)
+                );
+                insert into dep3(id,name) values(1,'alex');
+                insert into dep3(id,name) values(1,'alex2');
+                insert into dep3(id,name) values(2,'alex');
+
+                不能插入的格式
+                insert into dep3(id,name) values(1,'alex');
+
+        3.primary key (索引优化查询)
+            sql版本中，一张表中只允许有一个主键，通常都是id,cid,nid,sid
+
+                    student  id
+                    teacher  id
+                    select student.id,teacher.id from
+
+            create table stu(
+                id int primary key auto_increment,
+                name varchar(10) unique
+            );
+            insert into stu(name) values ('alex');
+
+            化学反应： not null + unique
+            create table stu2(
+                id int not null unique auto_increment,
+                name varchar(10) unique
+            );
+
+            primary key  (索引优化)
+            key 查询优化
+            查询优化；
+                前提 准备大量数据
+
+        4.auto_increment
+                            
+预习内容：
+    1.foregin key 外键
+    2.外键的变种
+        - 1对多或多对一
+
+        出版社     书
+            一      多   √
+            多      一   X
+
+        - 多对多
+        - 一对一
+    3.单表查询

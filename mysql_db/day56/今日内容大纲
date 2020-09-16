@@ -1,0 +1,129 @@
+内容回顾：
+    1.单表查询
+        group by
+        having
+        order by
+        limit
+    2.多表查询
+        子查询
+            内层查询的结果作为外层查询的条件
+        外连接：
+            内连接 连接匹配的行
+                inner join     on
+            左连接  优先显示左表记录
+                left join      on
+            右连接  优先显示右表记录
+                right join      on
+
+            全外连接
+                union
+    3.pymysql
+        pip3 install mysql
+        import pymysql
+        conn = pymysql.connect(
+            host:'127.0.0.1',
+            port: 3306,
+            database:'db1',
+            user:'root',
+            password:'',
+            charset:'utf8'
+        );
+        cur = conn.cursor()
+        sql = 'select * from userinfo'
+        %(key)s
+        res = cur.execute(sql,()||[]||{})
+
+        cur.close()
+        conn.close()
+            
+今日内容：
+    1.pymysql 增 删 改
+        一定要commit()
+    2.pymysql 查询
+        fetchone()
+        fetchmany(size)
+        fetchall()
+    3.索引
+        作用：约束+加速查询
+            普通索引
+                create index ix_name on 表名（字段）
+                作用：加速查询
+
+            唯一索引：
+                作用：约束和加速查询
+            create unique index un_index_name on big_data(email)
+
+            主键索引
+
+            #覆盖索引：在索引文件中直接获取数据
+                例如：
+                select name from big_data where name = 'alex50000';
+
+            #索引合并：把多个单列索引一起使用
+                select * from  big_data where name = 'alex13131' and id = 13131;
+
+            #联合索引：
+                联合普通索引
+                联合唯一索引
+                联合主键索引
+                select * from  big_data where name = 'alex13131' and id = 13131;
+
+            # 最左前缀
+              如果使用组合索引如上，name和email组合索引之后，查询
+             （1）name和email ---使用索引
+             （2）name        ---使用索引
+             （3）email       ---不适用索引
+              对于同时搜索n个条件时，组合索引的性能好于多个单列索引
+              ******组合索引的性能>索引合并的性能*********
+
+            对于索引
+                1.创建索引
+                    注意事项：
+                       (1)避免使用select *
+                       (2)count(1)或count(列) 代替count(*)
+                       (3)创建表时尽量使用char代替varchar
+                       (4)表的字段顺序固定长度的字段优先
+                       (5)组合索引代替多个单列索引（经常使用多个条件查询时）
+                       (6)尽量使用短索引 （create index ix_title on tb(title(16));特殊的数据类型 text类型）
+                       (7)使用连接（join）来代替子查询
+                       (8)连表时注意条件类型需一致
+                       (9)索引散列（重复少）不适用于建索引，例如：性别不合适
+                2.命中索引
+                3.正确使用索引
+                    注意事项：
+                        - like '%xx'
+                        select * from userinfo where name like '%al';
+                    - 使用函数
+                        select * from userinfo where reverse(name) = 'alex333';
+                    - or
+                        select * from userinfo where id = 1 or email = 'alex122@oldbody';
+                        特别的：当or条件中有未建立索引的列才失效，以下会走索引
+                                select * from userinfo where id = 1 or name = 'alex1222';
+                                select * from userinfo where id = 1 or email = 'alex122@oldbody' and name = 'alex112'
+                    - 类型不一致
+                        如果列是字符串类型，传入条件是必须用引号引起来，不然...
+                        select * from userinfo where name = 999;
+                    - !=
+                        select count(*) from userinfo where name != 'alex'
+                        特别的：如果是主键，则还是会走索引
+                            select count(*) from userinfo where id != 123
+                    - >
+                        select * from userinfo where name > 'alex'
+                        特别的：如果是主键或索引是整数类型，则还是会走索引
+                            select * from userinfo where id > 123
+                            select * from userinfo where num > 123
+                    - order by
+                        select email from userinfo order by name desc;
+                        当根据索引排序时候，选择的映射如果不是索引，则不走索引
+                        特别的：如果对主键排序，则还是走索引：
+                            select * from userinfo order by nid desc;
+
+                    - 组合索引最左前缀
+                        如果组合索引为：(name,email)
+                        name and email       -- 使用索引
+                        name                 -- 使用索引
+                        email                -- 不使用索引
+                对于创建索引，它是真实存在的，占用硬盘空间，尽量不要使用索引
+
+                select * from big_data where id > 2000010 limit 10;
+                select * from (select * from big_data where id > 2000020 limit 30) as A order by id desc limit 10;

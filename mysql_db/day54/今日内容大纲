@@ -1,0 +1,209 @@
+内容回顾：
+    1.mysql的基本语法
+        对库的操作
+            show databases;
+            create database db1;
+            使用数据库：
+                use db1;
+        对表
+            create table t1(
+                id int not null unique unsigned,
+                name char(10) not null,
+                sex enum('男','女'),
+                fav set('唱歌','跳舞','烫头'),
+                born_date_time datetime
+            );
+            对sql只允许 一张表有一个主键
+            create table t2(
+                id int primary key auto_increment unsigned,
+                name char(10) not null,
+                sex enum('男','女'),
+                fav set('唱歌','跳舞','烫头'),
+                born_date_time datetime
+            );
+            查看所有的表：
+                show tables;
+        对记录
+            insert into
+                t1(name,sex,fav,born_date_time)
+            values
+                  ('alex','男','唱歌',now()),
+                  ('alex','男','唱歌',now());
+
+            select * from t1 where id < 2;
+
+            对于查询来说 从大范围去筛选，查找小的范围，越来越接近业务需求
+        增删改       ****查****
+
+    2.数据类型
+        整型：
+            tinyint int bigint
+        浮点型：
+            float
+            double
+            decimal
+        字符：
+            char
+            varchar
+            text
+        时间：
+            datetime、year、date、time
+        枚举和集合
+            enum
+            set
+        布尔：
+            tinyint(1) 存0表示false，存1表示true
+            boolean
+    3.对表的设计
+        id name sex addr  iphoneNum   teacher  score
+
+今日内容：
+    1.完整性约束
+        not null 和default
+        unique
+            单列唯一
+                仅仅给一列设置unique(id)
+            多列唯一
+                给多列设置unique(id),unique(name)
+            联合唯一
+                unique(id,name)
+        主键 primary key
+            化学反应： not null + unique
+        自增长 auto_increment
+            create table t1(id int primary key auto_increment,name varchar(20) not null);
+            create table t2(id int primary key auto_increment,name varchar(20) not null);
+
+            insert into t1(name) values ('一宁');
+            insert into t1(id,name) values (4,'一宁');
+
+            清空表区分delete和truncate的区别：
+            delete from t1; #如果有自增id，新增的数据，仍然是以删除前的最后一样作为起始。
+            truncate table t1;数据量大，删除速度比上一条快，且直接从零开始。
+
+    作用：保证数据的完整性和一致性
+
+    2.完整性约束补充
+        foreign key  外键  建立两张表之间的联系
+        dep : 被关联表 主表
+        create table dep(
+            id int primary key auto_increment,
+            name varchar(20) not null,
+            des  varchar(30) not null
+        );
+        create table dep2(
+            id int primary key auto_increment,
+            name varchar(20) not null,
+            des  varchar(30) not null
+        );
+
+        emp ： 关联表  从表
+        create table emp(
+            eid int primary key auto_increment,
+            name char(10) not null,
+            age int not null,
+            dep_id int not null,
+            dep2_id  int not null,
+
+            constraint fk_dep foreign key(dep_id) references dep(id)
+            on delete cascade # 同步删除
+            on update cascade,  # 同步更新
+
+            constraint fk_dep2 foreign key(dep2_id) references dep2(id)
+            on delete cascade # 同步删除
+            on update cascade  # 同步更新
+        );
+
+    2.外键的变种
+
+    1.先站在左表的角度  左表的多条记录对应右表的一条记录 成立
+    2.先站在右表的角度  右表的多条记录对应左表的一条记录 成立
+
+    多对一或者一对多   1和2条件 有一个成立
+
+    多对多   1和2都成立 通过建立第三张表 来建立多对多的关系
+
+    一对一   1和2都不成立，给一个表的fk的字段设置约束unique
+
+    多对多：
+        使用第三张表 建立多对多的关系
+        create table book(
+         id int primary key auto_increment,
+         name varchar(20)
+
+        );
+        create table author(
+            id int primary key auto_increment,
+            name varchar(20)
+        );
+
+        create table autho_book(
+            id int primary key auto_increment,
+            book_id int not null,
+            author_id int not null,
+            constraint fk_book foreign key(book_id) references book(id)
+            on delete cascade
+            on update cascade,
+            constraint fk_author foreign key(author_id) references author(id)
+            on delete cascade
+            on update cascade
+
+        );
+
+        insert into book(name) values
+        ('九阳神功'),
+        ('九阴真经'),
+        ('九阴白骨爪'),
+        ('独孤九剑'),
+        ('降龙十巴掌'),
+        ('葵花宝典');
+
+        insert into autho_book(author_id,book_id) values
+        (1,1),
+        (1,2),
+        (1,3),
+        (1,4),
+        (1,5),
+        (1,6),
+        (2,1),
+        (2,6),
+        (3,4),
+        (3,5),
+        (3,6),
+        (4,1)
+        ;
+
+    3.单表查询
+    一、单表查询的语法
+    SELECT 字段1,字段2... FROM 表名
+          WHERE 条件
+          GROUP BY field
+          HAVING 筛选
+          ORDER BY field
+          LIMIT 限制条数
+    二、关键字的执行优先级（重点）
+
+    重点中的重点：关键字的执行优先级
+        from
+        where
+        group by
+        having
+        select
+        distinct
+        order by
+        limit
+
+        1.找到表:from
+
+        2.拿着where指定的约束条件，去文件/表中取出一条条记录
+
+        3.将取出的一条条记录进行分组group by，如果没有group by，则整体作为一组
+
+        4.将分组的结果进行having过滤
+
+        5.执行select
+
+        6.去重
+
+        7.将结果按条件排序：order by
+
+        8.限制结果的显示条数

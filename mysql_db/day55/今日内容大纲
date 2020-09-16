@@ -1,0 +1,148 @@
+内容回顾：
+    1.外键的变种
+        表和表之间的关系
+        一对多或多对一
+        多对多
+        一对一
+
+        左表  右表
+        多    一
+        一    多
+        多对多，使用第三张表 建立关系
+    2.补充
+        核心： 数据驱动视图
+            json-server
+        设计模式:MVC ===> MTV  Model - View - Controller
+    3.单表查询
+        关键字的优先级
+            select * from user where id > 2 group by post having count(1) > 10 order by age desc limit 0,2;
+
+            from
+            where
+            group by
+            having
+            select
+            order by
+            limit
+
+        where
+            >,< >=,<=, !=
+            between xxx and ooo
+            in(20,30,40)
+            and or not
+
+        sql_mode = ONLY_FULL_GROUP_BY
+
+        分组之后只能获取分组的字段，如果想获取组内的信息，是通过聚合函数
+        聚合函数：
+            count(1) 计算总个数
+            avg()
+            sum()
+            max()
+            min()
+    
+今日内容：
+    1、单表查询
+        having
+            二次筛选
+            having后面的字段只能是分组（group by）之后字段
+
+        1.查询各岗位内包含的员工个数小于2的岗位名、岗位内包含员工名字、个数
+            select post,group_concat(name),count(1) from employee group by post having count(1) < 2;
+        2. 查询各岗位平均薪资大于10000的岗位名、平均工资
+            select * from employee where salary  not in (select avg(salary) as A from employee group by post having A > 10000);
+            select post,avg(salary) as A from employee group by post having A > 10000
+        3. 查询各岗位平均薪资大于10000且小于20000的岗位名、平均工资
+            select post,avg(salary) from employee group by post having avg(salary) between 10000 and 20000;
+        order by
+            asc 升序
+            desc 降序
+
+        limit 0,5 第一个参数起始位置，第二个参数显示的个数
+
+    2、多表查询
+        select employee.name as a,department.name as b from employee,department where employee.dep_id = department.id and employee.name = 'egon';
+
+        select * from (select employee.name as a,department.name as b from employee,department where employee.dep_id = department.id) as A where A.a ='egon';
+
+        select * from employee,department where employee.dep_id = department.id
+        外链接操作
+
+         内连接：符合条件查询 只连接匹配的行
+            select * from employee inner join department on employee.dep_id = department.id;
+
+         左连接：优先显示左表记录
+            select * from employee left join department on employee.dep_id = department.id;
+
+         右连接: 优先显示右边记录
+            select * from employee right join department on employee.dep_id = department.id;
+
+         全外连接：
+             select * from employee left join department on employee.dep_id = department.id
+                  union
+             select * from employee right join department on employee.dep_id = department.id
+    3.符合条件查询
+        以内连接的方式查询employee和department表，并且employee表中的age字段值必须大于25，
+        即找出年龄大于25岁的员工以及员工所在的部门
+        select department.name,employee.name from employee inner join department on employee.dep_id = department.id where age > 25
+
+    4.子查询
+        子查询是将一个查询语句嵌套在另一个查询语句中。
+        一个查询语句查询的结果作为另一个查询语句的条件
+
+        1、查询平均年龄在25岁以上的部门名
+        select name from department where id in (select dep_id from employee group by dep_id having avg(age) > 25);
+
+        2、查看不足1人的部门名
+        select name from department where id not in (select dep_id from employee group by dep_id);
+
+        3、查询大于所有人平均年龄的员工名与年龄
+        select name,age from employee where age > (select avg(age) from employee);
+
+        4、查询大于部门内平均年龄的员工名、年龄
+    思路：
+      （1）先对员工表(employee)中的人员分组(group by)，查询出dep_id以及平均年龄。
+       (2)将查出的结果作为临时表,再对根据临时表的dep_id和employee的dep_id作为筛选条件将employee表和临时表进行内连接。
+       (3)最后再将employee员工的年龄是大于平均年龄的员工名字和年龄筛选。
+       select * from employee inner join (select dep_id,avg(age) as b from employee group by dep_id) as A on employee.dep_id = A.dep_id where employee.age > A.b;
+
+       5.查询每个部门最新入职的那位员工
+       select name from employee
+            inner join
+       (select post,max(hire_date) as newTime from employee group by post) as A
+            on employee.post = A.post
+        where employee.hire_date = A.newTime;
+
+    5.pymysql模块的使用
+        （1）pip install pymysql
+
+        import  pymysql
+
+        username = input('请输入用户名：')
+        pwd = input('请输入密码：')
+
+        # 建立连接
+        conn = pymysql.connect(
+            host='localhost',
+            user='root',
+            password="",
+            database='db13',
+            port=3306,
+            charset='utf8'
+        )
+        # 创建游标
+        cur = conn.cursor()
+        sql = 'select * from userinfo where name="%s" and pwd="%s"'%(username,pwd)
+        print(sql)
+
+        res = cur.execute(sql)
+        print(res)
+
+        # 游标关闭 连接关闭
+        cur.close()
+        conn.close()
+
+        if res:
+            print('登录成功')
+        else :
+            print('登录失败')

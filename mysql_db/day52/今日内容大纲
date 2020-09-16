@@ -1,0 +1,151 @@
+阶段内容回顾：
+    1、jQuery插件库的下载和使用
+        插件网站：http://www.jq22.com/
+        jQuery UI 官网：http://www.jqueryui.org.cn/
+               中文文档：http://www.css88.com/jquery-ui-api/
+    2、Bootstrap的使用
+        1.编译化
+        为什么前端静态文件需要编译？
+            html/css/js/图片/mp3/mp4/ett/woff/word/zip/....
+            服务器承载的压力大（访问量，请求多-->公司的服务器施加压力）
+            负载均衡
+        2.打包
+        了解到：
+            grant| gulp| ****webpack****
+
+        模块化开发
+            前端中后端语言   nodejs|koa “当红炸子鸡” 火  express
+            后端中          python    flask|django|Tornado
+            一个半月以后
+                npm init --yes
+                npm install jquery
+
+                script    同步
+                commonjs  node  var $ = require('jquery');
+                python  from xxx import ooo
+                es6Module   import $ from 'jquery'
+                    $.ajax({})
+                
+            less sass-->css的升级版
+                less编译器网站 http://tool.oschina.net/less
+                
+            animate.css : https://www.awesomes.cn/repo/daneden/animate-css
+                awesome:社区
+                
+            font-awesome:http://www.fontawesome.com.cn/examples/
+
+            ******博客、crm、路飞项目  一定要跟上*******
+
+今日内容：
+    Mysql服务器软件
+        sql语言
+
+    Mysql五天
+        1.认识、安装
+        2.sql语法、增删改查、表的设计（1张）
+        3.多张表的设计、对表的增删改 查（****）
+        4.大量数据（索引优化）
+        5.模块：pymysql
+
+        id | user | pwd
+        1  | alex | 123
+
+        总结一句话：mysql是基于C/S端的服务器软件
+            mysql服务端
+            - server端开启
+            - 解析指令
+            - 对文件夹、文件、数据的增删改查
+
+            mysql客户端
+            - 连接S端
+            - 发送指令（sql语句）
+                insert into t1 values(1);
+                
+        一、安装mysql
+            数据库服务器（一台电脑）
+            数据库管理系统（Mysql软件）
+            数据库（data/db 一个文件夹）
+            表：（一个文件）
+            记录：（多个字段的信息组成一条记录，即文件中的一行内容）
+            
+            mysql.msi
+                DirectX 9.0 修复
+            1.解压mysql的压缩包 到 E:
+            2.E:\mysql-5.7.21-winx64\bin 添加系统的环境变量
+            3.初始化软件data目录
+                生成data目录 存放数据库-->文件-->记录
+                ***初始化的时候，一定等着 自己退出******
+                mysqld --initialize-insecure
+
+        二、开启mysql服务端
+            4.mysqld（必须授权）
+
+        三、开启客户端、连接服务端
+            5.mysql -uroot -p
+
+        四、安装window服务
+            mysqld --install 安装window服务
+            mysqld --remove  移除window服务
+
+            net start mysql : 开启服务端
+            net stop mysql  ：关闭服务端
+
+        五、忘记密码怎么办？
+             (1) 先关闭掉之前的mysql服务器的进程
+             (2) 跳过授权表开启mysql的服务端  mysqld --skip-grant-tables （开启服务端的 约束条件跳过授权）
+             (3) 客户端连接 mysql -uroot -p
+             (4) 更改密码：update mysql.user set authentication_string =password('') where User='root'; 
+             (5) 刷新权限 flush privileges;
+           查看进程号：tasklist |findstr mysql
+           杀死进程：taskkill /F /PID 进程号
+
+        六、统一字符编码
+            在Mysql软件的目录下新创建一个my.ini
+            [mysqld]
+            # 设置mysql的安装目录 **后面的路径一定是安装sql的目录（自己电脑的）**
+            basedir=C:\mysql-5.7.22-winx64\mysql-5.7.22-winx64
+            # 设置mysql数据库的数据的存放目录，必须是data
+            datadir=C:\mysql-5.7.22-winx64\mysql-5.7.22-winx64\data
+            sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+            # mysql端口
+            port=3306
+            # 字符集
+            [mysqld]
+            character-set-server=utf8
+            collation-server=utf8_general_ci
+            [client]
+            default-character-set=utf8
+            [mysql]
+            default-character-set=utf8
+            
+            再次重启mysql服务端
+
+            mysql -uroot -p
+            \s;查看mysql软件配置
+
+        七、创建mysql用户
+            如何创建用户和密码
+                create user 'mjj'@'192.118.1.1' identified by '123';
+                create user 'mjj'@'192.118.1.%' identified by '123';
+                create user 'yining'@'%' identified by '91';
+                
+            给当前的用户授权
+                grant select,insert on db1.t1 'mjj'@'%';
+                grant all privileges on *.* to 'mjj'@'%';
+            移除当前用户的权限
+                revoke all privileges on *.* from 'mjj'@'%';
+
+            mysql -uyining -h 192.168.13.29 -P 3306 -p91
+            
+            show databases; 查看所有的数据库
+            use db1; 使用数据库
+            
+            创建表（设计表）
+            create table t1(id int,name char(10)) defult charset='utf8';
+            
+            insert into t1(id,name) values(1,'alex'),(2,'武sir');
+
+            查询所有的数据：
+                select * from t1;
+            查询个别字段的数据
+                select id from t1;
