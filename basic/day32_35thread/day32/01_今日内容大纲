@@ -164,7 +164,7 @@
                 - MyThread
             c. 其他
                 - join                   *****
-                - setDeanon              *****
+                - setDaemon              *****
                 - setName                *****
                 - threading.current_thread()        *****
             d. 锁
