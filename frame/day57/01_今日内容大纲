@@ -1,0 +1,69 @@
+预备知识：
+    html+css+JS
+    jquery+bootstrap
+    mysql(sql语句)
+
+Django基础
+
+1 CS模式
+2 BS模式(browser --- server)
+
+WEB:
+    http协议：
+        url: 协议://域名(IP)+端口(80)/路径?参数(a=1&b=2)
+        示例： https://www.baidu.com/s/?wd=python
+        浏览器 ----请求协议----> 服务器
+             <----响应协议----
+        特点：
+            1.基于请求响应
+                基于TCP协议
+            2.请求协议格式：
+                请求首行   请求方式  URL(路径?get请求参数)  协议/版本号
+                请求头     key:value
+
+                请求体     数据(只有post请求才会有请求体)
+
+                request.path
+                request.url
+                request.method
+
+            3.响应协议格式：
+                响应首行   协议/版本号 状态码 状态码译文
+                响应头     Conten-Type:text/html
+                响应体     页面渲染的内容<h1>Hello, World</h1>
+
+MVC:
+    M:model 与数据库打交道
+    C:controller 控制器(URL的分发与视图函数的逻辑处理)
+    V:view  视图(html文件)
+
+MTV:
+    M:model 与数据库打交道
+    T:templates 存放html文件
+    V:view  视图函数(逻辑处理)
+    +
+    url的控制器
+
+使用web框架的流程:
+    1. urls 定义映射关系('timer', timer)
+    2. 创建视图函数:
+        def timer(environ):
+            业务逻辑
+            return 文件(templates文件夹中存着)
+    3. 一旦涉及数据库操作，使用models
+
+Django前奏:
+    1.下载django  pip3 install django
+    2.创建项目 django-admin.py startproject 项目名称
+        项目名称
+            --manage.py  启动文件，与项目交互文件
+            --项目名称
+                --setting.py: 配置信息
+                --urls: 路径与视图函数的映射
+                --wsgi: 封装socket
+        app01
+            --models: 存放与该app相关的表结构
+            --view: 存放与该app相关的视图函数
+    3.项目与应用：一个项目里面可以有多个应用
+    4.创建应用 python3 manage.py startapp app名称
+    5.启动项目 python3 manage.py runserver IP:prot
