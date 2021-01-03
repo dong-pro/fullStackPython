@@ -1,0 +1,131 @@
+一, 上节课内容回顾：
+    1.标签嵌套
+        行内标签和块标签
+        行内标签不可以嵌套块级标签，但不是绝对。
+        块标签嵌套块标签、行内标签。
+            但是p标签中的子标签只能是行内元素、表单元素、图片
+    2.table
+        tr
+            td
+    3.form action行为 methods:get||post enctype='' 一定要提交文件到服务器，一定是post请求
+        lable
+            for: 与input的id有很大关联
+        input 重要
+            type
+                text:普通的文本 *
+                password：密码本 *
+                submit:*
+                radio: 单选框
+                checkbox:多选
+            name
+            value
+        select
+            option
+        textarea
+            rows
+            cols
+    4.css 带你们挖坑、填坑、跳进坑
+        三种引入方式：
+            行内样式>内接样式和外接样式
+                @import url()
+                link1
+                link2
+        基本选择器
+        选择器的作用：选中标签 设置属性
+            标签选择器:
+                选择的是‘共性’，不管标签嵌套多少层
+            <div id='box' class='box active'>alex</div>
+            div{
+                color:red;
+               }
+                div
+                    div
+                        div
+                            div
+            id选择器:
+                选择的是 “特性”，id是唯一的，未来与js有很大关联
+                #box{
+                    color: yellow;
+                }
+            class选择器:
+                选择的是共性，类选择器可以设置多个。一个标签也可以设置多个
+            .box{
+                color:green;
+            }
+            .active{
+                color:red;
+            }
+            通配符选择器: 重置样式
+            *{
+                padding:0;
+                margin: 0;
+            }
+            ul{
+                list-style:none;
+            }
+            a{
+                text-decoration:none;
+            }
+
+二, 今日内容：
+
+    1.高级选择器
+        -后代选择器 *****
+            儿子、孙子、重孙子
+          div ul li p{
+                color: red;
+          }
+        -子代选择器
+                只能是亲儿子
+          div>p{
+          }
+        -组合选择器
+            多个选择器组合到一起共同设置样式
+            div,p,a,li,span{
+                    font-size: 14px;
+            }
+        -交集选择器
+            div.active{
+            }
+
+        属性选择器
+        input[type='text']
+        伪类选择器：LoVe HAte
+            a:link    没有被访问的
+            a:visited 访问过后的
+            a:hover   鼠标悬停的时候
+            a:active  摁住的时候
+        伪元素选择器
+            p:before 在...的前面添加内容 一定要结合content
+            p:after 在...的后面添加内容 与后面的布局有很大关系
+
+    2.css的继承性和层叠性（坑）
+        继承性： color、text-xxx、font-xxx、line-xxx的属性是可以继承下来。盒模型的属性是不可以继承下来的
+        a标签有特殊情况，设置a标签的字体颜色 一定要选中a，不要使用继承性
+
+        层叠性： 覆盖
+            （1）行内> id > class > 标签 ****
+                1000 > 100 > 10 > 1
+            （2）数数 数 id  class 标签
+            （3）先选中标签，权重一样，以后设置为主
+            （3）继承来的属性 它的权重为0 ，与选中的标签没有可比性
+            （4）如果都是继承来的属性，保证就近原则
+            （5）都是继承来的属性，选择的标签一样近，再去数权重
+
+    3.盒模型
+        属性：
+            width:内容的宽度
+            height:内容的高度
+            padding:内边距 内容到边框的距离
+            border:边框
+            margin:外边距  另一个边到另一个边的距离
+
+        盒模型的计算：
+            总结：如果保证盒模型的大小不变，加padding 就一定要减width或者减height
+            前提是：在标准文档流
+            padding：父子之间调整位置
+            margin: 兄弟之间调整位置
+
+    4.布局的方式 浮动
+        浮动能实现元素并排
+        盒子一浮动 就脱离了标准文档流，不占位置。
