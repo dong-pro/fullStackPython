@@ -103,30 +103,6 @@
                         协程，是由程序员创造出来的一个不是真实存在的东西；
 
                 协程：是微线程，对一个线程进程分片，使得线程在代码块之间进行来回切换执行，而不是在原来逐行执行。
-
-                        import greenlet
-
-
-                        def f1():
-                                print(11)
-                                gr2.switch()
-                                print(22)
-                                gr2.switch()
-
-
-                        def f2():
-                                print(33)
-                                gr1.switch()
-                                print(44)
-
-
-                        # 协程 gr1
-                        gr1 = greenlet.greenlet(f1)
-                        # 协程 gr2
-                        gr2 = greenlet.greenlet(f2)
-
-                        gr1.switch()
-
                 注意：单纯的协程无用
 
                         def f1():
@@ -140,32 +116,7 @@
                         f1()
                         f2()
 
-                协程 + 遇到IO就切换 => 牛逼起来了  pip3 install gevent
-
-
-                        from gevent import monkey
-                        monkey.patch_all() # 以后代码中遇到IO都会自动执行greenlet的switch进行切换
-                        import requests
-                        import gevent
-
-
-                        def get_page1(url):
-                                ret = requests.get(url)
-                                print(url,ret.content)
-
-                        def get_page2(url):
-                                ret = requests.get(url)
-                                print(url,ret.content)
-
-                        def get_page3(url):
-                                ret = requests.get(url)
-                                print(url,ret.content)
-
-                        gevent.joinall([
-                                gevent.spawn(get_page1, 'https://www.python.org/'), # 协程1
-                                gevent.spawn(get_page2, 'https://www.yahoo.com/'),  # 协程2
-                                gevent.spawn(get_page3, 'https://github.com/'),     # 协程3
-                        ])
+                协程 + 遇到IO就切换 => 牛逼起来了
 
                 总结：
                         1. 什么是协程？
@@ -183,29 +134,6 @@
 
 
                 手动实现协程：yield关键字生成器
-                        def f1():
-                                print(11)
-                                yield
-                                print(22)
-                                yield
-                                print(33)
-
-                        def f2():
-                                print(55)
-                                yield
-                                print(66)
-                                yield
-                                print(77)
-
-                        v1 = f1()
-                        v2 = f2()
-
-                        next(v1) # v1.send(None)
-                        next(v2) # v1.send(None)
-                        next(v1) # v1.send(None)
-                        next(v2) # v1.send(None)
-                        next(v1) # v1.send(None)
-                        next(v2) # v1.send(None)
 
                         其他：
                                 def f1():
@@ -234,29 +162,6 @@
         1. 进程、线程、协程的区别？ **********
 
         2. 写代码：gevent    *****
-                from gevent import monkey
-                monkey.patch_all() # 以后代码中遇到IO都会自动执行greenlet的switch进行切换
-                import requests
-                import gevent
-
-
-                def get_page1(url):
-                        ret = requests.get(url)
-                        print(url,ret.content)
-
-                def get_page2(url):
-                        ret = requests.get(url)
-                        print(url,ret.content)
-
-                def get_page3(url):
-                        ret = requests.get(url)
-                        print(url,ret.content)
-
-                gevent.joinall([
-                        gevent.spawn(get_page1, 'https://www.python.org/'), # 协程1
-                        gevent.spawn(get_page2, 'https://www.yahoo.com/'),  # 协程2
-                        gevent.spawn(get_page3, 'https://github.com/'),     # 协程3
-                ])
 
         3. 写代码：twisted   *****
                 from twisted.web.client import getPage, defer
@@ -294,53 +199,52 @@
                         - epoll
 
 
-
 两周总结：
-        网络编程：
-                1. 网络基础
-                        - 网卡
-                        - IP
-                        - ...
-                2. OSI 7层
-                3. 三次握手四次挥手
-                4. BS和CS架构？
-                5. socket基本代码
-                6. 黏包
-                7. 断点续传
-                8. 协议
-                        自定义协议：{'code':10001,data:{...}}
-                        Http协议：GET /s?wd=alex HTTP/1.0\r\nhost:www.baidu.com\r\n\r\n
+    网络编程：
+        1. 网络基础
+            - 网卡
+            - IP
+            - ...
+        2. OSI 7层
+        3. 三次握手四次挥手
+        4. BS和CS架构？
+        5. socket基本代码
+        6. 黏包
+        7. 断点续传
+        8. 协议
+            自定义协议：{'code':10001,data:{...}}
+            Http协议：GET /s?wd=alex HTTP/1.0\r\nhost:www.baidu.com\r\n\r\n
 
-                9. 面向对象+高级作业：反射/面向对象
+        9. 面向对象+高级作业：反射/面向对象
 
-        并发编程：
-                1. 进程、线程、协程的区别？
+    并发编程：
+        1. 进程、线程、协程的区别？
 
-                2. 线程
-                        - 基本写法
-                                - 实例化
-                                - 继承
-                        - 锁
-                                - RLock
-                                ...
-                        - 线程池
-                3. 进程
-                        - 基本写法
-                                - 实例化
-                                - 继承
-                        - 锁
-                                - RLock
-                                ...
-                        - 线程池
-                        - 进程数据共享
+        2. 线程
+            - 基本写法
+                - 实例化
+                - 继承
+            - 锁
+                - RLock
+                ...
+            - 线程池
+        3. 进程
+            - 基本写法
+                - 实例化
+                - 继承
+            - 锁
+                - RLock
+                ...
+            - 线程池
+            - 进程数据共享
 
-                4. 协程
-                        - 协程
-                        - 协程+IO：gevent
+        4. 协程
+            - 协程
+            - 协程+IO：gevent
 
-                5. IO多路复用
+        5. IO多路复用
 
-                6. 异步/同步  阻塞/非阻塞
+        6. 异步/同步  阻塞/非阻塞
 
 重点总结：
         1. 进程    *****
