@@ -1,0 +1,117 @@
+一. 内容回顾：
+    1.高级选择器
+        - 后代选择器 ****
+            选择的是儿子、孙子子、重孙子
+            div p{}
+        - 子代选择器
+            选择的是亲儿子
+            div>P
+        - 组合选择器
+            div,p,a,span{}
+        - 交集选择器
+            div.active{}
+        - 属性选择器
+            input[type='text']{}
+        - 伪类选择器
+            爱恨准则
+                a:link{}
+                a:visited{}
+                a:hover{}
+                a:active
+            对a来设置字体颜色，一定要选中a
+        - 伪元素选择器
+            p::first-letter{}
+            p:before{
+                content:''
+            }
+            //与浮动有关系
+            p:after{
+                content:''
+            }
+    2.css的继承性和层叠性
+        在css中，color、text-xxx、font-xxx、line-xxx 这些属性是可以被继承下来
+
+        层叠性： 权重 ==》谁的权重大就会显示谁的属性
+        权重大小的对比：
+            数选择器的个数： id  class 标签
+            权重比较1：
+                行内 > id > class > 标签
+            权重比较2：
+                继承来的属性，它的权重为0，与选中的标签没有可比性
+            权重比较3：
+                都是继承来的，他们权重都为0，就近原则
+            权重比较4：
+                都是继承来的，他们权重都为0，描述的一样近，再去数权重
+            权重比较5：
+                权重一样大，后面的大于前面的属性
+    3. 盒模型
+        标准盒模型
+           width:内容的宽度
+           height:内容的高度
+           padding:内边距 内容到边框的距离
+           border: 边框
+           margin: 外边距  一个盒子的边到另一个盒子边的距离
+
+        计算盒模型：
+            盒子的大小= width+2*padding+2*border
+
+        如果保证盒子大小不变，那么加padding,就要减内容的width或height
+    4.浮动
+        浮动是实现元素并排，只要盒子浮动，就脱离标准文档流（不在文档流上占位置）
+        
+二.今日内容：
+    1.盒模型的属性(重要)
+        -padding
+        -border
+            三要素：线性的宽度 线性的样式 颜色
+            border: 1px solid red;
+            border-left: 1px solid red;
+        -margin
+            前提必须是标准文档流下:
+                margin的水平不会出现任何问题
+                垂直方向上 margin会出现'塌陷问题'
+
+    2.display 显示（重要）
+        前提必须是标准文档流下
+        属性：
+            block 块级标签
+                - 独占一行
+                - 可以设置宽高，如果不设置宽，默认是父盒子宽度的100%
+            inline 行内标签
+                - 在一行内显示
+                - 不可以设置宽高，根据内容来显示宽高
+            inline-block 行内块
+                - 在一行内显示
+                - 可以设置宽高
+            none 不显示 隐藏 不在文档上占位置
+
+            visibility：hidden;隐藏 在文档上占位置
+                
+    3.浮动 （重要）
+        float:none;
+            left;左浮动
+            right;右浮动
+
+        浮动：脱离了标准文档流
+        作用好处：使元素实现并排（布局）
+            就在页面上占位置
+
+        浮动带来的问题：
+            子盒子浮动，不在页面占位置，如果父盒子不设置高度，那么撑不起父盒子的高度，页面出现紊乱
+
+        清除浮动：
+            1.给父盒子设置固定高度（后期不好维护）
+            2.clear:both;
+                给浮动元素的最后面，加一个空的块级标签(标准文档流的块级标签)
+                给当前这个标签设置一个clearfix类名，设置该标签属性cleart:both
+                问题：代码冗余
+            3.   .clearfix:after {
+                    content: ".";
+                    display: block;
+                    height: 0;
+                    visibility: hidden;
+                    clear: both
+                }
+            4.overflow:hidden;
+
+        要浮动一起浮动，有浮动，清除浮动
