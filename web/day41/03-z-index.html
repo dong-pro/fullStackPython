@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .father1 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: relative;
+            z-index: 3;
+        }
+
+        .child1 {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            position: absolute;
+            top: 280px;
+            left: 350px;
+            z-index: 20;
+        }
+
+        .father2 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            position: relative;
+            z-index: 2;
+        }
+
+        .child2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            top: 0;
+            left: 350px;
+            z-index: 21;
+        }
+    </style>
+</head>
+<body>
+<div class="father1">
+    <div class="child1"></div>
+</div>
+<div class="father2">
+    <div class="child2"></div>
+</div>
+</body>
+</html>
