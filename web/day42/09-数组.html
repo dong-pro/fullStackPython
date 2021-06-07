@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //字面量方式创建 数组 Array
+    // var arr = ['alex','武sir','涛哥'];
+    // console.log(arr);
+
+    // var arr1 = [];
+    // arr1[0] = 'xxxx';
+    // console.log(arr1);
+
+    // 构造函数方式创建
+    // 在ECMAScript5中因为没有class的概念，我们创建对象使用构造函数 new
+    // var arr = new Array();
+    // arr[0] = 'xxx';
+    // console.log(arr);
+
+    // var north = ['北京', '山东', '天津'];
+    // var south = ['东莞', '深圳', '上海'];
+    // var newCity = north.concat(south);
+    // console.log(newCity);
+
+    var arr2 = ['张三', '李四', '王文', '赵六'];
+    arr2.push('alex');
+    console.log(arr2);
+
+    // 移除数组的第一个元素
+    arr2.shift();
+    console.log(arr2);
+
+    // 往数组的第一个元素追加
+    arr2.unshift('wusir');
+    console.log(arr2);
+
+    for (var i = 0; i < arr2.length; i++) {
+        console.log(arr2[i]);
+        document.write(arr2[i] + ' ');
+    }
+</script>
+</body>
+</html>
