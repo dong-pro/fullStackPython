@@ -1,0 +1,110 @@
+一.内容回顾：
+    JavaScript：
+        （1）ECMAScript5基础语法
+            - 声明变量 var
+            - 流程控制
+                if  else if  else
+                while
+                for
+                do-while
+                switch
+            - 运算符
+                += -= ++ -- =
+                ==：比较的是值
+                ===：比较的是值和数据类型
+                !=
+                !==
+                >
+                <
+            - 数据类型
+                基本数据类型
+                    string
+                    number
+                    boolean
+                    null
+                    undefined
+                复杂的数据类型
+                    Array
+                        (1)字面量方式创建
+                        var arr = [];
+
+                        (2)new Array()
+                    Object
+                    json
+                        字面量方式创建
+                        {key1:value1,key2:def}
+                    Function
+                        普通函数
+                        function add(x,y){
+                        return x+y;
+                        }
+                        add(1,2);
+                        函数对象
+                        var add = function(x,y){
+                        return x+y;
+                        }
+                        add(3,4)
+
+                    arguments
+                    实参 它是一个伪数组 它里面有索引  length 目的
+                    DOM
+                    var oDivs = document.getElementsByClassName('box');
+
+二.今日内容:
+    - DOM
+        Document Object Model
+        文档 对象 模型
+        对象：属性和方法
+            属性：获取值和赋值
+            方法：赋值方法和调用方法
+        DOM树
+    - DOM的获取
+        1.获取document对象
+        console.log(document);
+        2.获取html对象
+        document.documentElement
+        3.获取body对象
+        document.body
+            提供三种方法来获取body中的DOM
+                div#box.box
+                通过id获取
+                document.getElementById('box');
+
+                通过类获取
+                var olis = document.getElementsByClassName('box');
+                for(var i = 0;i<olis.length;i++){
+                    olis[i].onclick = function(){
+                        alert(this.innerText);
+                    }
+                }
+
+                通过标签获取
+                var oDivs = document.getElementsByTagName('div');
+
+        jquery
+
+        DOM三步走
+            1、获取事件源
+            2、事件绑定 onclick onmouseover onmouseout
+            3、事件驱动（业务逻辑)
+
+    - 对标签样式属性的操作
+    - 对标签属性的操作
+        id/class/src/alt/href/title/type/name
+    - 对值的操作
+        innerText
+    - 只获取文本
+        innerHTML
+    - 获取文本和标签
+        value
+    - 事件
+    - 对DOM对象的操作（增删改查）
+    - 控制元素显示隐藏
+        应用：网页中频繁性的切换建议使用这个
+        1.控制style.display属性显示隐藏
+        2.控制className对元素显示隐藏
+        问题： 初始化的时候有渲染，
+
+        应用：网页中少量的切换建议使用
+        3.对元素的创建和销毁
+         生命周期 出生 入死
