@@ -1,0 +1,60 @@
+一.内容回顾：
+    JavaScript：
+        （1）ECMAScript 5.0
+        （2）DOM (重要)
+              window.onload()
+              入口函数
+                 问题1：DOM加载顺序:DOM先加载，再是图片资源加载
+              DOM操作：
+                1.获取事件源
+                2.事件 onclick
+                    onmouseover | onmouseout:穿过父元素或子元素 就会调用
+                    onmouseenter | onmouseleave ：只穿过父元素
+                3.事件驱动
+
+              DOM操作
+                对标签属性的操作
+                对DOM样式属性的操作
+                对值的操作
+                对DOM的增删改查
+        （3）模块字符串 `` 插入变量用${变量名}
+               let es6中声明变量： 没有变量提升、局部作用域
+        （4）自执行函数 闭包:解决全局污染的问题
+            项目
+            (function(){
+            })();
+        （5）BOM对象
+              本地信息对象
+              window.location
+                href
+                hash
+                reload()
+                search
+                ...
+
+
+二.今日内容：
+    (1)client offset scroll
+    (2)jquery的概念
+        js query
+        jquery库:封装了大量js，封装js的入口函数、兼容性问题、DOM操作、事件、ajax
+
+    (3)使用jquery
+        - 下载包
+        - 引用  <script src="jquery.js"></script>
+        - 使用
+        <script>
+            //入口函数
+            $(function(){
+                //DOM操作三步走：事件源 事件 事件驱动
+                //选择器 就是来获取事件源的
+                id -->> $('#box')
+                class -->> $('.box')
+                标签 -->> $('div')
+                //事件和事件驱动 在click方法中的函数称为回调函数
+                $('#box').click(function(){
+                    //对样式的操作
+                    .css()方法
+                })
+            });
+        </script>

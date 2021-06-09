@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+            /*position: absolute;*/
+            border: 10px solid red;
+            margin: 50px 0px 0px 0px;
+            padding: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     *      clientTop 内容区域到边框顶部的距离 ，说白了，就是边框的高度
+     *      clientLeft 内容区域到边框左部的距离，说白了就是边框的宽度
+     *      clientWidth 内容区域+左右padding 不包含border  可视宽度
+     *      clientHeight 内容区域+上下padding   可视高度
+     * */
+    var oBox = document.getElementsByClassName('box')[0];
+    console.log('clientTop边框的高度-->>', oBox.clientTop);
+    console.log('clientLeft边框的宽度-->>', oBox.clientLeft);
+    console.log('clientWidth可视宽度-->>', oBox.clientWidth);
+    console.log('clientHeight可视高度-->>', oBox.clientHeight);
+</script>
+</html>
