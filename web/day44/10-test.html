@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<button id='btn'>上一页</button>
+<script>
+    alert(1);
+    document.getElementById('btn').onclick = function () {
+        //后退
+        // history.go(-1);
+        //刷新
+        //  history.go(0);
+        // 尽量少用 可以做测试 全局刷新  局部刷新（ajax）
+        window.location.reload();
+    }
+</script>
+</body>
+</html>

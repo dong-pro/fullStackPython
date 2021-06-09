@@ -1,0 +1,66 @@
+一.内容回顾：
+    1.DOM
+        - 三步走
+            （1）获取事件源
+            （2）绑定事件
+            （3）事件驱动
+        - DOM操作
+            - 对节点的操作
+                - 对标签属性的操作
+                    getAttribute()
+                    setAttribute()
+                    .src
+                    .alt
+                    .id
+                    .className **
+                - 对DOM的创建、销毁的操作(方法) 动态创建的
+                    （1）创建
+                        document.createElement
+                    （2）父.appendChild(子)
+                        父.insertBefore('要插入的节点','参考的子节点')
+                    （3）销毁
+                        父.removeChild(子)
+                - 对样式属性的操作
+                    oDiv.style.cssStyle
+                - 对值的操作
+                    单闭合标签
+                    <div></div>
+                        (1)innerText  只是设置文本
+                        (2)innerHTML  即设置了文本，又渲染了标签
+                    input
+                        (3)value
+                - 对dom的获取三种方式
+                    document.getElementById();
+                    document.getElementsByTagName();
+                    document.getElementsByClassName();
+
+                什么是动态页面（数据交互==>>数据驱动视图  ajax  XMLHttpRequest）和静态页面？
+
+二.今日内容:
+    1.选项卡
+    2.定时器
+        定时器
+        （1）一次性定时器:可以做异步
+        （2）循环周期定时器:可以做动画
+
+        js跟python一样 都有垃圾回收机制
+        but 定时器对象 垃圾回收收不回
+
+        开一次性定时器：
+        var timer = setTimeout(fn,1000);
+        开循环定时器
+        setInterval(fn,1000);
+
+        clearTimeout()
+        clearInterval()
+
+    3.js面向对象
+        1.使用Object()内置的构造函数 或者字面量方式 来创建对象
+        2.工厂模式创建
+        3.自定义构造函数
+        4.原型模式创建对象
+
+    4.BOM
+        本地信息对象
+        window.location
+        window.open()方法
