@@ -1,0 +1,53 @@
+内容回顾：
+    1.jQuery的选择器
+        - 基本选择器
+        - 属性选择器
+            input[type=text]
+        - 筛选选择器（方法）
+            - .eq()
+            - .siblings() 除它之外，选取其它的兄弟元素（选项卡）
+            - .first()
+            - .last()
+            - .find() 查找后代
+            - .children()查找子代
+            - .parent() 查找父亲
+                
+    2.js对象和jQ的转换
+        js=> jq
+        $(jsDOM对象)
+        JQ=>JS
+        $('')[0]
+
+    3.animate(动画队列,时间,回调);
+
+    4.DOM的操作
+        4.1 对标签属性的操作
+            attr()
+            removeAttr()
+
+        4.2 对标签jsDOM对象属性的操作
+            prop()
+            removeProp()
+            单选框的应用 checked属性的获取 是true或false
+
+        4.3 对标签值的操作
+            text()
+            html()
+            val()
+            清空值 text('') html('') val('')
+
+        4.4 对类名的操作
+            addClass()
+            removeClass()
+            toggleClass()
+
+今日内容：
+    1.DOM的操作 CRUD
+        createElement
+        appendChild()
+        insertBefore()
+        removeChild()
+
+    2.事件
+
+    3.ajax
