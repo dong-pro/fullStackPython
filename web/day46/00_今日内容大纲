@@ -1,0 +1,101 @@
+一.内容回顾：
+    （1）库和框架
+        库：小而精   直接操作DOM
+            css()
+            jquery封装js的哪些操作（大量的api==方法）
+                - 事件
+                - 属性
+                - DOM
+                - 选择器
+                - ajax(交互的技术)
+        框架：大而全
+            事件、DOM、属性操作 ajax  '模板引擎'
+
+    （2）jQuery的入口函数
+            //等待文档加载完成之后才调用
+            $(function(){});
+            $(window).ready(function(){});
+
+     (3)DOM事件的三步走
+        （1）事件源
+            主要还是学习选择器
+                css大部分选择器都可以使用
+                $('div'); 获取出来的是jquery对象
+                $('#box');
+                $('.active');
+
+            选择器的方法
+
+         （2）事件
+            js  onclick  onmouseover onmouseout onmouseenter onmouseleave onscroll onresize  onchange onsubmit
+
+            jq的事件都不带on
+            //click()参数是一个回调函数 ，当调用click方法之后，做完了事件操作，jquery内部又返回一个jQuery对象，
+            所以我们又可以再次调用jquery的方法。
+            JQ对象.click(function(){})
+
+          (3)事件的回调函数 是事件驱动
+
+    （4）对样式属性的操作
+        .css('color')
+        .css({
+            color:'red',
+            width:300
+        })
+          - 如果有一个参数，并且该参数的类型是字符串，获取
+          - 如果有一个参数，并且该参数的类型是{}，设置多个属性值
+         .css('color'，'red')
+         .css('width'，300)
+          - 如果有两个参数，设置单个的属性值
+
+二.今日内容：
+    （1）js和jquery对象的转换
+        - js==>jquery对象
+            $(js对象)
+        - jquery对象==>js
+            JQ对象[0]
+            JQ对象.get(0)
+
+    （2）选择器
+        作用： 选中标签对应的JQ对象
+        筛选选择器方法
+        find()
+        children()
+        parent()
+        eq()
+        *******siblings()*****
+
+    （3）对样式属性的操作
+        .css()
+
+    （4）对标签属性的操作
+        建议 ： 除了class属性  其它设置都使用attr或者removeAttr()
+        js:
+            getAttribute()
+            setAttributer()
+        JQ:
+            attr()
+            removeAttr()
+
+        对类的操作
+        建议大家使用addClass()/removeClass()
+
+        对象的属性操作
+            prop()
+            removeProp()
+
+    （5）对值的操作
+        - text()   innerText
+            对文本的操作
+            如果没有参数，表示获取值
+            如果有参数，赋值
+
+        同上
+        - html()   innerHTML
+            对标签和文本的操作
+
+        - val()    value  一定是标签中有value属性的
+
+            表单控件
+
+    （6）对DOM的操作
