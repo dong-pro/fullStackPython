@@ -15,8 +15,8 @@
 # f.close()
 
 # # rb, wb, ab, bytes如果处理的是非文本文件, mode里如果有b. encoding就不能给了
-# f = open('/Users/wangyadong/fullStackPython/basic/day08_15filefunction/day08/kkk.jpg', mode='rb')  # 这里不能写encoding
-# e = open('/Users/wangyadong/fullStackPython/basic/day08_15filefunction/day08/abc/ff.jpg', mode='wb')
+# f = open('/Users/wangyadong/fullStackPython/p1_basic/day08_15filefunction/day08/kkk.jpg', mode='rb')  # 这里不能写encoding
+# e = open('/Users/wangyadong/fullStackPython/p1_basic/day08_15filefunction/day08/abc/ff.jpg', mode='wb')
 # for line in f:  # 从kkk图片读取 line你是不知道读取了多少数据的
 #     e.write(line)  # 写入到文件夹abc下面
 # f.close()

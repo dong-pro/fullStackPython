@@ -6,7 +6,7 @@
 # print(s)
 # f.close()  # 如果没有这句话, 你在下面的程序中如果删除这个文件. 就会报错
 
-# f = open('/Users/wangyadong/fullStackPython/basic/day08_15filefunction/day08/读文件01', mode='r', encoding='utf-8')
+# f = open('/Users/wangyadong/fullStackPython/p1_basic/day08_15filefunction/day08/读文件01', mode='r', encoding='utf-8')
 # s = f.read()
 # print(s)
 # f.close()

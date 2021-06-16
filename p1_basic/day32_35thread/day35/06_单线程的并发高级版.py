@@ -124,7 +124,7 @@ t1.run()
 #         if sk == client1:
 #             sk.sendall(b'GET /s?wd=alex HTTP/1.0\r\nhost:www.baidu.com\r\n\r\n')
 #         elif sk==client2:
-#             sk.sendall(b'GET /web?query=fdf HTTP/1.0\r\nhost:www.sogou.com\r\n\r\n')
+#             sk.sendall(b'GET /p2_web?query=fdf HTTP/1.0\r\nhost:www.sogou.com\r\n\r\n')
 #         else:
 #             sk.sendall(b'GET /s?wd=alex HTTP/1.0\r\nhost:www.oldboyedu.com\r\n\r\n')
 #         conn_list.remove(sk)

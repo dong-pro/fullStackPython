@@ -11,14 +11,14 @@
 # 遍历 D:/sylar文件夹, 打印出所有的文件和普通文件的文件名
 import os
 
-def func(filepath, n):  # fullStackPython/basic/day01_07base/
+def func(filepath, n):  # fullStackPython/p1_basic/day01_07base/
     # 1,打开这个文件夹
     files = os.listdir(filepath)  # 查看当前文件夹中的内容
     print(files)
     # 2. 拿到每一个文件名
     for file in files:  # 获取到每一个文件
         # 3. 获取到路径
-        f_d = os.path.join(filepath, file)  # fullStackPython/basic/day01_07base/文件名/
+        f_d = os.path.join(filepath, file)  # fullStackPython/p1_basic/day01_07base/文件名/
         # 4. 判断是否是文件夹
         if os.path.isdir(f_d):
             # 5. 如果是文件夹. 继续再来一遍
@@ -27,4 +27,4 @@ def func(filepath, n):  # fullStackPython/basic/day01_07base/
         else:  # 不是文件夹. 普通文件
             print('\t' * n, file)
 
-func('/Users/wangyadong/fullStackPython/basic/day01_07base', 0)
+func('/Users/wangyadong/fullStackPython/p1_basic/day01_07base', 0)
