@@ -1,0 +1,70 @@
+一.内容回顾：
+    0、事件流
+        （1）事件捕获
+        （2）处于目标阶段
+        （3）事件冒泡
+    1、事件对象
+        每一个事件的回调函数 都会默认有一个事件对象
+        event.target 触发目标的对象
+        event.type  事件类型
+        event.keyCode 键码
+    2、事件冒泡
+        event.stopPropagation();
+        阻止默认的事件
+        event.preventDefault();
+        
+        return false;
+    3、事件代理
+        自己完成不了的事情，交给别人去做
+        原理：运行冒泡的机制
+        
+        现有的p以及未来添加的p都能做事件操作
+        $('div').on('click','p',fn)
+    4、事件
+        click 单击事件
+        dblclick 双击事件
+        mouseenter
+        mouseleave
+        mouseout
+        mouseover
+        mousedown
+        mouseup        
+        change()
+        select()
+
+        form表单的 submit    
+        addEventListener('click',fn)
+        
+    5、合成事件
+        mouseenter
+        mouseleave
+        
+        hover(fn1,fn2)
+        
+    6、位置信息
+        width()
+        height()
+        innerWidth() 不包含border
+        outerWidth() 包含border
+        
+        offset().top  对象  {top:xxx,left:ooo}
+        top: 获取的是 盒子到页面顶部的距离
+        
+        scrollTop()
+        scrollLeft()
+
+二.今日内容：
+    webUI库
+    
+    0、单双击问题
+
+    jquery UI
+    css3 动画库 animate.css
+    
+    1、移动端响应式
+    2、Bootstrap 全局的css样式
+    3、Bootstrap  组件
+    简单的（百度）复制粘贴，根据需求来更改 对应的代码
+    
+    jquery miniUI
+    jquery easyUI

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button>按钮</button>
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+        // var time = null;
+        // $('div').click(function () {
+        //     // 取消上次延时未执行的方法
+        //     clearTimeout(time);
+        //     //执行延时
+        //     time = setTimeout(function(){
+        //         //do function在此处写单击事件要执行的代码
+        //     },300);
+        // });
+        //
+        // $('div').dblclick(function () {
+        //     // 取消上次延时未执行的方法
+        //     clearTimeout(time)
+        //     //双击事件的执行代码
+        // });
+
+        // 单双击的时间间隔是300ms
+        // 解决单双击冲突：先做两次单击 一次双击  中间间隔小于300ms
+        var timer = null;
+        $('button').click(function () {
+            console.log(timer);
+            clearTimeout(timer);
+            // 定时器  300ms 一次性定时器
+            timer = setTimeout(function () {
+                console.log('单击了');
+            }, 300);
+        });
+
+        $('button').dblclick(function () {
+            console.log(timer);
+            clearTimeout(timer);
+            console.log('双击了');
+        });
+    })
+</script>
+</body>
+</html>
