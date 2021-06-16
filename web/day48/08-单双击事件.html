@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button>按钮</button>
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+        // 单双击 的时间 间隔 是300ms
+        // 如果解决 单双击冲突  当做作业
+        $('button').click(function () {
+            console.log('单击了');
+            // 定时器  300ms 一次性定时器
+        });
+        $('button').dblclick(function () {
+            console.log('双击了');
+        });
+    })
+</script>
+</body>
+</html>
