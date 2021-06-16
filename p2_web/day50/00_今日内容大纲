@@ -1,0 +1,22 @@
+一.内容回顾：
+    1、jQuery UI
+    2、animate.css
+    3、@media媒体查询
+    4、移动端单位
+
+二.今日内容：
+    1、jquey插件登录框代码分析
+    2、node中npm的使用
+            nodejs 软件
+            1.安装nodejs  自带了npm  npm install bootstrap@3 -S
+            好比 Python 自带pip  pip install request
+            
+            2.初始化方式目录
+              npm init 
+              npm init --yes 直接生成package.json
+              
+            3.npm install jquery --save
+                自动生成 node_modules文件夹
+
+                npm install 下载package.json中依赖的所有的包
+    3、Bootstrap的全局css样式
