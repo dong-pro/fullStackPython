@@ -1,0 +1,59 @@
+一.内容回顾：
+    1.bootstrap 全局的css样式
+        jquery   ajax  DOM
+
+        html+css+javasript
+
+        django  flask  Tonardo
+
+        vue 先去复习前端的三大语言 思想
+        angular
+        react
+
+    2、nodejs
+        包管理器：npm  模块化规范 commonJS
+
+        1、切换当前的项目  cd + 当前目录
+        2、初始化项目的目录，会生成一个package.json的文件来管理我们的包（）模块（js）
+            npm i --yes
+
+        3、下载的包 是当前项目的依赖包
+            当前项目依赖 jquery + bootstrap
+            npm i jquery --save
+            npm i bootstrap --save
+
+            dependencies:{}
+            压缩、丑陋化
+
+            前端三大工具：
+                grant
+                gulp
+                webpack4.0
+
+            npm run dev
+
+            less sass
+
+                less-loader
+                sass-loader
+
+            npm  i webpack@4.0 --save-dev
+
+            devDependencies:{}
+
+        4.前端也是有服务器 nodejs 包npm
+
+            node xxx.js
+            npm run dev
+
+        ajax get请求  
+
+二.今日内容：
+    1.组件是什么？插件是什么？
+        jquery插件   xxxx.js  辅助咱们开发   日期选择器  就是一个js的功能
+        组件：html+css+js 组件重用
+         为了组件的复用
+         组件化开发
+    
+    2、bootstrap组件
+    3、插件
