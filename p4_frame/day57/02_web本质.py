@@ -6,16 +6,12 @@
 import socket
 
 def handle_request(client):
-    print(1111)
     request_data = client.recv(1024)
-    print(2222)
     print("request_data: ", request_data)
-    print(3333)
-
+    print('服务端接收浏览器数据完毕！')
     client.send("HTTP/1.1 200 OK\r\nstatus: 200\r\nContent-Type:text/html\r\n\r\n".encode("utf8"))
     client.send("<h1>Hello, luffycity!</h1><img src=''>".encode("utf8"))
-    print(4444)
-
+    print('服务端发送数据给浏览器完毕！')
 
 def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,7 +23,6 @@ def main():
         connection, address = sock.accept()
         handle_request(connection)
         connection.close()
-
 
 if __name__ == '__main__':
     main()

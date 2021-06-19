@@ -5,7 +5,6 @@
 
 from app_01.views import *
 
-
 URLpattern = (
     ("/login/", login),
 )

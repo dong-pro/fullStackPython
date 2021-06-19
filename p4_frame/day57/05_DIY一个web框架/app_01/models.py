@@ -2,11 +2,13 @@
 # @Time: 2020-06-22 15:58
 # @Author: wyd
 # @File: models.py
-
+'''
+创建表结构
+'''
 import pymysql
 
 # 连接数据库
-conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='', db='web')  # db：库名
+conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='', db='p2_web')  # db：库名
 # 创建游标
 cur = conn.cursor()
 
@@ -16,7 +18,6 @@ create table userinfo(
         name VARCHAR(32) ,
         password VARCHAR(32)
 )
-
 '''
 
 cur.execute(sql)
