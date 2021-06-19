@@ -912,7 +912,7 @@
                 // A fallback to window.onload, that will always work
                 window.attachEvent("onload", completed);
 
-                // If IE and not a frame
+                // If IE and not a p4_frame
                 // continually check to see if the document is ready
                 var top = false;
 
@@ -8789,7 +8789,7 @@
                         animation.tweens[index].run(1);
                     }
 
-                    // resolve when we played the last frame
+                    // resolve when we played the last p4_frame
                     // otherwise, reject
                     if (gotoEnd) {
                         deferred.resolveWith(elem, [animation, gotoEnd]);

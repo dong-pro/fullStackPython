@@ -6105,7 +6105,7 @@
         },
 
         _mouseUp: function (event) {
-            //Remove frame helpers
+            //Remove p4_frame helpers
             $("div.ui-draggable-iframeFix").each(function () {
                 this.parentNode.removeChild(this);
             });

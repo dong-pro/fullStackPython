@@ -21,12 +21,8 @@ conn = pymysql.connect(
 )
 cur = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
-
-
-
 #创建实例化请求对象
 app = Flask(__name__)
-
 # 定义路由
 @app.route("/")
 # 路由对应的函数处理
@@ -41,10 +37,8 @@ def index():
 @app.route("/course")
 def courses():
     sql = 'SELECT * FROM userinfo'
-    cur.execute(sql);
+    cur.execute(sql)
     results = cur.fetchall()
-
-
 
     # 返回json序列化的数据
     resp = Response(json.dumps({
@@ -52,7 +46,6 @@ def courses():
     }))
 
     resp.headers["Access-Control-Allow-Origin"] = "*"
-
     return resp
 
 # 前端发送post请求
@@ -78,7 +71,6 @@ def create():
     resp.headers["Access-Control-Allow-Origin"] = "*"
 
     return resp
-
 
 if __name__ == '__main__':
 

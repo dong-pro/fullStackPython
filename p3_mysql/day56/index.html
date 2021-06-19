@@ -9,99 +9,71 @@
 <div class="user">
     <input type="text" name="user">
     <input type="button" value="提交">
-
     <table>
         <tr class="filed">
             <td>id</td>
             <td>name</td>
             <td>pwd</td>
-
         </tr>
         <tr class="item">
             <td></td>
             <td></td>
             <td></td>
-
         </tr>
-         <tr class="item">
+        <tr class="item">
             <td></td>
             <td></td>
             <td></td>
-
         </tr>
-         <tr class="item">
+        <tr class="item">
             <td></td>
             <td></td>
             <td></td>
-
         </tr>
-         <tr class="item">
+        <tr class="item">
             <td></td>
             <td></td>
             <td></td>
-
         </tr>
     </table>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>
-
-
     $.ajax({
-        url:'http://localhost:8800/course',
-        type:'get',
-        dataType:'json',
-        success:function (data) {
-
-           console.log(data.msg);
-           data.msg.forEach(function (ele,index) {
-               $('.item')
-
-           })
-
-//           data.msg.forEach(function (ele,index) {
-//
-//
-//           })
-//           for(let key in data.msg[0]){
-//               console.log(key);
-//               $('.filed>td').html(key);
-//
-//           }
-
-
-
-
-
-
-//            console.log(data);
-//            var a = JSON.parse(data);
-//            console.log(a);
-//            var str_pretty1 = JSON.stringify(a);
-//            console.log(str_pretty1)
+        url: 'http://localhost:8800/course',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.msg);
+            data.msg.forEach(function () {
+                $('.item')
+            });
+            // for (let key in data.msg[0]) {
+            //     console.log(key);
+            //     $('.filed>td').html(key);
+            // }
+            // console.log(data);
+            // var a = JSON.parse(data);
+            // console.log(a);
+            // var str_pretty1 = JSON.stringify(a);
+            // console.log(str_pretty1)
         },
-        error:function () {
-
+        error: function () {
         }
     })
 
-
-//    $('input[type=button]').click(function () {
-//
-//        $.ajax({
-//            url:"http://127.0.0.1:8800/create",
-//            type:'post',
-//            data:{
-//                name:$('input[type=text]').val()
-//            },
-//            success:function (data) {
-//                console.log(data);
-//            }
-//        })
-//    })
-
-
-
+    // $('input[type=button]').click(function () {
+    //     $.ajax({
+    //         url: "http://127.0.0.1:8800/create",
+    //         type: 'post',
+    //         data: {
+    //             name: $('input[type=text]').val()
+    //         },
+    //         success: function (data) {
+    //             console.log(data);
+    //         }
+    //     })
+    // })
 </script>
 </body>
 </html>

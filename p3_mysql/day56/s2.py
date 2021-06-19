@@ -19,16 +19,6 @@ print(res)
 
 # result = cur.fetchone()
 # print(result)
-#
-# result = cur.fetchone()
-# print(result)
-#
-# result = cur.fetchone()
-# print(result)
-# result = cur.fetchone()
-# print(result)
-# result = cur.fetchone()
-# print(result)
 
 # result = cur.fetchmany(1)
 # print(result)
@@ -38,6 +28,13 @@ print(results)
 
 # -3 -2 -1 0 1 2 3 4 5
 
+# relative 相对于原来的位置 如果是正值向下移动，反之亦然
+# cur.scroll(-1,mode='relative')
+
+# 相对于起始位置
+cur.scroll(2, mode='absolute')
+result = cur.fetchone()
+print(result)
 
 # 增 删 改 一定要commit()
 conn.commit()
