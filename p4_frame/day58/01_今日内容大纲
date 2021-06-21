@@ -1,0 +1,46 @@
+url 控制器
+    url.py：请求路径与视图函数的映射关系
+        (1) 请求的url的路径部分与url方法的正则表达式进行匹配，一旦匹配成功，则执行对应的视图函数
+            urlpatterns = [
+                url(r'^articles/2003$', views.special_case_2003),
+                ]
+        (2) 简单使用：通过正则分组获取URL中的动态参数
+            url(r'^articles/(\d{4})/(\d{2})/$', views.year_month_archive),
+        (3) 有名分组：关键字传参
+            url(r'^articles/(?P<year>\d{4})/(?P<month>\d{2})/$', views.year_month_archive),
+        (4) 路由分发：分发到不同的应用中，进行解耦
+            url(r'^app01/', include('app01.urls')),
+        (5) 反向解析：不要硬编码URL，通过别名解析URL
+            url(r'^$', views.index, name='XXX'),
+
+view 视图函数
+    request(请求对象)
+        print(request.method)
+        print(request.POST)
+        print(request.GET)
+        print(request.path)
+        print(request.get_full_path())
+        print(request.META)
+        print(request.is_ajax())
+
+    response(响应对象)
+        Django对于最后的响应一定是一个HttpResponse的实例对象
+        1.HttpResponse('字符串')
+        2.render('页面')
+            -- 读取文件字符串
+            -- 渲染变量
+        3.redirect() 重定向
+
+模板语法
+    由render渲染
+    1.{{}}  变量
+        渲染各种数据类型
+        (1)深度查询：句点符.
+        (2)过滤器：filter
+            格式：{{var|filter_name:参数}}
+    2.{%%}  标签
+
+服务器发请求：
+    1。地址栏输入URL  默认get方式
+    2。form表单发请求  可以设置get或者post
+    3。a标签
