@@ -1,0 +1,206 @@
+一.介绍：
+    ORM: object relation mapping
+    类 <-------> 表
+    类属性 <-------> 表字段
+    类对象 <-------> 表记录
+
+二.创建数据库表：
+    数据库迁移：
+        Django会把setting中的INSTALLED_APPS中的每一个应用中
+        models对应类创建成数据库中的表
+    迁移方法：
+        python manage.py makemigrations
+        python manage.py migrate
+        或者
+        tools工具栏-->>点 Run manage.py Task
+
+    在model中写这个方法，显示对象名
+        def __str__(self):
+            return self.title
+三.操作：
+    单表：
+        增：
+            一：
+            book = Book(id=1, title='python', price=123, publish='bj', pub_date='2021-06-21 16:11:11')
+            book.save()
+            二：create方法返回当前生成的表记录对象
+            Book.objects.create(id=1, title='python', price=123, publish='bj', pub_date='2021-06-21 16:11:11')
+
+        删：
+            Book.objects.filter().delete()
+        改：
+            Book.objects.filter().update()
+        查：
+            (1) all() : 调用者：objects管理器  返回queryset
+            (2) filter() : 调用者：objects管理器  返回queryset
+            (3) get方法() : 调用者：objects管理器  返回查询到model对象 (注意：查询结果有且只有一个才执行)
+            (4) first(),last() : 调用者：queryset   返回model对象
+            (5) exclude() : 调用者：objects管理器  返回queryset
+            (6) order_by() : 由queryset对象调用，返回值是queryset
+            (7) count() : 由queryset对象调用 返回int
+            (8) reverse() : 由queryset对象调用,返回值是queryset
+            (9) exists() : 由queryset对象调用 返回值布尔值
+            (10) values() : 由queryset对象调用,返回值是queryset
+            (11) values_list() : 由queryset对象调用,返回值是queryset
+            (12) distinct() : 由queryset对象调用,返回值是queryset
+
+            模糊查询（双下划线）
+                Book.objects.filter(price__in=[100,200,300])
+                Book.objects.filter(price__gt=100)
+                Book.objects.filter(price__lt=100)
+                Book.objects.filter(price__range=[100,200])
+                Book.objects.filter(title__contains="python")
+                Book.objects.filter(title__icontains="python")
+                Book.objects.filter(title__startswith="py")
+                Book.objects.filter(pub_date__year=2012)
+
+    多表：
+        表与表之间的关系
+            1 一对多: foreignKey必须在"多"的表中创建关联字段,外加约束
+                Book
+                    title    publish_id
+                    python       1
+                    go           1
+
+                Publish
+                   id    name          addr        email
+                   1   人民出版社       beijing       123
+                   2   北京出版社       beijing       234
+
+            2 一对一:foreignKey在任意表中加关联字段，唯一约束
+                Author
+                  name     age   ad_id(唯一约束)
+                  alex     12      1
+                  egon     23      1
+
+                AuthorDetail
+                 id    gender   tel   gf    addr
+                  1    male    110   铁锤   山东
+                  2    male    991   钢弹   山东
+
+            3 多对多:创建第三张表
+                Book
+                id    title    publish_id
+                 1    python       1
+                 2    go           1
+
+                Author
+                 id   name     age   ad_id(唯一约束)
+                  1   alex     12      1
+
+                Book2Author
+                   id   book_id   author_id
+                    1     1          1
+                    2     1          2
+                    3     2          2
+        添加：
+            一对多：
+                pub_obj = Publish.objects.filter(name='苹果出版社').first()
+                book= Book.objects.create(title='linux',
+                                        price=999,
+                                        pub_date='2019-9-12',
+                                        # publish_id=1,   # 放的是id值
+                                        publish=pub_obj)  # 放的是一个对象
+
+            多对多：
+                aaa = Author.objects.filter(name='kkk').first()
+                bbb = Author.objects.filter(name='ggg').first()
+                book.authors.add(aaa, bbb)
+
+        查询：orm03
+            1。跨表查询：
+                -- 基于对象:基于子查询实现的
+                    总结：正向查询按字段，
+                        反向查询
+                            得到一个对象，按表名小写
+                            可能得到多个对象，按表名小写_set().all()
+                -- 基于双下划线:基于join实现的
+                    总结：正向查询按字段，
+                         反向查询按表名小写
+            2。分组查询
+                key： annotate()前values哪一个字段就按哪一个字段group by
+            3。F与Q查询
+
+四 图书管理系统的请求流程
+   (1)查看书籍：
+       请求url ：http://127.0.0.1:8000/query/
+       请求方式：GET
+
+       django的urls.py:
+           path('query/', views.query,name="query"),
+
+       执行query(request):
+          1 查询所有书籍
+          2 将查询的queryset数据传入模板，render渲染出一个books页面
+          3 返回给浏览器
+
+       用户此时可以看到书籍的查看页面
+
+   (2) 添加书籍
+       请求url ：http://127.0.0.1:8000/add/
+       请求方式：GET
+
+       django的urls.py:
+           path('add/', views.add),
+
+       执行add(request):
+          if GET请求：
+               返回给浏览器一个提交书籍的表单页面
+               用户此时可以看到书籍的添加页面
+       ################
+       用户输入数据，点击提交
+       请求url ：http://127.0.0.1:8000/add/
+       请求方式：POST
+
+       django的urls.py:
+           path('add/', views.add),
+
+       执行add(request):
+          if GET请求：
+               返回给浏览器一个提交书籍的表单页面
+               用户此时可以看到书籍的添加页面
+          else：
+               获取用户提交的数据，向数据库中添加一本书籍
+               返回一个重定向:/query/
+
+      ################
+       浏览器接收到重定向的响应：再发请求
+       请求url ：http://127.0.0.1:8000/query/
+       请求方式：GET
+
+       django的urls.py:
+           path('query/', views.query,name="query"),
+
+       执行query(request):
+          1 查询所有书籍 （此时查询的书籍包含刚刚添加的书籍）
+          2 将查询的queryset数据传入模板，render渲染出一个books页面
+          3 返回给浏览器
+
+       用户此时可以看到书籍的查看页面
+
+   (3) 删除书籍
+       请求url ：http://127.0.0.1:8000/delete/5
+       请求方式：GET
+
+       django的urls.py:
+           re_path('delete/(\d+)', views.delete,name="delete"),
+
+       执行delete(request，5):
+          1 查询主键为5的书籍删除
+          2 返回一个重定向:/query/
+
+      ################
+       浏览器接收到重定向的响应：再发请求
+
+       请求url ：http://127.0.0.1:8000/query/
+       请求方式：GET
+
+       django的urls.py:
+           path('query/', views.query,name="query"),
+
+       query(request):
+          1 查询所有书籍 （此时查询的书籍没有刚刚删除的书籍）
+          2 将查询的queryset数据传入模板，render渲染出一个books页面
+          3 返回给浏览器
+
+       用户此时可以看到书籍的查看页面
