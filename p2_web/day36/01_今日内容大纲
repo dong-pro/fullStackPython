@@ -21,7 +21,7 @@
     p中只能存放字体、图片、表单控件 不能放盒子标签
 （3）html中标签的分类：
     1.行内标签
-        （1）在一行内显示  span  strong em i del a
+        （1）在一行内显示  span b strong em i u del a
          (2)不能设置宽高  默认的宽和高 是内容填充
     1.1 行内块标签 img input
          (1) 在一行内显示
