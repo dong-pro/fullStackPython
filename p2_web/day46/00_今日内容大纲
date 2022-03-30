@@ -72,7 +72,7 @@
         建议 ： 除了class属性  其它设置都使用attr或者removeAttr()
         js:
             getAttribute()
-            setAttributer()
+            setAttribute()
         JQ:
             attr()
             removeAttr()
