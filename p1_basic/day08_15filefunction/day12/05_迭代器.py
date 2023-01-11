@@ -49,8 +49,8 @@
 # 可以通过dir来判断数据是否是可迭代的, 以及数据是否是迭代器
 
 # 官方方案
-# from collections import Iterable  # 可迭代对象
-# from collections import Iterator    # 迭代器
+# from collections.abc import Iterable  # 可迭代对象
+# from collections.abc import Iterator    # 迭代器
 #
 # print(isinstance(lst, Iterable))
 # print(isinstance(lst, Iterator))
