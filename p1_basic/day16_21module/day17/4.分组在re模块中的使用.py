@@ -13,7 +13,7 @@ import re
 # print(ret)
 
 # 取消分组优先(?:正则表达式)
-# ret = re.findall('\d+(\.\d+)?','1.234*4')
+# ret = re.findall('\d+(?:\.\d+)?','1.234*4.3')
 # print(ret)
 
 # 关于分组
