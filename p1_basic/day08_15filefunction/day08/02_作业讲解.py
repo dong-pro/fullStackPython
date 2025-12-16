@@ -56,6 +56,18 @@ while count < len(lst) - count:  # 控制次数
     print(count)  # 查看循环次数，验证优化效果。
 print(lst)
 
+lst = [5, 1, 7, 2, 6, 4, 5, 6]
+n = len(lst)
+for i in range(n):
+    swapped = False  # 标记本轮是否有交换
+    for j in range(n - i - 1):
+        if lst[j] > lst[j+1]:
+            lst[j], lst[j+1] = lst[j+1], lst[j]
+            swapped = True
+    if not swapped:  # 本轮无交换，说明已完全有序
+        break
+print(lst)  # 输出仍为 [1,2,4,5,5,6,6,7]，但仅执行3轮循环
+
 # lst.sort()
 # print(lst)
 
