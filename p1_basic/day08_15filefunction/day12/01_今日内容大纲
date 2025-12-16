@@ -12,6 +12,11 @@
         2. 全局名称空间
         3. 局部名称空间
     3. 作用域:
+        LEGB 规则查找变量：
+            L（Local）：当前函数 / 代码块的局部作用域
+            E（Enclosing）：外层嵌套函数的作用域（非全局）
+            G（Global）：整个程序的全局作用域
+            B（Built-in）：Python 内置的关键字 / 函数
         1. 全局作用域: 内置+ 全局, globals()
         2. 局部作用域: 局部(函数内部) locals() 查看当前作用域
     4. global和nonlocal
