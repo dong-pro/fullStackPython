@@ -11,7 +11,7 @@
 # a = 10
 # def outer():
 #     def inner():  # 在inner中改变a的值
-#         nonlocal a  # 寻找外层函数中离他最近的那个变量
+#         nonlocal a  # 寻找外层函数中离他最近的那个变量，应该用global
 #         a = 20
 #     inner()
 # outer()
