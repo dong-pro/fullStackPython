@@ -11,11 +11,26 @@
 # a = 10
 # def outer():
 #     def inner():  # 在inner中改变a的值
-#         nonlocal a  # 寻找外层函数中离他最近的那个变量，应该用global
+#         nonlocal a  # 寻找外层函数中离他最近的那个变量；报错！nonlocal 不能指向全局变量
 #         a = 20
 #     inner()
 # outer()
 
+def outer():
+    # 外层嵌套作用域的变量
+    count = 0
+    def inner():
+        # 声明：使用的 count 是外层嵌套函数的变量
+        nonlocal count
+        count += 1
+        print(f"内层函数：{count}")
+    inner()
+    print(f"外层函数：{count}")
+
+outer()
+# 输出：
+# 内层函数：1
+# 外层函数：1
 
 # a = 1
 # def fun_1():
